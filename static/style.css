@@ -1,0 +1,137 @@
+/* 1. Reset e Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #002A54; /* Azul Institucional */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. Barra de Topo */
+.barra-topo {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 4px solid #FF8C00; /* Laranja */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+   
+    align-items: center;
+    gap: 30px; /* espaço entre logo e menu */
+}
+
+.barra-topo img {
+    height: 40px;
+}
+
+/* 3. Área de Centralização */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* 4. O Quadrado (Card) do Formulário */
+.container-formulario {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.logo-form {
+    max-width: 120px;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-header h2 {
+    color: #002A54;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 14px;
+}
+
+/* 5. Inputs e Grupos */
+label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 5px;
+    display: block;
+    text-transform: uppercase;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #FF8C00; /* Laranja no foco */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
+}
+
+/* 6. Botão de Ação */
+.btn-enviar {
+    width: 100%;
+    background-color: #FF8C00; /* Laranja */
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-enviar:hover {
+    background-color: #e67e00; /* Laranja mais escuro no hover */
+}
+
+    #imagem-centralizada{
+        margin-left: 0%;
+        margin-right: auto;
+        scale: 1.200;
+        
+    }
+
+#cachorro {
+    position: relative;
+    left: 60px;
+}
+
+#justify {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+#navlateral{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
