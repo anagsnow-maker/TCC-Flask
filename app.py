@@ -27,6 +27,10 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 def index():
     return render_template('cadastro-item.html')
 
+@app.route('/movimentacao')
+def movimentacao():
+    return render_template('movimentacao.html')
+
 # 2. ROTA QUE RECEBE E TRATA OS DADOS DO FORMULÁRIO
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
@@ -76,6 +80,24 @@ def salvar_item():
 
     except Exception as e:
         return jsonify({"status": "erro", "mensagem": f"Erro no servidor: {str(e)}"}), 500
+
+@app.route('/solicitar-movimentacao', methods=['POST'])
+def solicitar_movimentacao():
+
+    item = request.form.get('item')
+    quantidade = request.form.get('quantidade')
+    tipo = request.form.get('tipo')
+    finalidade = request.form.get('finalidade')
+
+    print("ITEM:", item)
+    print("QUANTIDADE:", quantidade)
+    print("TIPO:", tipo)
+    print("FINALIDADE:", finalidade)
+
+    return jsonify({
+        "status": "sucesso",
+        "mensagem": "Movimentação registrada com sucesso!"
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)
