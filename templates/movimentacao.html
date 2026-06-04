@@ -197,21 +197,35 @@ document.getElementById("formMovimentacao").addEventListener("submit", function(
     .then(response => response.json())
     .then(data => {
 
-        alert(data.mensagem);
+    if(data.status === 'sucesso'){
 
-        if(data.status === 'sucesso'){
-            this.reset();
-            campoFinalidade.style.display = "none";
-        }
+        Swal.fire({
+            icon: 'success',
+            title: 'Movimentação registrada!',
+            text: data.mensagem,
+            confirmButtonColor: '#FF8C00',
+            timer: 2500,
+            timerProgressBar: true,
+            showConfirmButton: false
+        });
 
-    })
+        this.reset();
+        campoFinalidade.style.display = "none";
+    }
+
+})
     .catch(error => {
 
-        console.error(error);
+    console.error(error);
 
-        alert('Erro ao enviar movimentação.');
-
+    Swal.fire({
+        icon: 'error',
+        title: 'Erro',
+        text: 'Erro ao enviar movimentação.',
+        confirmButtonColor: '#FF8C00'
     });
+
+});
 
 });
 
