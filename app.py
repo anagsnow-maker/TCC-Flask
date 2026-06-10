@@ -14,19 +14,18 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # Garante que a pasta de uploads exista
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-# USUÁRIO E SENHA DEFINIDOS (Altere aqui para o que você quiser)
-USUARIO_CORRETO = "admin"
-SENHA_CORRETA = "senai123"
-
-# 1. CONEXÃO COM O BANCO DE DADOS
 def obter_conexao():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="Sofia1211",
+        password="",  # <- Certifique-se de que a senha deste PC é essa
         database="tcc_almoxarifado",
         port=3306
     )
+
+# USUÁRIO E SENHA DEFINIDOS (Altere aqui para o que você quiser)
+USUARIO_CORRETO = "admin"
+SENHA_CORRETA = "senai123"
 
 # --- ROTAS DE EXIBIÇÃO DE PÁGINAS E PROCESSAMENTO ---
 
@@ -62,17 +61,13 @@ def home():
     try:
         conexao = obter_conexao()
         cursor = conexao.cursor(dictionary=True)
-
         cursor.execute("SELECT * FROM produtos")
         produtos_do_banco = cursor.fetchall()
-
         cursor.close()
         conexao.close()
-
-        return render_template('inicio.html', produtos=produtos_do_banco)
+        return render_template('incio.html', produtos=produtos_do_banco)
     except Exception as e:
-        return f"Erro ao conectar no banco de dados para carregar a página inicial: {str(e)}", 500
-
+        return f"Erro ao carregar a página inicial: {str(e)}", 500
 
 # --- ROTAS DE PROCESSAMENTO DE DADOS (POST) ---
 
@@ -126,4 +121,4 @@ def solicitar_movimentacao():
     })
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0", port=5000)
