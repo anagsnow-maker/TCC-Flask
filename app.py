@@ -1,8 +1,11 @@
 import os
 import mysql.connector
-from flask import Flask, render_template, request, jsonify
+# Adicionado 'redirect' e 'flash' nas importações
+from flask import Flask, render_template, request, jsonify, redirect, flash
 
 app = Flask(__name__)
+# O Flask precisa de uma chave secreta (secret_key) para usar o 'flash' (mensagens de erro/sucesso)
+app.secret_key = 'chave_secreta_para_o_tcc'
 
 # Configuração da pasta onde as fotos dos itens serão salvas
 UPLOAD_FOLDER = os.path.join('static', 'uploads')
@@ -10,6 +13,10 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Garante que a pasta de uploads exista
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+# USUÁRIO E SENHA DEFINIDOS (Altere aqui para o que você quiser)
+USUARIO_CORRETO = "admin"
+SENHA_CORRETA = "senai123"
 
 # 1. CONEXÃO COM O BANCO DE DADOS
 def obter_conexao():
@@ -21,7 +28,26 @@ def obter_conexao():
         port=3306
     )
 
-# --- ROTAS DE EXIBIÇÃO DE PÁGINAS (GET) ---
+# --- ROTAS DE EXIBIÇÃO DE PÁGINAS E PROCESSAMENTO ---
+
+# Alterado para aceitar tanto GET (abrir a página) quanto POST (enviar o formulário)
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        # Pegando os dados que o usuário digitou no formulário
+        usuario_digitado = request.form.get('username')
+        senha_digitada = request.form.get('password')
+
+        # Verificando se os dados estão corretos
+        if usuario_digitado == USUARIO_CORRETO and senha_digitada == SENHA_CORRETA:
+            # Se der certo, redireciona para a página inicial ('home')
+            return redirect('/inicio')
+        else:
+            # Se der errado, exibe uma mensagem de erro na tela (opcional)
+            return "Usuário ou senha incorretos! <a href='/login'>Tentar novamente</a>", 401
+
+    # Se for requisição GET, apenas exibe a página de login normalmente
+    return render_template('login.html')
 
 @app.route('/')
 def index():
@@ -33,7 +59,6 @@ def movimentacao():
 
 @app.route('/inicio')
 def home():
-    # Nota: Essa rota vai precisar que o MySQL esteja rodando e com a tabela 'produtos' criada!
     try:
         conexao = obter_conexao()
         cursor = conexao.cursor(dictionary=True)
@@ -54,12 +79,10 @@ def home():
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
     try:
-        # Recebendo os dados textuais do formulário
         nome = request.form.get('nomeItem', '')
         descricao = request.form.get('descricaoItem', '')
         quantidade = request.form.get('qtdItem', 0)
 
-        # GERENCIANDO O ARQUIVO DE IMAGEM
         if 'fotoItem' not in request.files:
             return jsonify({"status": "erro", "mensagem": "A foto do item é obrigatória."}), 400
             
@@ -69,14 +92,11 @@ def salvar_item():
             return jsonify({"status": "erro", "mensagem": "A foto do item é obrigatória."}), 400
 
         if arquivo_foto:
-            # Salva o arquivo com o nome original dentro de static/uploads
             caminho_final = os.path.join(app.config['UPLOAD_FOLDER'], arquivo_foto.filename)
             arquivo_foto.save(caminho_final)
             
-            # Caminho que será salvos no banco de dados
             url_imagem_banco = f"uploads/{arquivo_foto.filename}"
 
-            # Esse print vai mostrar no seu terminal do VS Code o que o usuário digitou
             print(f"\n--- [TESTE FLASK] DADOS RECEBIDOS COM SUCESSO ---")
             print(f"Nome: {nome} | Qtd: {quantidade} | Imagem salva em: {url_imagem_banco}\n")
 
