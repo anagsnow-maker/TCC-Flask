@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, request, jsonify
 # Quando for juntar com o MySQL, apague o '#' da linha abaixo:
-# import mysql.connector
+import mysql.connector
 
 app = Flask(__name__)
 
@@ -14,13 +14,14 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 # 1. CONEXÃO COM O BANCO DE DADOS (Deixado pronto para o futuro)
 # Quando seu colega entregar o banco, tire o '#' de todas as linhas abaixo:
-# def obter_conexao():
-#     return mysql.connector.connect(
-#         host="localhost",
-#         user="root",
-#         password="",
-#         database="almoxarifado"
-#     )
+def obter_conexao():
+    return mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Sofia1211",
+        database="tcc_almoxarifado",
+        port=3306
+    )
 
 # Rota para exibir a página do formulário
 @app.route('/')
@@ -30,6 +31,34 @@ def index():
 @app.route('/movimentacao')
 def movimentacao():
     return render_template('movimentacao.html')
+
+import os
+import mysql.connector
+from flask import Flask, render_template, request, jsonify
+
+app = Flask(__name__)
+
+def obter_conexao():
+    return mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Sofia1211",
+        database="tcc_almoxarifado",
+        port=3306
+    )
+# Tabela
+@app.route('/inicio')
+def home():
+    conexao = obter_conexao()
+    cursor = conexao.cursor(dictionary=True)
+
+    cursor.execute("SELECT * FROM produtos")
+    produtos_do_banco = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return render_template('inicio.html', produtos=produtos_do_banco)
 
 # 2. ROTA QUE RECEBE E TRATA OS DADOS DO FORMULÁRIO
 @app.route('/salvar-item', methods=['POST'])
