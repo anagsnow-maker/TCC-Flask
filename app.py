@@ -61,7 +61,7 @@ def home():
     try:
         conexao = obter_conexao()
         cursor = conexao.cursor(dictionary=True)
-        cursor.execute("SELECT * FROM produtos")
+        cursor.execute("SELECT * FROM estoque")
         produtos_do_banco = cursor.fetchall()
         cursor.close()
         conexao.close()
