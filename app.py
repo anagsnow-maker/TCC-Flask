@@ -1,29 +1,25 @@
 import os
 import mysql.connector
-# Adicionado 'redirect' e 'flash' nas importações
 from flask import Flask, render_template, request, jsonify, redirect, flash
 
 app = Flask(__name__)
-# O Flask precisa de uma chave secreta (secret_key) para usar o 'flash' (mensagens de erro/sucesso)
 app.secret_key = 'chave_secreta_para_o_tcc'
 
-# Configuração da pasta onde as fotos dos itens serão salvas
 UPLOAD_FOLDER = os.path.join('static', 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Garante que a pasta de uploads exista
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def obter_conexao():
     return mysql.connector.connect(
         host="localhost",
         user="root",
-        password="",  # <- Certifique-se de que a senha deste PC é essa
+        password="",  
         database="tcc_almoxarifado",
         port=3306
     )
 
-# USUÁRIO E SENHA DEFINIDOS (Altere aqui para o que você quiser)
+# USUÁRIO E SENHA DEFINIDOS 
 USUARIO_CORRETO = "admin"
 SENHA_CORRETA = "senai123"
 
@@ -48,7 +44,7 @@ def login():
     # Se for requisição GET, apenas exibe a página de login normalmente
     return render_template('login.html')
 
-@app.route('/')
+@app.route('/cadastro')
 def index():
     return render_template('cadastro-item.html')
 
@@ -65,18 +61,21 @@ def home():
         produtos_do_banco = cursor.fetchall()
         cursor.close()
         conexao.close()
+        
         return render_template('inicio.html', produtos=produtos_do_banco)
+        
     except Exception as e:
-        return f"Erro ao carregar a página inicial: {str(e)}", 500
-
-# --- ROTAS DE PROCESSAMENTO DE DADOS (POST) ---
-
+        return f"Erro ao carregar a página inicial: {str(e)}", 5
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
     try:
-        nome = request.form.get('nomeItem', '')
+        id = request.form.get('id', '')
+        nome = request.form.get('nome', '')
         descricao = request.form.get('descricaoItem', '')
-        quantidade = request.form.get('qtdItem', 0)
+        quantidade = request.form.get('quantidade_estoque', 0)
+        estoque_minimo = request.form.get('estoque_minimo', 0)  
+        preco = request.form.get('preco', 0.00)            
+        categoria = request.form.get('categoria', 'geral')
 
         if 'fotoItem' not in request.files:
             return jsonify({"status": "erro", "mensagem": "A foto do item é obrigatória."}), 400
@@ -91,6 +90,21 @@ def salvar_item():
             arquivo_foto.save(caminho_final)
             
             url_imagem_banco = f"uploads/{arquivo_foto.filename}"
+            conexao = obter_conexao()
+            cursor = conexao.cursor()
+            
+            comando_sql = """
+                INSERT INTO estoque (nome, quantidade_estoque, estoque_minimo, descricao, preco, foto, categoria)
+                VALUES (%s, %s, %s, %s, %s, %s, %s)
+            """
+            
+            valores = (nome, quantidade, estoque_minimo, descricao, preco, url_imagem_banco, categoria)
+            
+            cursor.execute(comando_sql, valores)
+            
+            conexao.commit()
+            cursor.close()
+            conexao.close()
 
             print(f"\n--- [TESTE FLASK] DADOS RECEBIDOS COM SUCESSO ---")
             print(f"Nome: {nome} | Qtd: {quantidade} | Imagem salva em: {url_imagem_banco}\n")
