@@ -65,7 +65,7 @@ def home():
         produtos_do_banco = cursor.fetchall()
         cursor.close()
         conexao.close()
-        return render_template('incio.html', produtos=produtos_do_banco)
+        return render_template('inicio.html', produtos=produtos_do_banco)
     except Exception as e:
         return f"Erro ao carregar a página inicial: {str(e)}", 500
 
