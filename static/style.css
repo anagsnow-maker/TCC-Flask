@@ -1,4 +1,4 @@
-/* 1. Reset e Configurações Globais */
+
 * {
     margin: 0;
     padding: 0;
@@ -7,31 +7,29 @@
 }
 
 body {
-    background-color: #002A54; /* Azul Institucional */
+    background-color: #002A54; 
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* 2. Barra de Topo */
 .barra-topo {
     width: 100%;
     background-color: #ffffff;
     padding: 20px;
     display: flex;
     justify-content: center;
-    border-bottom: 4px solid #FF8C00; /* Laranja */
+    border-bottom: 4px solid #FF8C00; 
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
    
     align-items: center;
-    gap: 30px; /* espaço entre logo e menu */
+    gap: 30px; 
 }
 
 .barra-topo img {
     height: auto;
 }
 
-/* 3. Área de Centralização */
 .main-wrapper {
     flex: 1;
     display: flex;
@@ -40,7 +38,7 @@ body {
     padding: 20px;
 }
 
-/* 4. O Quadrado (Card) do Formulário */
+
 .container-formulario {
     background-color: #ffffff;
     width: 100%;
@@ -71,7 +69,7 @@ body {
     font-size: 14px;
 }
 
-/* 5. Inputs e Grupos */
+
 label {
     font-size: 12px;
     font-weight: 600;
@@ -90,15 +88,14 @@ input, select, textarea {
 }
 
 input:focus, select:focus, textarea:focus {
-    border-color: #FF8C00; /* Laranja no foco */
+    border-color: #FF8C00; 
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 140, 0, 0.2);
 }
 
-/* 6. Botão de Ação */
 .btn-enviar {
     width: 100%;
-    background-color: #FF8C00; /* Laranja */
+    background-color: #FF8C00; 
     color: white;
     border: none;
     padding: 14px;
@@ -109,7 +106,7 @@ input:focus, select:focus, textarea:focus {
 }
 
 .btn-enviar:hover {
-    background-color: #e67e00; /* Laranja mais escuro no hover */
+    background-color: #e67e00; 
 }
 
     #imagem-centralizada{
@@ -154,7 +151,6 @@ input:focus, select:focus, textarea:focus {
     }
 }
 
- 
 .borda-tabela, 
 .borda-tabela th, 
 .borda-tabela td {
@@ -172,13 +168,6 @@ input:focus, select:focus, textarea:focus {
 .table-striped tbody tr:nth-child(odd) > * {
     background-color: #1b2a58 !important;
     box-shadow: none;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
