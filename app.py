@@ -19,13 +19,11 @@ def obter_conexao():
         port=3306
     )
 
-# USUÁRIO E SENHA DEFINIDOS 
 USUARIO_CORRETO = "admin"
 SENHA_CORRETA = "senai123"
 
 # --- ROTAS DE EXIBIÇÃO DE PÁGINAS E PROCESSAMENTO ---
 
-# Alterado para aceitar tanto GET (abrir a página) quanto POST (enviar o formulário)
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -42,15 +40,12 @@ def login():
             return "Usuário ou senha incorretos! <a href='/login'>Tentar novamente</a>", 401
 
     # Se for requisição GET, apenas exibe a página de login normalmente
-    return render_template('login.html')
+    return render_template('login_le.html')
 
 @app.route('/cadastro')
 def index():
     return render_template('cadastro-item.html')
-
-@app.route('/leticia')
-def le():
-    return render_template('login_le.html')
+    
 
 @app.route('/movimentacao')
 def movimentacao():
