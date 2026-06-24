@@ -18,20 +18,20 @@
     <div class="container-fluid h-100 w-100 d-flex align-items-center justify-content-center">
         
         <main class="w-100 m-auto" style="max-width: 330px; padding: 15px;">
-            <form action="/login" method="POST">
+            <form action="/" method="POST">
                <img src="{{ url_for('static', filename='senai.png') }}" alt="Logo SENAI" style="width: 100%; max-width: 280px; height: auto; display: block; margin: 0 auto 20px auto">
                 
                 <h1 class="h3 mb-3 fw-normal text-center">Seja bem-vindo</h1> 
 
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput" name="email" placeholder="nome@exemplo.com" required>
-                    <label for="floatingInput">Usuário</label>
-                </div>
-                
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="floatingPassword" name="senha" placeholder="Senha" required>
-                    <label for="floatingPassword">Senha</label>
-                </div>
+    <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Digite seu usuário" required>
+    <label for="floatingInput">Usuário</label>
+</div>
+
+<div class="form-floating mb-3">
+    <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Senha" required>
+    <label for="floatingPassword">Senha</label>
+</div>
 
                 <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
             </form>

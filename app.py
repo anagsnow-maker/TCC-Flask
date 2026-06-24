@@ -24,7 +24,7 @@ SENHA_CORRETA = "senai123"
 
 # --- ROTAS DE EXIBIÇÃO DE PÁGINAS E PROCESSAMENTO ---
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         # Pegando os dados que o usuário digitou no formulário
@@ -37,7 +37,7 @@ def login():
             return redirect('/inicio')
         else:
             # Se der errado, exibe uma mensagem de erro na tela (opcional)
-            return "Usuário ou senha incorretos! <a href='/login'>Tentar novamente</a>", 401
+            return "Usuário ou senha incorretos! <a href='/'>Tentar novamente</a>", 401
 
     # Se for requisição GET, apenas exibe a página de login normalmente
     return render_template('login_le.html')
