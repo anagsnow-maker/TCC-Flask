@@ -48,6 +48,10 @@ def login():
 def index():
     return render_template('cadastro-item.html')
 
+@app.route('/leticia')
+def le():
+    return render_template('login_le.html')
+
 @app.route('/movimentacao')
 def movimentacao():
     return render_template('movimentacao.html')
