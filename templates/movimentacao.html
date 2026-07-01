@@ -165,12 +165,12 @@
 
             <label>Item</label>
             <select name="item" required>
-                <option value="">Selecione um item</option>
-                <option>Multímetro</option>
-                <option>Parafuso</option>
-                <option>Fonte de Alimentação</option>
-                <option>Chave de Fenda</option>
-            </select>
+    <option value="">Selecione um item</option>
+
+    {% for item in itens %}
+        <option value="{{ item.nome }}">{{ item.nome }}</option>
+    {% endfor %}
+</select>
 
             <label>Quantidade</label>
             <input type="number" name="quantidade" min="1" required>
@@ -237,9 +237,9 @@ document.getElementById("formMovimentacao").addEventListener("submit", function(
         body: formData
     })
     .then(response => response.json())
-    .then(data => {
+.then(data => {
 
-    if(data.status === 'sucesso'){
+    if (data.status === 'sucesso') {
 
         Swal.fire({
             icon: 'success',
@@ -253,6 +253,16 @@ document.getElementById("formMovimentacao").addEventListener("submit", function(
 
         this.reset();
         campoFinalidade.style.display = "none";
+
+    } else {
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Erro',
+            text: data.mensagem,
+            confirmButtonColor: '#FF8C00'
+        });
+
     }
 
 })

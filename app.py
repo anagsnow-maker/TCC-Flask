@@ -85,7 +85,16 @@ def users():
 
 @app.route('/movimentacao')
 def movimentacao():
-    return render_template('movimentacao.html')
+    conexao = obter_conexao()
+    cursor = conexao.cursor(dictionary=True)
+
+    cursor.execute("SELECT id, nome FROM estoque ORDER BY nome")
+    itens = cursor.fetchall()
+
+    cursor.close()
+    conexao.close()
+
+    return render_template('movimentacao.html', itens=itens)
 
 @app.route('/cadastro-concluído')
 def cadastro_concluído():
@@ -156,18 +165,66 @@ def salvar_item():
 @app.route('/solicitar-movimentacao', methods=['POST'])
 def solicitar_movimentacao():
     item = request.form.get('item')
-    quantidade = request.form.get('quantidade')
+    quantidade = int(request.form.get('quantidade'))
     tipo = request.form.get('tipo')
     finalidade = request.form.get('finalidade')
 
-    print("ITEM:", item)
-    print("QUANTIDADE:", quantidade)
-    print("TIPO:", tipo)
-    print("FINALIDADE:", finalidade)
+    conexao = obter_conexao()
+    cursor = conexao.cursor(dictionary=True)
+
+    # Procura o item pelo nome
+    cursor.execute("SELECT * FROM estoque WHERE nome = %s", (item,))
+    produto = cursor.fetchone()
+
+    if not produto:
+        cursor.close()
+        conexao.close()
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Item não encontrado."
+        })
+
+    quantidade_atual = produto["quantidade"]
+
+    # Entrada
+    if tipo == "entrada":
+        nova_quantidade = quantidade_atual + quantidade
+
+    # Saída
+    elif tipo == "saida":
+        if quantidade > quantidade_atual:
+            cursor.close()
+            conexao.close()
+
+            return jsonify({
+                "status": "erro",
+                "mensagem": "Quantidade insuficiente em estoque."
+            })
+
+        nova_quantidade = quantidade_atual - quantidade
+
+    else:
+        cursor.close()
+        conexao.close()
+
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Tipo de movimentação inválido."
+        })
+
+    cursor.execute(
+        "UPDATE estoque SET quantidade = %s WHERE id = %s",
+        (nova_quantidade, produto["id"])
+    )
+
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
 
     return jsonify({
         "status": "sucesso",
-        "mensagem": "Movimentação registrada com sucesso!"
+        "mensagem": "Movimentação realizada com sucesso!"
     })
 
 if __name__ == '__main__':
