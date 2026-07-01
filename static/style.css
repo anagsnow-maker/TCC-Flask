@@ -223,7 +223,7 @@ body.pagina_login::before {
     z-index: -1;
 }
 
-.caixa-login, .caixa-login h1 {
+.caixa-login {
     color: #212529;
     width: 100%;
     min-width: 480px;      

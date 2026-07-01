@@ -13,3 +13,13 @@ CREATE TABLE estoque (
     foto VARCHAR(255)
 );
 
+/*comando para inserir itens na tabela manualmente pelo mysql workbench*/
+INSERT INTO estoque (id, nome, quantidade)
+VALUES (1, 'parafusos', '100');
+
+/*comando para ver a tabela no mysql workbench*/
+SELECT * FROM estoque;
+
+/*serve para apagar todos os dados inseridos na tabela (só execute esse se algo der errado e quiser resetar os dados)*/
+TRUNCATE TABLE estoque;
+
