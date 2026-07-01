@@ -45,7 +45,10 @@ def login():
 @app.route('/cadastro')
 def index():
     return render_template('cadastro-item.html')
-    
+
+@app.route('/cadastro-user')
+def inde():
+    return render_template('cadastro_usuarios.html')
 
 @app.route('/movimentacao')
 def movimentacao():
