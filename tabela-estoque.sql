@@ -9,6 +9,7 @@ CREATE TABLE estoque (
     descricao VARCHAR(255),
     preco DECIMAL(10,2),
     categoria VARCHAR(50),
+    status_item VARCHAR(50),
     foto VARCHAR(255)
 );
 

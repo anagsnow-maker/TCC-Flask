@@ -8,7 +8,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://jsdelivr.net">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -74,6 +73,7 @@
                     <th scope="col">Estoque mínimo</th>
                     <th scope="col">Preço</th>
                     <th scope="col">Categoria</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Foto</th>
                 </tr>
             </thead>
@@ -92,12 +92,15 @@
                         <span class="badge bg-secondary text-capitalize">{{ produto.categoria }}</span>
                     </td>
                     <td>
+                        <span class="badge bg-info">{{ produto.status_item }}</span>
+                    </td>
+                    <td>
                         <img src="{{ url_for('static', filename=produto.foto) }}" alt="Foto" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
                     </td>
                 </tr>
                 {% else %}
                 <tr>
-                    <td colspan="8" class="text-center text-muted py-4">
+                    <td colspan="9" class="text-center text-muted py-4">
                         Nenhum material encontrado no banco de dados do Almoxarifado.
                     </td>
                 </tr>

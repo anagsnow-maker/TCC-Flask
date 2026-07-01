@@ -19,10 +19,16 @@ def obter_conexao():
         port=3306
     )
 
-USUARIO_CORRETO = "admin"
-SENHA_CORRETA = "senai123"
+def obter_conexao_cadastro():
+    return mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="",  
+        database="cadastro",
+        port=3306
+    )
 
-# --- ROTAS DE EXIBIÇÃO DE PÁGINAS E PROCESSAMENTO ---
+# --- ROTAS DE EXIBIÇÃO DE PÁGINAS E PROCESSAMENTO(teste) ---
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -31,25 +37,61 @@ def login():
         usuario_digitado = request.form.get('username')
         senha_digitada = request.form.get('password')
 
-        # Verificando se os dados estão corretos
-        if usuario_digitado == USUARIO_CORRETO and senha_digitada == SENHA_CORRETA:
+        conexao = obter_conexao_cadastro()
+        cursor = conexao.cursor()
+        
+        query = "SELECT usuario, senha, papel FROM usuarios WHERE usuario = %s"
+        valores = (usuario_digitado,)
+
+        cursor.execute(query,valores)
+
+        consulta = cursor.fetchone()
+
+        if consulta is None:
+            return "Usuário inexistente!"
+        
+        if consulta is not None:
+            if senha_digitada == consulta[1]:
             # Se der certo, redireciona para a página inicial ('home')
-            return redirect('/inicio')
-        else:
-            # Se der errado, exibe uma mensagem de erro na tela (opcional)
-            return "Usuário ou senha incorretos! <a href='/'>Tentar novamente</a>", 401
+                return redirect('/inicio')
+            else:
+                return "Usuario existe, mas senha incorreta!"
 
     # Se for requisição GET, apenas exibe a página de login normalmente
     return render_template('login_le.html')
 
-@app.route('/cadastro')
+@app.route('/cadastro', methods=['POST', 'GET'])
 def index():
-    return render_template('cadastro-item.html')
+    usuario = request.form.get('campo1')
+    senha = request.form.get('campo2')
+    papel = request.form.get('campo3')
+
+    query = "insert into usuarios (usuario, senha, papel) values (%s, %s, %s);"
+    valores = (usuario, senha, papel)
+
+    conexao = obter_conexao_cadastro()
+    cursor = conexao.cursor()
+    cursor.execute(query, valores)
+    conexao.commit()
+
+    return render_template('inicio.html')
     
+
+@app.route('/cadastro-usuario')
+def users():
+
+
+    return render_template('cadastro_usuarios.html')
 
 @app.route('/movimentacao')
 def movimentacao():
     return render_template('movimentacao.html')
+
+@app.route('/cadastro-concluído')
+def cadastro_concluído():
+    return render_template('cadastro_concluído')
+
+
 
 @app.route('/inicio')
 def home():
@@ -64,25 +106,21 @@ def home():
         return render_template('inicio.html', produtos=produtos_do_banco)
         
     except Exception as e:
-        return f"Erro ao carregar a página inicial: {str(e)}", 5
+        return f"Erro ao carregar a página inicial: {str(e)}", 500
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
-    try:
         id = request.form.get('id', '')
         nome = request.form.get('nome', '')
-        descricao = request.form.get('descricaoItem', '')
+        descricao = request.form.get('descricao_item', '')
         quantidade = request.form.get('quantidade_estoque', 0)
         estoque_minimo = request.form.get('estoque_minimo', 0)  
         preco = request.form.get('preco', 0.00)            
         categoria = request.form.get('categoria', 'geral')
+        foto = request.form.get('Foto_do_Item', 'geral')
 
-        if 'fotoItem' not in request.files:
-            return jsonify({"status": "erro", "mensagem": "A foto do item é obrigatória."}), 400
+
             
         arquivo_foto = request.files['fotoItem']
-        
-        if arquivo_foto.filename == '':
-            return jsonify({"status": "erro", "mensagem": "A foto do item é obrigatória."}), 400
 
         if arquivo_foto:
             caminho_final = os.path.join(app.config['UPLOAD_FOLDER'], arquivo_foto.filename)
@@ -93,7 +131,7 @@ def salvar_item():
             cursor = conexao.cursor()
             
             comando_sql = """
-                INSERT INTO estoque (nome, quantidade_estoque, estoque_minimo, descricao, preco, foto, categoria)
+                INSERT INTO estoque (nome, quantidade, estoque_minimo, descricao, preco, foto, categoria)
                 VALUES (%s, %s, %s, %s, %s, %s, %s)
             """
             
@@ -108,13 +146,12 @@ def salvar_item():
             print(f"\n--- [TESTE FLASK] DADOS RECEBIDOS COM SUCESSO ---")
             print(f"Nome: {nome} | Qtd: {quantidade} | Imagem salva em: {url_imagem_banco}\n")
 
-            return jsonify({
-                "status": "sucesso", 
-                "mensagem": f"Item '{nome}' recebido pelo Flask! Imagem salva na pasta uploads (Simulação sem MySQL)."
-            })
+            #return jsonify({
+                #"status": "sucesso", 
+                #"mensagem": f"Item '{nome}' recebido pelo Flask! Imagem salva na pasta uploads (Simulação sem MySQL)."
+            #})
 
-    except Exception as e:
-        return jsonify({"status": "erro", "mensagem": f"Erro no servidor: {str(e)}"}), 500
+        return render_template('inicio.html')
 
 @app.route('/solicitar-movimentacao', methods=['POST'])
 def solicitar_movimentacao():
