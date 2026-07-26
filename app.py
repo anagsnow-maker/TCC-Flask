@@ -1,9 +1,12 @@
 import os
 import mysql.connector
-from flask import Flask, render_template, request, jsonify, redirect, flash
+from flask import Flask, render_template, request, jsonify, redirect, flash, session
+from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
 app.secret_key = 'chave_secreta_para_o_tcc'
+
+bcrypt = Bcrypt(app)
 
 UPLOAD_FOLDER = os.path.join('static', 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -24,7 +27,7 @@ def obter_conexao_cadastro():
         host="localhost",
         user="root",
         password="",  
-        database="cadastro",
+        database="cadastro_user",
         port=3306
     )
 
@@ -47,12 +50,17 @@ def login():
 
         consulta = cursor.fetchone()
 
-        if consulta is None:
-            return "Usuário inexistente!"
+        if consulta and bcrypt.check_password_hash(consulta['senha'], senha_digitada):
+            session['usuario_id'] = consulta['id']
+            session['usuario'] = consulta['usuario']
+            session['papel'] = consulta['papel']
+            return redirect('/inicio')
+        else:
+            flash("Usuário ou senha inválidos!", "danger")
+            return redirect('/')
         
         if consulta is not None:
             if senha_digitada == consulta[1]:
-            # Se der certo, redireciona para a página inicial ('home')
                 return redirect('/inicio')
             else:
                 return "Usuario existe, mas senha incorreta!"
@@ -62,25 +70,31 @@ def login():
 
 @app.route('/cadastro', methods=['POST', 'GET'])
 def index():
-    usuario = request.form.get('campo1')
-    senha = request.form.get('campo2')
-    papel = request.form.get('campo3')
-
-    query = "insert into usuarios (usuario, senha, papel) values (%s, %s, %s);"
-    valores = (usuario, senha, papel)
-
-    conexao = obter_conexao_cadastro()
-    cursor = conexao.cursor()
-    cursor.execute(query, valores)
-    conexao.commit()
-
-    return render_template('inicio.html')
+   
+    return render_template('cadastro-item.html')
     
 
-@app.route('/cadastro-usuario')
+@app.route('/cadastro_usuario',  methods=['POST', 'GET'])
 def users():
+    if session.get('papel') != 'admin':
+        return "Acesso negado. Apenas administradores podem cadastrar usuários.", 403
 
+    if request.method == 'POST':
+        usuario = request.form.get('campo1')
+        senha = request.form.get('campo2')
+        papel = request.form.get('campo3')
 
+        query = "insert into usuarios (usuario, senha, papel) values (%s, %s, %s);"
+        valores = (usuario, senha_c, papel)
+        
+        senha_c = bcrypt.generate_password_hash(senha).decode('utf-8')
+
+        conexao = obter_conexao_cadastro()
+        cursor = conexao.cursor()
+        cursor.execute(query, valores)
+        conexao.commit()
+
+        return redirect('/inicio')
     return render_template('cadastro_usuarios.html')
 
 @app.route('/movimentacao')
