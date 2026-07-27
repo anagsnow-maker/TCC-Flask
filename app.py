@@ -74,7 +74,7 @@ def index():
     cursor.execute(query, valores)
     conexao.commit()
 
-    return render_template('inicio.html')
+    return render_template('cadastro-item.html')
     
 
 @app.route('/cadastro-usuario')
