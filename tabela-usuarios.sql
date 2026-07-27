@@ -1,0 +1,11 @@
+CREATE DATABASE cadastro;
+USE cadastro;
+
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(100) NOT NULL,
+    papel VARCHAR(30) NOT NULL
+);
+
+SELECT * FROM usuarios;

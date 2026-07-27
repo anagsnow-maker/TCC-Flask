@@ -62,7 +62,7 @@
             text-transform: uppercase;
         }
 
-        input {
+        input, select {
             width: 100%;
             padding: 10px 12px;
             border: 1px solid #cbd5e1;
@@ -76,7 +76,7 @@
             color: #94a3b8 !important;
         }
 
-        input:focus {
+        input:focus, select:focus {
             border-color: #002A54;
             outline: none;
             box-shadow: 0 0 0 3px rgba(0, 42, 84, 0.15);
@@ -132,14 +132,18 @@
                 </div>
 
                 <div>
-                    <label for="floatinginput">Papel</label>
-                    <input type="text" id="floatingInput" name="campo3" placeholder="Digite o papel" required>
+                    <label for="selectPapel">Papel</label>
+                    <select id="selectPapel" name="campo3" required>
+                        <option value="" disabled selected>Selecione o papel</option>
+                        <option value="usuario-padrao">Usuário-Padrão</option>
+                        <option value="administrador">Administrador</option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn-salvar">Cadastrar Conta</button>
                 
                 <div class="text-center mt-3">
-                    <a href="/" class="text-decoration-none" style="color: #002A54; font-size: 14px; font-weight: 600;">Voltar para o Login</a>
+                    <a href="/" class="text-decoration-underline fw-bold" style="color: #002A54; font-size: 14px; font-weight: 600;">Voltar para o Login</a>
                 </div>
             </form>
 

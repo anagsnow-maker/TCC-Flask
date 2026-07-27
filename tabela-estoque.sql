@@ -22,4 +22,3 @@ SELECT * FROM estoque;
 
 /*serve para apagar todos os dados inseridos na tabela (só execute esse se algo der errado e quiser resetar os dados)*/
 TRUNCATE TABLE estoque;
-
