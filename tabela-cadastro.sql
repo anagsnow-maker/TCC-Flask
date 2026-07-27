@@ -10,5 +10,5 @@ CREATE TABLE usuarios (
 
 SELECT * FROM usuarios;
 
-INSERT INTO usuarios (usuario, senha, papel) 
-VALUES ('admin', ' ', 'admin');
+INSERT INTO usuarios (id, usuario, senha, papel) 
+VALUES ('admin', 'senai123 ', 'admin');

@@ -41,9 +41,9 @@ def login():
         senha_digitada = request.form.get('password')
 
         conexao = obter_conexao_cadastro()
-        cursor = conexao.cursor()
+        cursor = conexao.cursor(dictionary=True)
         
-        query = "SELECT usuario, senha, papel FROM usuarios WHERE usuario = %s"
+        query = "SELECT id, usuario, senha, papel FROM usuarios WHERE usuario = %s"
         valores = (usuario_digitado,)
 
         cursor.execute(query,valores)
@@ -85,9 +85,9 @@ def users():
         papel = request.form.get('campo3')
 
         query = "insert into usuarios (usuario, senha, papel) values (%s, %s, %s);"
-        valores = (usuario, senha_c, papel)
         
         senha_c = bcrypt.generate_password_hash(senha).decode('utf-8')
+        valores = (usuario, senha_c, papel)
 
         conexao = obter_conexao_cadastro()
         cursor = conexao.cursor()
@@ -113,8 +113,6 @@ def movimentacao():
 @app.route('/cadastro-concluído')
 def cadastro_concluído():
     return render_template('cadastro_concluído')
-
-
 
 @app.route('/inicio')
 def home():
