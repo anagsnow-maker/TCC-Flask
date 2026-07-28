@@ -77,10 +77,27 @@ def index():
     return render_template('cadastro-item.html')
     
 
-@app.route('/cadastro-usuario')
+@app.route('/cadastro-usuario', methods=['GET', 'POST'])
 def users():
+    if request.method == 'POST':
+        usuario = request.form.get('campo1')
+        senha = request.form.get('campo2')
+        papel = request.form.get('campo3')
 
+        query = "INSERT INTO usuarios (usuario, senha, papel) VALUES (%s, %s, %s);"
+        valores = (usuario, senha, papel)
 
+        conexao = obter_conexao_cadastro()
+        cursor = conexao.cursor()
+        cursor.execute(query, valores)
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+
+        # Após salvar o novo usuário, redireciona para a tela de Login ('/')
+        return redirect('/')
+
+    # Se for requisição GET (apenas abrindo a página):
     return render_template('cadastro_usuarios.html')
 
 @app.route('/movimentacao')
