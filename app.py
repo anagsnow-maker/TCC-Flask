@@ -118,49 +118,42 @@ def home():
         return f"Erro ao carregar a página inicial: {str(e)}", 500
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
-        id = request.form.get('id', '')
-        nome = request.form.get('nome', '')
-        descricao = request.form.get('descricao_item', '')
-        quantidade = request.form.get('quantidade_estoque', 0)
-        estoque_minimo = request.form.get('estoque_minimo', 0)  
-        preco = request.form.get('preco', 0.00)            
-        categoria = request.form.get('categoria', 'geral')
-        foto = request.form.get('Foto_do_Item', 'geral')
+    nome = request.form.get('nome', '')
+    quantidade = request.form.get('quantidade_estoque', 0)
+    estoque_minimo = request.form.get('estoque_minimo', 0)  
+    preco = request.form.get('preco', 0.00)            
+    localizacao = request.form.get('localizacao', '')
+    categoria = request.form.get('categoria', 'Geral')
+    descricao = request.form.get('descricao_item', '')
 
+    arquivo_foto = request.files.get('fotoItem')
+    url_imagem_banco = None
 
-            
-        arquivo_foto = request.files['fotoItem']
+    if arquivo_foto and arquivo_foto.filename != '':
+        caminho_final = os.path.join(app.config['UPLOAD_FOLDER'], arquivo_foto.filename)
+        arquivo_foto.save(caminho_final)
+        url_imagem_banco = f"uploads/{arquivo_foto.filename}"
+    
+    try:
+        conexao = obter_conexao()
+        cursor = conexao.cursor()
+        
+        # Inserção sem a coluna status_item
+        comando_sql = """
+            INSERT INTO estoque (nome, quantidade, preco, localizacao, estoque_minimo, categoria, descricao_adicional, foto)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """
+        valores = (nome, quantidade, preco, localizacao, estoque_minimo, categoria, descricao, url_imagem_banco)
+        
+        cursor.execute(comando_sql, valores)
+        conexao.commit()
+        cursor.close()
+        conexao.close()
+    except Exception as e:
+        print(f"Erro ao salvar item no banco: {e}")
 
-        if arquivo_foto:
-            caminho_final = os.path.join(app.config['UPLOAD_FOLDER'], arquivo_foto.filename)
-            arquivo_foto.save(caminho_final)
-            
-            url_imagem_banco = f"uploads/{arquivo_foto.filename}"
-            conexao = obter_conexao()
-            cursor = conexao.cursor()
-            
-            comando_sql = """
-                INSERT INTO estoque (nome, quantidade, estoque_minimo, descricao, preco, foto, categoria)
-                VALUES (%s, %s, %s, %s, %s, %s, %s)
-            """
-            
-            valores = (nome, quantidade, estoque_minimo, descricao, preco, url_imagem_banco, categoria)
-            
-            cursor.execute(comando_sql, valores)
-            
-            conexao.commit()
-            cursor.close()
-            conexao.close()
-
-            print(f"\n--- [TESTE FLASK] DADOS RECEBIDOS COM SUCESSO ---")
-            print(f"Nome: {nome} | Qtd: {quantidade} | Imagem salva em: {url_imagem_banco}\n")
-
-            #return jsonify({
-                #"status": "sucesso", 
-                #"mensagem": f"Item '{nome}' recebido pelo Flask! Imagem salva na pasta uploads (Simulação sem MySQL)."
-            #})
-
-        return render_template('inicio.html')
+    # Redireciona para /inicio para recarregar a busca SELECT * e atualizar a tabela na tela
+    return redirect('/inicio')
 
 @app.route('/solicitar-movimentacao', methods=['POST'])
 def solicitar_movimentacao():
