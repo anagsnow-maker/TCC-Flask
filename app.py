@@ -115,16 +115,18 @@ def home():
         return render_template('inicio.html', produtos=produtos_do_banco)
         
     except Exception as e:
-        return f"Erro ao carregar a página inicial: {str(e)}", 500
+        return f"Erro ao carregar a página inicial: {str(e)}"
+
+
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
-    nome = request.form.get('nome', '')
-    quantidade = request.form.get('quantidade_estoque', 0)
-    estoque_minimo = request.form.get('estoque_minimo', 0)  
-    preco = request.form.get('preco', 0.00)            
-    localizacao = request.form.get('localizacao', '')
-    categoria = request.form.get('categoria', 'Geral')
-    descricao = request.form.get('descricao_item', '')
+    nome = request.form.get('nomeItem', '')
+    quantidade = request.form.get('qtdItem', 0)
+    preco = request.form.get('precoItem', 0.00)
+    categoria = request.form.get('statusItem', 'Geral')
+    estoque_minimo = request.form.get('estoqueMinimo', 0)
+    descricao = request.form.get('descricaoItem', '')
+    localizacao = ''
 
     arquivo_foto = request.files.get('fotoItem')
     url_imagem_banco = None
