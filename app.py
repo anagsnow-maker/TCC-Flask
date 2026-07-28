@@ -115,17 +115,17 @@ def home():
         return render_template('inicio.html', produtos=produtos_do_banco)
         
     except Exception as e:
-        return f"Erro ao carregar a página inicial: {str(e)}", 500
+        return f"Erro ao carregar a página inicial: {str(e)}", 
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
         id = request.form.get('id', '')
         nome = request.form.get('nome', '')
-        descricao = request.form.get('descricao_item', '')
-        quantidade = request.form.get('quantidade_estoque', 0)
-        estoque_minimo = request.form.get('estoque_minimo', 0)  
-        preco = request.form.get('preco', 0.00)            
-        categoria = request.form.get('categoria', 'geral')
-        foto = request.form.get('Foto_do_Item', 'geral')
+        descricao = request.form.get('descricaoItem', '')
+        quantidade = request.form.get('qtdItem', 0)
+        estoque_minimo = request.form.get('estoqueMinimo', 0)  
+        preco = request.form.get('precoItem', 0.00)            
+        categoria = request.form.get('statusItem', 'geral')
+        foto = request.form.get('fotoItem', 'geral')
 
 
             

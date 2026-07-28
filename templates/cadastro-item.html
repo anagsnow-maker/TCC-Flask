@@ -167,52 +167,59 @@
                 </div>
             </div>
             
-            <form action="/salvar-item" method="POST" enctype="multipart/form-data">
-                
-                <h3 style="color: #002A54; text-align: center; font-weight: 700; font-size: 18px; margin-bottom: 25px; text-transform: uppercase;">
-                    Cadastro de Item
-                </h3>
+          <form action="/salvar-item" method="POST" enctype="multipart/form-data">
+    
+    <h3 style="color: #002A54; text-align: center; font-weight: 700; font-size: 18px; margin-bottom: 25px; text-transform: uppercase;">
+        Cadastro de Item
+    </h3>
 
-                <div class="form-group">
-                    <label>Nome do Item</label>
-                    <input type="text" name="nomeItem" placeholder="Ex: Multímetro Digital" required>
-                </div>
+    <div class="form-group">
+        <label>Nome do Item</label>
+        <input type="text" name="nomeItem" placeholder="Ex: Multímetro Digital" required>
+    </div>
 
-                <div class="row">
-                    <div class="col-md-6">
-                        <label>Quantidade</label>
-                        <input type="number" name="qtdItem" min="0" placeholder="0" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label>Status</label>
-                        <select name="statusItem">
-                            <option value="Novo">Novo</option>
-                            <option value="Usado">Usado</option>
-                            <option value="Em Manutenção">Em Manutenção</option>
-                        </select>
-                    </div>
-                </div>
+    <!-- PRIMEIRA LINHA: Quantidade e Preço alinhados lado a lado -->
+    <div class="row">
+        <div class="col-md-6">
+            <label>Quantidade</label>
+            <input type="number" name="qtdItem" min="0" placeholder="0" required>
+        </div>
 
-                <div class="form-group">
-                    <label>Localização (Prateleira)</label>
-                    <input type="text" name="localizacaoItem" placeholder="Ex: Setor A - Estante 02">
-                </div>
-
-                <div class="form-group">
-                    <label>Descrição</label>
-                    <textarea name="descriçaoItem" placeholder="Detalhes adicionais..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Foto do Item (Obrigatório)</label>
-                    <input type="file" name="fotoItem" class="campo-upload" accept="image/*" required>
-                </div>
-
-                <button type="submit" class="btn-enviar">SALVAR ITEM</button>
-            </form>
+        <div class="col-md-6">
+            <label>Preço</label>
+            <input type="number" name="precoItem" step="0.01" min="0" placeholder="0.00" required>
         </div>
     </div>
 
+    <!-- SEGUNDA LINHA: Status e Estoque Mínimo alinhados lado a lado -->
+    <div class="row">
+        <div class="col-md-6">
+            <label>Categoria</label>
+            <select name="statusItem">
+                <option value="Geral">Geral</option>
+                <option value="Mecanica">Mecânica</option>
+                <option value="Eletrica">Elétrica</option>
+            </select>
+        </div>
+
+        <div class="col-md-6">
+            <label>Estoque mínimo</label>
+            <input type="number" name="estoqueMinimo" min="0" placeholder="Ex: 5">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Descrição</label>
+        <textarea name="descricaoItem" placeholder="Detalhes adicionais..."></textarea>
+    </div>
+
+    <div class="form-group">
+        <label>Foto do Item (Obrigatório)</label>
+        <input type="file" name="fotoItem" class="campo-upload" accept="image/*" required>
+    </div>
+
+    <button type="submit" class="btn-enviar">SALVAR ITEM</button>
+</form>
     <script>
         document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault(); 
