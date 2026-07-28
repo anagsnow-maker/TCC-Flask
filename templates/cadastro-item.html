@@ -220,31 +220,7 @@
 
     <button type="submit" class="btn-enviar">SALVAR ITEM</button>
 </form>
-    <script>
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault(); 
 
-            const formData = new FormData(this);
-
-            fetch('/salvar-item', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === 'sucesso') {
-                    alert(data.mensagem); 
-                    this.reset(); 
-                } else {
-                    alert('Erro no Servidor: ' + data.mensagem);
-                }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('Erro ao conectar com o servidor Flask.');
-            });
-        });
-    </script>
 
 </body>
 </html>

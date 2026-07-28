@@ -120,13 +120,13 @@ def home():
 
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
+    # Pegando os dados usando EXATAMENTE os mesmos nomes do 'name' no HTML
     nome = request.form.get('nomeItem', '')
     quantidade = request.form.get('qtdItem', 0)
     preco = request.form.get('precoItem', 0.00)
     categoria = request.form.get('statusItem', 'Geral')
     estoque_minimo = request.form.get('estoqueMinimo', 0)
     descricao = request.form.get('descricaoItem', '')
-    localizacao = ''
 
     arquivo_foto = request.files.get('fotoItem')
     url_imagem_banco = None
@@ -140,12 +140,12 @@ def salvar_item():
         conexao = obter_conexao()
         cursor = conexao.cursor()
         
-        # Inserção sem a coluna status_item
+        # SQL sem 'localizacao', combinando 100% com a tabela do MySQL Workbench
         comando_sql = """
-            INSERT INTO estoque (nome, quantidade, preco, localizacao, estoque_minimo, categoria, descricao_adicional, foto)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+            INSERT INTO estoque (nome, quantidade, preco, categoria, estoque_minimo, descricao_adicional, foto)
+            VALUES (%s, %s, %s, %s, %s, %s, %s)
         """
-        valores = (nome, quantidade, preco, localizacao, estoque_minimo, categoria, descricao, url_imagem_banco)
+        valores = (nome, quantidade, preco, categoria, estoque_minimo, descricao, url_imagem_banco)
         
         cursor.execute(comando_sql, valores)
         conexao.commit()
@@ -154,7 +154,7 @@ def salvar_item():
     except Exception as e:
         print(f"Erro ao salvar item no banco: {e}")
 
-    # Redireciona para /inicio para recarregar a busca SELECT * e atualizar a tabela na tela
+    # Redireciona para /inicio e recarrega a tabela com os novos dados
     return redirect('/inicio')
 
 @app.route('/solicitar-movimentacao', methods=['POST'])
