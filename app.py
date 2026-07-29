@@ -52,12 +52,9 @@ def login():
         
         if consulta is not None:
             if senha_digitada == consulta[1]:
-            # Se der certo, redireciona para a página inicial ('home')
                 return redirect('/inicio')
             else:
                 return "Usuario existe, mas senha incorreta!"
-
-    # Se for requisição GET, apenas exibe a página de login normalmente
     return render_template('login_le.html')
 
 @app.route('/cadastro', methods=['POST', 'GET'])
@@ -94,10 +91,8 @@ def users():
         cursor.close()
         conexao.close()
 
-        # Após salvar o novo usuário, redireciona para a tela de Login ('/')
         return redirect('/')
 
-    # Se for requisição GET (apenas abrindo a página):
     return render_template('cadastro_usuarios.html')
 
 @app.route('/movimentacao')
@@ -171,7 +166,6 @@ def salvar_item():
     except Exception as e:
         print(f"Erro ao salvar item no banco: {e}")
 
-    # Redireciona para /inicio e recarrega a tabela com os novos dados
     return redirect('/inicio')
 
 @app.route('/solicitar-movimentacao', methods=['POST'])

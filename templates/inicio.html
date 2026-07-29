@@ -100,12 +100,16 @@
                                 <td>{{ produto.estoque_minimo if produto.estoque_minimo is not none else 0 }} un</td>
                                 <td>{{ produto.descricao_adicional or '-' }}</td>
                                 <td>
-                                    {% if produto.foto %}
-                                        <img src="{{ url_for('static', filename=produto.foto) }}" alt="Foto" style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px;">
-                                    {% else %}
-                                        <span class="text-muted" style="font-size: 12px;">Sem foto</span>
-                                    {% endif %}
-                                </td>
+                                {% if produto.foto %}
+                                    <img src="{{ url_for('static', filename=produto.foto) }}" 
+                                        alt="Foto" 
+                                        class="img-fluid"
+                                        style="width: 40px; height: 40px; object-fit: cover; border-radius: 4px; cursor: pointer; display: inline-block;"
+                                        onclick="expandirImagem('{{ url_for('static', filename=produto.foto) }}', '{{ produto.nome }}')">
+                                {% else %}
+                                    <span class="text-muted" style="font-size: 12px;">Sem foto</span>
+                                {% endif %}
+                            </td>
                             </tr>
                             {% else %}
                             <tr>
@@ -120,6 +124,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+function expandirImagem(urlDaImagem, nomeDoProduto) {
+    Swal.fire({
+        title: nomeDoProduto,
+        imageUrl: urlDaImagem,
+        imageAlt: "Foto de " + nomeDoProduto,
+        showConfirmButton: false,
+        showCloseButton: true,
+        background: '##F0F8FF',
+        color: '#fffff',
+
+        customClass: {
+            image: 'img-modal-customizada'
+        },
+        didOpen: () => {
+            const img = document.querySelector('.img-modal-customizada');
+            if (img) {
+                img.style.maxHeight = '70vh';
+                img.style.maxWidth = '100%';
+                img.style.objectFit = 'contain'; 
+                img.style.margin = '20px auto 0 auto';
+            }
+        }
+    });
+}
+</script>
 </div>
 </body>
 </html>
