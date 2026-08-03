@@ -57,20 +57,8 @@ def login():
                 return "Usuario existe, mas senha incorreta!"
     return render_template('login_le.html')
 
-@app.route('/cadastro', methods=['POST', 'GET'])
+@app.route('/cadastro', methods=['GET'])
 def index():
-    usuario = request.form.get('campo1')
-    senha = request.form.get('campo2')
-    papel = request.form.get('campo3')
-
-    query = "insert into usuarios (usuario, senha, papel) values (%s, %s, %s);"
-    valores = (usuario, senha, papel)
-
-    conexao = obter_conexao_cadastro()
-    cursor = conexao.cursor()
-    cursor.execute(query, valores)
-    conexao.commit()
-
     return render_template('cadastro-item.html')
     
 
