@@ -1,6 +1,6 @@
 import os
 import mysql.connector
-from flask import Flask, render_template, request, jsonify, redirect, flash
+from flask import Flask, render_template, request, jsonify, redirect, flash, session
 
 app = Flask(__name__)
 app.secret_key = 'chave_secreta_para_o_tcc'
@@ -33,7 +33,6 @@ def obter_conexao_cadastro():
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        # Pegando os dados que o usuário digitou no formulário
         usuario_digitado = request.form.get('username')
         senha_digitada = request.form.get('password')
 
@@ -43,18 +42,22 @@ def login():
         query = "SELECT usuario, senha, papel FROM usuarios WHERE usuario = %s"
         valores = (usuario_digitado,)
 
-        cursor.execute(query,valores)
-
+        cursor.execute(query, valores)
         consulta = cursor.fetchone()
+        cursor.close()
+        conexao.close()
 
         if consulta is None:
             return "Usuário inexistente!"
         
-        if consulta is not None:
-            if senha_digitada == consulta[1]:
-                return redirect('/inicio')
-            else:
-                return "Usuario existe, mas senha incorreta!"
+        if senha_digitada == consulta[1]:
+            # Guardando as informações do usuário logado na sessão
+            session['usuario'] = consulta[0]
+            session['papel'] = consulta[2]
+            return redirect('/inicio')
+        else:
+            return "Usuario existe, mas senha incorreta!"
+
     return render_template('login_le.html')
 
 @app.route('/cadastro', methods=['GET'])
@@ -64,6 +67,10 @@ def index():
 
 @app.route('/cadastro-usuario', methods=['GET', 'POST'])
 def users():
+    # Se não for administrador, impede o acesso e redireciona
+    if session.get('papel') != 'administrador':
+        return redirect('/inicio')
+
     if request.method == 'POST':
         usuario = request.form.get('campo1')
         senha = request.form.get('campo2')
