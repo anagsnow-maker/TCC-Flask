@@ -1,5 +1,6 @@
 import os
 import mysql.connector
+import bcrypt
 from flask import Flask, render_template, request, jsonify, redirect, flash, session
 
 app = Flask(__name__)
@@ -9,6 +10,30 @@ UPLOAD_FOLDER = os.path.join('static', 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+def gerar_hash_senha(senha):
+    return bcrypt.hashpw(
+        senha.encode('utf-8'),
+        bcrypt.gensalt()
+    ).decode('utf-8')
+
+
+def verificar_senha(senha_digitada, senha_hash):
+    if not senha_hash:
+        return False
+
+    if isinstance(senha_hash, (bytes, bytearray)):
+        senha_hash = senha_hash.decode('utf-8')
+
+    try:
+        return bcrypt.checkpw(
+            senha_digitada.encode('utf-8'),
+            senha_hash.encode('utf-8')
+        )
+    except ValueError:
+        return senha_digitada == senha_hash
+    except TypeError:
+        return False
 
 def obter_conexao():
     return mysql.connector.connect(
@@ -50,8 +75,7 @@ def login():
         if consulta is None:
             return "Usuário inexistente!"
         
-        if senha_digitada == consulta[1]:
-            # Guardando as informações do usuário logado na sessão
+        if verificar_senha(senha_digitada, consulta[1]):
             session['usuario'] = consulta[0]
             session['papel'] = consulta[2]
             return redirect('/inicio')
@@ -67,17 +91,19 @@ def index():
 
 @app.route('/cadastro-usuario', methods=['GET', 'POST'])
 def users():
-    # Se não for administrador, impede o acesso e redireciona
-    if session.get('papel') != 'administrador':
+    papel = session.get('papel')
+
+    if papel and papel != 'administrador':
         return redirect('/inicio')
 
     if request.method == 'POST':
         usuario = request.form.get('campo1')
         senha = request.form.get('campo2')
         papel = request.form.get('campo3')
+        senha_hash = gerar_hash_senha(senha)
 
         query = "INSERT INTO usuarios (usuario, senha, papel) VALUES (%s, %s, %s);"
-        valores = (usuario, senha, papel)
+        valores = (usuario, senha_hash, papel)
 
         conexao = obter_conexao_cadastro()
         cursor = conexao.cursor()
@@ -127,7 +153,7 @@ def home():
 
 @app.route('/salvar-item', methods=['POST'])
 def salvar_item():
-    # Pegando os dados usando EXATAMENTE os mesmos nomes do 'name' no HTML
+
     nome = request.form.get('nomeItem', '')
     quantidade = request.form.get('qtdItem', 0)
     preco = request.form.get('precoItem', 0.00)
@@ -147,7 +173,6 @@ def salvar_item():
         conexao = obter_conexao()
         cursor = conexao.cursor()
         
-        # SQL sem 'localizacao', combinando 100% com a tabela do MySQL Workbench
         comando_sql = """
             INSERT INTO estoque (nome, quantidade, preco, categoria, estoque_minimo, descricao_adicional, foto)
             VALUES (%s, %s, %s, %s, %s, %s, %s)
@@ -173,7 +198,6 @@ def solicitar_movimentacao():
     conexao = obter_conexao()
     cursor = conexao.cursor(dictionary=True)
 
-    # Procura o item pelo nome
     cursor.execute("SELECT * FROM estoque WHERE nome = %s", (item,))
     produto = cursor.fetchone()
 
