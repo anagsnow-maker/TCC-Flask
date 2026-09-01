@@ -34,7 +34,7 @@ CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(100) NOT NULL,
-    papel VARCHAR(30) NOT NULL
+    papel VARCHAR(50) NOT NULL
 );
 
 INSERT INTO usuarios (id, usuario, senha, papel)
@@ -45,3 +45,7 @@ SELECT * FROM usuarios;
 
 /*serve para apagar todos os dados inseridos na tabela (só execute esse se algo der errado e quiser resetar os dados)*/
 TRUNCATE TABLE usuarios;
+
+/*Por algum motivo quando abrimos o banco de dados ele já vem com as tabelas criadas em uma versão antiga, para corrigir o problema, use esse comando abaixo
+  e depois limpe os usuários da tabela com o comando de cima, e depois insira um usuário administrador manualmente(também já tem um comando pra isso ali em cima)*/
+ALTER TABLE usuarios MODIFY papel VARCHAR(30);
