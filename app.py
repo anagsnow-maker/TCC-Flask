@@ -55,11 +55,13 @@ def obter_conexao_cadastro():
 
 # --- ROTAS DE EXIBIÇÃO DE PÁGINAS E PROCESSAMENTO(teste) ---
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/api/', methods=['POST'])
 def login():
     if request.method == 'POST':
-        usuario_digitado = request.form.get('username')
-        senha_digitada = request.form.get('password')
+        dados = request.get_json()
+        
+        usuario_digitado = dados.get('username')
+        senha_digitada = dados.get('password')
 
         conexao = obter_conexao_cadastro()
         cursor = conexao.cursor()
@@ -73,48 +75,49 @@ def login():
         conexao.close()
 
         if consulta is None:
-            return "Usuário inexistente!"
+            return jsonify({"erro": "Usuário inexistente!"}), 401
         
         if verificar_senha(senha_digitada, consulta[1]):
             session['usuario'] = consulta[0]
             session['papel'] = consulta[2]
-            return redirect('/inicio')
+            return jsonify({"sucesso": "Login realizado!", "papel": consulta[2]}), 200
         else:
-            return "Usuario existe, mas senha incorreta!"
-
-    return render_template('login_le.html')
+            return jsonify({"erro": "A senha está incorreta!"}), 401
+        #401 (Não autorizado)
 
 @app.route('/cadastro', methods=['GET'])
 def index():
     return render_template('cadastro-item.html')
     
 
-@app.route('/cadastro-usuario', methods=['GET', 'POST'])
+@app.route('/api/cadastro-usuario', methods=['POST'])
+
 def users():
-    papel = session.get('papel')
 
-    if papel and papel != 'administrador':
-        return redirect('/inicio')
+    if session.get('papel') != 'administrador':
+        return jsonify({"erro": "Acesso negado!"}), 403
 
-    if request.method == 'POST':
-        usuario = request.form.get('campo1')
-        senha = request.form.get('campo2')
-        papel = request.form.get('campo3')
-        senha_hash = gerar_hash_senha(senha)
+    dados = request.get_json()
 
-        query = "INSERT INTO usuarios (usuario, senha, papel) VALUES (%s, %s, %s);"
-        valores = (usuario, senha_hash, papel)
+    usuario = dados.get('usuario')
+    senha = dados.get('senha')
+    papel = dados.get('papel')
 
-        conexao = obter_conexao_cadastro()
-        cursor = conexao.cursor()
-        cursor.execute(query, valores)
-        conexao.commit()
-        cursor.close()
-        conexao.close()
+    senha_hash = gerar_hash_senha(senha)
 
-        return redirect('/')
+    query = "INSERT INTO usuarios (usuario, senha, papel) VALUES (%s, %s, %s);"
+    valores = (usuario, senha_hash, papel)
 
-    return render_template('cadastro_usuarios.html')
+    conexao = obter_conexao_cadastro()
+    cursor = conexao.cursor()
+    cursor.execute(query, valores)
+    conexao.commit()
+    cursor.close()
+    conexao.close()
+
+    return jsonify({
+        "mensagem": "Usuário cadastrado com sucesso!"
+    }), 200
 
 @app.route('/movimentacao')
 def movimentacao():
@@ -133,9 +136,7 @@ def movimentacao():
 def cadastro_concluído():
     return render_template('cadastro_concluído')
 
-
-
-@app.route('/inicio')
+@app.route('/api/inicio', methods=['GET'])
 def home():
     try:
         conexao = obter_conexao()
@@ -144,11 +145,16 @@ def home():
         produtos_do_banco = cursor.fetchall()
         cursor.close()
         conexao.close()
-        
-        return render_template('inicio.html', produtos=produtos_do_banco)
-        
+
+        return jsonify({
+            "status": "sucesso",
+            "produtos": produtos_do_banco
+        }), 200
     except Exception as e:
-        return f"Erro ao carregar a página inicial: {str(e)}"
+        return jsonify({
+            "status": "erro",
+            "mensagem": f"Erro ao carregar os dados: {str(e)}"
+        }), 500 #500 (Erro interno do servidor)
 
 
 @app.route('/salvar-item', methods=['POST'])
