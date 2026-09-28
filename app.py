@@ -55,13 +55,11 @@ def obter_conexao_cadastro():
 
 # --- ROTAS DE EXIBIÇÃO DE PÁGINAS E PROCESSAMENTO(teste) ---
 
-@app.route('/api/', methods=['POST'])
+@app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        dados = request.get_json()
-        
-        usuario_digitado = dados.get('username')
-        senha_digitada = dados.get('password')
+        usuario_digitado = request.form.get('username')
+        senha_digitada = request.form.get('password')
 
         conexao = obter_conexao_cadastro()
         cursor = conexao.cursor()
@@ -75,49 +73,48 @@ def login():
         conexao.close()
 
         if consulta is None:
-            return jsonify({"erro": "Usuário inexistente!"}), 401
+            return "Usuário inexistente!"
         
         if verificar_senha(senha_digitada, consulta[1]):
             session['usuario'] = consulta[0]
             session['papel'] = consulta[2]
-            return jsonify({"sucesso": "Login realizado!", "papel": consulta[2]}), 200
+            return redirect('/inicio')
         else:
-            return jsonify({"erro": "A senha está incorreta!"}), 401
-        #401 (Não autorizado)
+            return "Usuario existe, mas senha incorreta!"
+
+    return render_template('login_le.html')
 
 @app.route('/cadastro', methods=['GET'])
 def index():
     return render_template('cadastro-item.html')
     
 
-@app.route('/api/cadastro-usuario', methods=['POST'])
-
+@app.route('/cadastro-usuario', methods=['GET', 'POST'])
 def users():
+    papel = session.get('papel')
 
-    if session.get('papel') != 'administrador':
-        return jsonify({"erro": "Acesso negado!"}), 403
+    if papel and papel != 'administrador':
+        return redirect('/inicio')
 
-    dados = request.get_json()
+    if request.method == 'POST':
+        usuario = request.form.get('campo1')
+        senha = request.form.get('campo2')
+        papel = request.form.get('campo3')
+        senha_hash = gerar_hash_senha(senha)
 
-    usuario = dados.get('usuario')
-    senha = dados.get('senha')
-    papel = dados.get('papel')
+        query = "INSERT INTO usuarios (usuario, senha, papel) VALUES (%s, %s, %s);"
+        valores = (usuario, senha_hash, papel)
 
-    senha_hash = gerar_hash_senha(senha)
+        conexao = obter_conexao_cadastro()
+        cursor = conexao.cursor()
+        cursor.execute(query, valores)
+        conexao.commit()
+        cursor.close()
+        conexao.close()
 
-    query = "INSERT INTO usuarios (usuario, senha, papel) VALUES (%s, %s, %s);"
-    valores = (usuario, senha_hash, papel)
+        return redirect('/')
 
-    conexao = obter_conexao_cadastro()
-    cursor = conexao.cursor()
-    cursor.execute(query, valores)
-    conexao.commit()
-    cursor.close()
-    conexao.close()
-
-    return jsonify({
-        "mensagem": "Usuário cadastrado com sucesso!"
-    }), 200
+    return render_template('cadastro_usuarios.html')
 
 @app.route('/movimentacao')
 def movimentacao():
@@ -136,7 +133,9 @@ def movimentacao():
 def cadastro_concluído():
     return render_template('cadastro_concluído')
 
-@app.route('/api/inicio', methods=['GET'])
+
+
+@app.route('/inicio')
 def home():
     try:
         conexao = obter_conexao()
@@ -145,16 +144,11 @@ def home():
         produtos_do_banco = cursor.fetchall()
         cursor.close()
         conexao.close()
-
-        return jsonify({
-            "status": "sucesso",
-            "produtos": produtos_do_banco
-        }), 200
+        
+        return render_template('inicio.html', produtos=produtos_do_banco)
+        
     except Exception as e:
-        return jsonify({
-            "status": "erro",
-            "mensagem": f"Erro ao carregar os dados: {str(e)}"
-        }), 500 #500 (Erro interno do servidor)
+        return f"Erro ao carregar a página inicial: {str(e)}"
 
 
 @app.route('/salvar-item', methods=['POST'])
@@ -257,6 +251,20 @@ def solicitar_movimentacao():
         "status": "sucesso",
         "mensagem": "Movimentação realizada com sucesso!"
     })
+
+###########################################################################
+### Rotas API
+
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)
