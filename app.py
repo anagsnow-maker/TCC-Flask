@@ -255,15 +255,229 @@ def solicitar_movimentacao():
 ###########################################################################
 ### Rotas API
 
+@app.route('/api/estoque', methods=['GET'])
+def api_estoque():
 
+    conexao = obter_conexao()
+    cursor = conexao.cursor(dictionary=True)
 
+    cursor.execute("SELECT * FROM estoque")
+    produtos = cursor.fetchall()
 
+    cursor.close()
+    conexao.close()
 
+    return jsonify(produtos)
 
+@app.route('/api/estoque', methods=['POST'])
+def api_cadastrar_item():
 
+    dados = request.get_json()
 
+    nome = dados.get('nome')
+    quantidade = dados.get('quantidade')
+    preco = dados.get('preco')
+    categoria = dados.get('categoria', 'Geral')
+    estoque_minimo = dados.get('estoque_minimo', 0)
+    descricao = dados.get('descricao_adicional', '')
 
+    conexao = obter_conexao()
+    cursor = conexao.cursor()
 
+    comando_sql = """
+        INSERT INTO estoque
+        (nome, quantidade, preco, categoria, estoque_minimo, descricao_adicional)
+        VALUES (%s, %s, %s, %s, %s, %s)
+    """
+
+    valores = (
+        nome,
+        quantidade,
+        preco,
+        categoria,
+        estoque_minimo,
+        descricao
+    )
+
+    cursor.execute(comando_sql, valores)
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    return jsonify({
+        "status": "sucesso",
+        "mensagem": "Item cadastrado com sucesso!"
+    }), 201
+
+@app.route('/api/movimentacao', methods=['POST'])
+def api_movimentacao():
+
+    dados = request.get_json()
+
+    item = dados.get('item')
+    quantidade = dados.get('quantidade')
+    tipo = dados.get('tipo')
+    finalidade = dados.get('finalidade')
+
+    conexao = obter_conexao()
+    cursor = conexao.cursor(dictionary=True)
+
+    cursor.execute(
+        "SELECT * FROM estoque WHERE nome = %s",
+        (item,)
+    )
+
+    produto = cursor.fetchone()
+
+    if not produto:
+        cursor.close()
+        conexao.close()
+
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Item não encontrado."
+        }), 404
+
+    quantidade_atual = produto["quantidade"]
+
+    # Entrada
+    if tipo == "entrada":
+
+        nova_quantidade = quantidade_atual + quantidade
+
+    # Saída
+    elif tipo == "saida":
+
+        if quantidade > quantidade_atual:
+
+            cursor.close()
+            conexao.close()
+
+            return jsonify({
+                "status": "erro",
+                "mensagem": "Quantidade insuficiente em estoque."
+            }), 400
+
+        nova_quantidade = quantidade_atual - quantidade
+
+    else:
+
+        cursor.close()
+        conexao.close()
+
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Tipo de movimentação inválido."
+        }), 400
+
+    cursor.execute(
+        "UPDATE estoque SET quantidade = %s WHERE id = %s",
+        (nova_quantidade, produto["id"])
+    )
+
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    return jsonify({
+        "status": "sucesso",
+        "mensagem": "Movimentação realizada com sucesso!",
+        "item": item,
+        "tipo": tipo,
+        "quantidade_movimentada": quantidade,
+        "nova_quantidade": nova_quantidade
+    }), 200
+
+@app.route('/api/estoque/<int:id>', methods=['GET'])
+def api_estoque_item(id):
+
+    conexao = obter_conexao()
+    cursor = conexao.cursor(dictionary=True)
+
+    cursor.execute(
+        "SELECT * FROM estoque WHERE id = %s",
+        (id,)
+    )
+
+    produto = cursor.fetchone()
+
+    cursor.close()
+    conexao.close()
+
+    if not produto:
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Item não encontrado."
+        }), 404
+
+    return jsonify(produto), 200
+
+@app.route('/api/estoque/<int:id>', methods=['PUT'])
+def api_atualizar_item(id):
+
+    dados = request.get_json()
+
+    nome = dados.get('nome')
+    quantidade = dados.get('quantidade')
+    preco = dados.get('preco')
+    categoria = dados.get('categoria', 'Geral')
+    estoque_minimo = dados.get('estoque_minimo', 0)
+    descricao = dados.get('descricao_adicional', '')
+
+    conexao = obter_conexao()
+    cursor = conexao.cursor(dictionary=True)
+
+    # Verifica se o item existe
+    cursor.execute(
+        "SELECT * FROM estoque WHERE id = %s",
+        (id,)
+    )
+
+    produto = cursor.fetchone()
+
+    if not produto:
+        cursor.close()
+        conexao.close()
+
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Item não encontrado."
+        }), 404
+
+    # Atualiza o item
+    cursor.execute(
+        """
+        UPDATE estoque
+        SET nome = %s,
+            quantidade = %s,
+            preco = %s,
+            categoria = %s,
+            estoque_minimo = %s,
+            descricao_adicional = %s
+        WHERE id = %s
+        """,
+        (
+            nome,
+            quantidade,
+            preco,
+            categoria,
+            estoque_minimo,
+            descricao,
+            id
+        )
+    )
+
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    return jsonify({
+        "status": "sucesso",
+        "mensagem": "Item atualizado com sucesso!"
+    }), 200
 
 
 if __name__ == '__main__':
