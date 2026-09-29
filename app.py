@@ -479,6 +479,44 @@ def api_atualizar_item(id):
         "mensagem": "Item atualizado com sucesso!"
     }), 200
 
+@app.route('/api/estoque/<int:id>', methods=['DELETE'])
+def api_excluir_item(id):
+
+    conexao = obter_conexao()
+    cursor = conexao.cursor(dictionary=True)
+
+    # Verifica se o item existe
+    cursor.execute(
+        "SELECT * FROM estoque WHERE id = %s",
+        (id,)
+    )
+
+    produto = cursor.fetchone()
+
+    if not produto:
+        cursor.close()
+        conexao.close()
+
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Item não encontrado."
+        }), 404
+
+    # Exclui o item
+    cursor.execute(
+        "DELETE FROM estoque WHERE id = %s",
+        (id,)
+    )
+
+    conexao.commit()
+
+    cursor.close()
+    conexao.close()
+
+    return jsonify({
+        "status": "sucesso",
+        "mensagem": "Item excluído com sucesso!"
+    }), 200
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5000)
