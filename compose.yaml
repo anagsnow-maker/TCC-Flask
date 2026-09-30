@@ -1,0 +1,36 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: tcc-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./tabela-estoque.sql:/docker-entrypoint-initdb.d/02-tabela-estoque.sql
+    networks:
+      - tcc-network
+
+  flask:
+    build: .
+    container_name: tcc-flask
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_PASSWORD: root
+    ports:
+      - "5000:5000"
+    networks:
+      - tcc-network
+
+volumes:
+  mysql_data:
+
+networks:
+  tcc-network:
