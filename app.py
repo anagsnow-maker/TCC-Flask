@@ -3,6 +3,8 @@ import mysql.connector
 import bcrypt
 from flask import Flask, render_template, request, jsonify, redirect, flash, session
 
+DB_HOST = os.getenv("DB_HOST", "localhost")
+
 app = Flask(__name__)
 app.secret_key = 'chave_secreta_para_o_tcc'
 
@@ -37,7 +39,7 @@ def verificar_senha(senha_digitada, senha_hash):
 
 def obter_conexao():
     return mysql.connector.connect(
-        host="localhost",
+        host=DB_HOST,
         user="root",
         password="",  
         database="tcc_almoxarifado",
@@ -46,7 +48,7 @@ def obter_conexao():
 
 def obter_conexao_cadastro():
     return mysql.connector.connect(
-        host="localhost",
+        host=DB_HOST,
         user="root",
         password="",  
         database="cadastro",
