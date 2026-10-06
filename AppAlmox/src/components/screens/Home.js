@@ -1,21 +1,36 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
-
+import React, { useEffect, useRef } from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, Easing, } from 'react-native';
 import { registerRootComponent } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Ionicons } from '@expo/vector-icons';
 
 function Home() {
+  const opacidade = useRef(new Animated.Value(0)).current;
+
+  useEffect(() => {
+    opacidade.setValue(0);
+
+    Animated.timing(opacidade, {
+      toValue: 1,
+      duration: 3000,
+      useNativeDriver: true,
+    }).start();
+  }, []);
+
   return (
-    <View style={styles.center}>
-      <Text>Perfil do Usuário</Text>
+    <View style={styles.homeContainer}>
+
+      <Animated.View style={{ opacity: opacidade }}>
+        <Text style={styles.welcome}>
+          Bem-vindo ao
+        </Text>
+
+        <Text style={styles.title}>
+          Almoxarifado SENAI
+        </Text>
+      </Animated.View>
+
     </View>
   );
 }
@@ -56,7 +71,7 @@ function App() {
         screenOptions={({ navigation }) => ({
           headerStyle: {
             backgroundColor: '#ffffff',
-            height: 70,
+            height: 110,
             borderBottomWidth: 4,
             borderBottomColor: '#ff5500',
             elevation: 0,
@@ -75,14 +90,9 @@ function App() {
               onPress={() => navigation.toggleDrawer()}
               style={styles.menuButton}
             >
-              <Ionicons
-                name="menu-outline"
-                size={24}
-                color="#333"
-              />
+              <Text style={{ fontSize: 25 }}>☰</Text>
             </TouchableOpacity>
           ),
-
           drawerStyle: {
             backgroundColor: '#f4f4f9',
             width: 250,
@@ -135,6 +145,37 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  homeContainer: {
+  flex: 1,
+  backgroundColor: '#002A54',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: 20,
+},
+
+welcome: {
+  color: '#ffffff',
+  fontSize: 28,
+  fontWeight: 'bold',
+  textAlign: 'center',
+  marginBottom: 10,
+},
+
+title: {
+  color: '#ffffff',
+  fontSize: 36,
+  fontWeight: 'bold',
+  textAlign: 'center',
+  marginBottom: 15,
+},
+
+subtitle: {
+  color: '#ffffff',
+  fontSize: 17,
+  textAlign: 'center',
+  opacity: 0.9,
+},
 });
 
+ 
 registerRootComponent(App);
