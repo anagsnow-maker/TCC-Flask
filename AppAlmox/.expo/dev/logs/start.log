@@ -619,3 +619,586 @@
 {"_e":"devserver:start","_t":1791292912292,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
 {"_e":"metro:config","_t":1791292920072,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
 {"_e":"expo:dev-tools-plugin:load","_t":1791292923851,"plugins":[]}
+{"_e":"root:init","_t":1791369165916,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1791369165937,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791369165958,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791369170997,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791369179406,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791369183643,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791369196268,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1791369235867,"id":"3","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791369235868,"id":"3","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791369235895,"id":"3","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791369242667,"id":"3","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1791369242767,"id":"3","progress":0.010000000000000002,"total":9,"current":1}
+{"_e":"metro:bundling:progress","_t":1791369242796,"id":"3","progress":0.04000000000000001,"total":9,"current":2}
+{"_e":"metro:bundling:progress","_t":1791369242897,"id":"3","progress":0.04000000000000001,"total":17,"current":3}
+{"_e":"metro:bundling:progress","_t":1791369243440,"id":"3","progress":0.05536332179930796,"total":17,"current":4}
+{"_e":"metro:bundling:progress","_t":1791369243547,"id":"3","progress":0.05536332179930796,"total":117,"current":5}
+{"_e":"metro:bundling:progress","_t":1791369243691,"id":"3","progress":0.05536332179930796,"total":136,"current":6}
+{"_e":"metro:bundling:progress","_t":1791369243822,"id":"3","progress":0.05536332179930796,"total":136,"current":7}
+{"_e":"metro:bundling:progress","_t":1791369243930,"id":"3","progress":0.05536332179930796,"total":165,"current":9}
+{"_e":"metro:bundling:progress","_t":1791369244056,"id":"3","progress":0.05536332179930796,"total":165,"current":12}
+{"_e":"metro:bundling:progress","_t":1791369244162,"id":"3","progress":0.05536332179930796,"total":172,"current":15}
+{"_e":"metro:bundling:progress","_t":1791369244265,"id":"3","progress":0.05536332179930796,"total":196,"current":16}
+{"_e":"metro:bundling:progress","_t":1791369244824,"id":"3","progress":0.05536332179930796,"total":196,"current":17}
+{"_e":"metro:bundling:progress","_t":1791369244931,"id":"3","progress":0.05536332179930796,"total":201,"current":24}
+{"_e":"metro:bundling:progress","_t":1791369245034,"id":"3","progress":0.05536332179930796,"total":208,"current":28}
+{"_e":"metro:bundling:progress","_t":1791369245140,"id":"3","progress":0.05536332179930796,"total":227,"current":36}
+{"_e":"metro:bundling:progress","_t":1791369245251,"id":"3","progress":0.05536332179930796,"total":231,"current":41}
+{"_e":"metro:bundling:progress","_t":1791369245368,"id":"3","progress":0.05536332179930796,"total":232,"current":42}
+{"_e":"metro:bundling:progress","_t":1791369245416,"id":"3","progress":0.05536332179930796,"total":232,"current":43}
+{"_e":"metro:bundling:progress","_t":1791369245516,"id":"3","progress":0.05536332179930796,"total":248,"current":51}
+{"_e":"metro:bundling:progress","_t":1791369245638,"id":"3","progress":0.06062040863177227,"total":264,"current":65}
+{"_e":"metro:bundling:progress","_t":1791369245750,"id":"3","progress":0.09,"total":280,"current":84}
+{"_e":"metro:bundling:progress","_t":1791369245855,"id":"3","progress":0.09595392760375925,"total":297,"current":92}
+{"_e":"metro:bundling:progress","_t":1791369245971,"id":"3","progress":0.12088285601508705,"total":302,"current":105}
+{"_e":"metro:bundling:progress","_t":1791369246073,"id":"3","progress":0.1481157141577685,"total":317,"current":122}
+{"_e":"metro:bundling:progress","_t":1791369246177,"id":"3","progress":0.1481157141577685,"total":349,"current":134}
+{"_e":"metro:bundling:progress","_t":1791369246277,"id":"3","progress":0.15505300580214912,"total":353,"current":139}
+{"_e":"metro:bundling:progress","_t":1791369246380,"id":"3","progress":0.16766629681644304,"total":359,"current":147}
+{"_e":"metro:bundling:progress","_t":1791369246481,"id":"3","progress":0.18367346938775508,"total":364,"current":156}
+{"_e":"metro:bundling:progress","_t":1791369246583,"id":"3","progress":0.19066993119782624,"total":371,"current":162}
+{"_e":"metro:bundling:progress","_t":1791369246684,"id":"3","progress":0.19806079250192268,"total":373,"current":166}
+{"_e":"metro:bundling:progress","_t":1791369246785,"id":"3","progress":0.20441942055228612,"total":376,"current":170}
+{"_e":"metro:bundling:progress","_t":1791369246893,"id":"3","progress":0.2195732024889669,"total":382,"current":179}
+{"_e":"metro:bundling:progress","_t":1791369246998,"id":"3","progress":0.2195732024889669,"total":420,"current":189}
+{"_e":"metro:bundling:progress","_t":1791369247102,"id":"3","progress":0.2385598851165981,"total":432,"current":211}
+{"_e":"metro:bundling:progress","_t":1791369247206,"id":"3","progress":0.25446419753086424,"total":450,"current":227}
+{"_e":"metro:bundling:progress","_t":1791369247307,"id":"3","progress":0.2588881988783015,"total":454,"current":231}
+{"_e":"metro:bundling:progress","_t":1791369247404,"id":"3","progress":0.2611345067825884,"total":454,"current":232}
+{"_e":"metro:bundling:progress","_t":1791369247512,"id":"3","progress":0.26894550608334256,"total":457,"current":237}
+{"_e":"metro:bundling:progress","_t":1791369247619,"id":"3","progress":0.26894550608334256,"total":479,"current":241}
+{"_e":"metro:bundling:progress","_t":1791369247743,"id":"3","progress":0.26894550608334256,"total":479,"current":242}
+{"_e":"metro:bundling:progress","_t":1791369247843,"id":"3","progress":0.26894550608334256,"total":481,"current":246}
+{"_e":"metro:bundling:progress","_t":1791369247947,"id":"3","progress":0.26894550608334256,"total":482,"current":248}
+{"_e":"metro:bundling:progress","_t":1791369248070,"id":"3","progress":0.26894550608334256,"total":482,"current":249}
+{"_e":"metro:bundling:progress","_t":1791369248175,"id":"3","progress":0.26894550608334256,"total":489,"current":253}
+{"_e":"metro:bundling:progress","_t":1791369248278,"id":"3","progress":0.2873628732867473,"total":513,"current":275}
+{"_e":"metro:bundling:progress","_t":1791369248380,"id":"3","progress":0.29457857132986,"total":538,"current":292}
+{"_e":"metro:bundling:progress","_t":1791369248479,"id":"3","progress":0.2995480533248887,"total":539,"current":295}
+{"_e":"metro:bundling:progress","_t":1791369248580,"id":"3","progress":0.308641975308642,"total":549,"current":305}
+{"_e":"metro:bundling:progress","_t":1791369248691,"id":"3","progress":0.3142484361153531,"total":553,"current":310}
+{"_e":"metro:bundling:progress","_t":1791369249236,"id":"3","progress":0.31627911539555736,"total":553,"current":311}
+{"_e":"metro:bundling:progress","_t":1791369249336,"id":"3","progress":0.37579338737578033,"total":553,"current":339}
+{"_e":"metro:bundling:progress","_t":1791369249436,"id":"3","progress":0.3909025803785229,"total":563,"current":352}
+{"_e":"metro:bundling:progress","_t":1791369249538,"id":"3","progress":0.3909025803785229,"total":597,"current":358}
+{"_e":"metro:bundling:progress","_t":1791369249640,"id":"3","progress":0.3909025803785229,"total":598,"current":363}
+{"_e":"metro:bundling:progress","_t":1791369249743,"id":"3","progress":0.3909025803785229,"total":616,"current":373}
+{"_e":"metro:bundling:progress","_t":1791369249847,"id":"3","progress":0.3909025803785229,"total":618,"current":384}
+{"_e":"metro:bundling:progress","_t":1791369249952,"id":"3","progress":0.3909025803785229,"total":641,"current":390}
+{"_e":"metro:bundling:progress","_t":1791369250053,"id":"3","progress":0.3909025803785229,"total":641,"current":394}
+{"_e":"metro:bundling:progress","_t":1791369250155,"id":"3","progress":0.3909025803785229,"total":648,"current":403}
+{"_e":"metro:bundling:progress","_t":1791369250263,"id":"3","progress":0.4037136094674557,"total":650,"current":413}
+{"_e":"metro:bundling:progress","_t":1791369250369,"id":"3","progress":0.4037136094674557,"total":668,"current":419}
+{"_e":"metro:bundling:progress","_t":1791369250472,"id":"3","progress":0.40478548890243465,"total":668,"current":425}
+{"_e":"metro:bundling:progress","_t":1791369250594,"id":"3","progress":0.40478548890243465,"total":681,"current":431}
+{"_e":"metro:bundling:progress","_t":1791369250694,"id":"3","progress":0.4090048674959438,"total":688,"current":440}
+{"_e":"metro:bundling:progress","_t":1791369250797,"id":"3","progress":0.4256540125485994,"total":702,"current":458}
+{"_e":"metro:bundling:progress","_t":1791369250900,"id":"3","progress":0.4369116241637744,"total":705,"current":466}
+{"_e":"metro:bundling:progress","_t":1791369251004,"id":"3","progress":0.4501121165693127,"total":708,"current":475}
+{"_e":"metro:bundling:progress","_t":1791369251104,"id":"3","progress":0.4691575621982074,"total":711,"current":487}
+{"_e":"metro:bundling:progress","_t":1791369251209,"id":"3","progress":0.4944761956059642,"total":721,"current":507}
+{"_e":"metro:bundling:progress","_t":1791369251311,"id":"3","progress":0.5229321767638823,"total":726,"current":525}
+{"_e":"metro:bundling:progress","_t":1791369251412,"id":"3","progress":0.5300160004830334,"total":728,"current":530}
+{"_e":"metro:bundling:progress","_t":1791369251513,"id":"3","progress":0.5466665161325528,"total":729,"current":539}
+{"_e":"metro:bundling:progress","_t":1791369251614,"id":"3","progress":0.556369255576458,"total":732,"current":546}
+{"_e":"metro:bundling:progress","_t":1791369251721,"id":"3","progress":0.5737959298829154,"total":734,"current":556}
+{"_e":"metro:bundling:progress","_t":1791369251821,"id":"3","progress":0.5777638930260606,"total":742,"current":564}
+{"_e":"metro:bundling:progress","_t":1791369251921,"id":"3","progress":0.6107443451760596,"total":746,"current":583}
+{"_e":"metro:bundling:progress","_t":1791369252022,"id":"3","progress":0.6107443451760596,"total":763,"current":595}
+{"_e":"metro:bundling:progress","_t":1791369252123,"id":"3","progress":0.620691213313496,"total":773,"current":609}
+{"_e":"metro:bundling:progress","_t":1791369252223,"id":"3","progress":0.6416441868627862,"total":779,"current":624}
+{"_e":"metro:bundling:progress","_t":1791369252329,"id":"3","progress":0.6774556213017751,"total":780,"current":642}
+{"_e":"metro:bundling:progress","_t":1791369252444,"id":"3","progress":0.7040560179680274,"total":783,"current":657}
+{"_e":"metro:bundling:progress","_t":1791369252553,"id":"3","progress":0.7186219691308717,"total":788,"current":668}
+{"_e":"metro:bundling:progress","_t":1791369252668,"id":"3","progress":0.7186219691308717,"total":824,"current":688}
+{"_e":"metro:bundling:progress","_t":1791369252768,"id":"3","progress":0.7186219691308717,"total":830,"current":701}
+{"_e":"metro:bundling:progress","_t":1791369252868,"id":"3","progress":0.7262533721823898,"total":839,"current":715}
+{"_e":"metro:bundling:progress","_t":1791369252971,"id":"3","progress":0.7338308011173694,"total":851,"current":729}
+{"_e":"metro:bundling:progress","_t":1791369253085,"id":"3","progress":0.750840513577105,"total":854,"current":740}
+{"_e":"metro:bundling:progress","_t":1791369253188,"id":"3","progress":0.7595041051620229,"total":856,"current":746}
+{"_e":"metro:bundling:progress","_t":1791369253299,"id":"3","progress":0.7595041051620229,"total":874,"current":755}
+{"_e":"metro:bundling:progress","_t":1791369253410,"id":"3","progress":0.7595041051620229,"total":884,"current":765}
+{"_e":"metro:bundling:progress","_t":1791369253514,"id":"3","progress":0.7595041051620229,"total":908,"current":773}
+{"_e":"metro:bundling:progress","_t":1791369253616,"id":"3","progress":0.7595041051620229,"total":909,"current":776}
+{"_e":"metro:bundling:progress","_t":1791369253720,"id":"3","progress":0.7595041051620229,"total":911,"current":778}
+{"_e":"metro:bundling:progress","_t":1791369253823,"id":"3","progress":0.7595041051620229,"total":912,"current":788}
+{"_e":"metro:bundling:progress","_t":1791369253923,"id":"3","progress":0.7595041051620229,"total":934,"current":794}
+{"_e":"metro:bundling:progress","_t":1791369254037,"id":"3","progress":0.7595041051620229,"total":935,"current":795}
+{"_e":"metro:bundling:progress","_t":1791369254053,"id":"3","progress":0.7595041051620229,"total":935,"current":796}
+{"_e":"metro:bundling:progress","_t":1791369254162,"id":"3","progress":0.7595041051620229,"total":945,"current":802}
+{"_e":"metro:bundling:progress","_t":1791369254325,"id":"3","progress":0.7595041051620229,"total":945,"current":803}
+{"_e":"metro:bundling:progress","_t":1791369254428,"id":"3","progress":0.7595041051620229,"total":966,"current":807}
+{"_e":"metro:bundling:progress","_t":1791369254482,"id":"3","progress":0.7595041051620229,"total":966,"current":808}
+{"_e":"metro:bundling:progress","_t":1791369254597,"id":"3","progress":0.7595041051620229,"total":975,"current":812}
+{"_e":"metro:bundling:progress","_t":1791369254699,"id":"3","progress":0.7595041051620229,"total":981,"current":822}
+{"_e":"metro:bundling:progress","_t":1791369254802,"id":"3","progress":0.7595041051620229,"total":988,"current":832}
+{"_e":"metro:bundling:progress","_t":1791369254903,"id":"3","progress":0.7595041051620229,"total":998,"current":842}
+{"_e":"metro:bundling:progress","_t":1791369255004,"id":"3","progress":0.7595041051620229,"total":1002,"current":850}
+{"_e":"metro:bundling:progress","_t":1791369255103,"id":"3","progress":0.7595041051620229,"total":1003,"current":866}
+{"_e":"metro:bundling:progress","_t":1791369255205,"id":"3","progress":0.7699542251870831,"total":1012,"current":888}
+{"_e":"metro:bundling:progress","_t":1791369255315,"id":"3","progress":0.7699542251870831,"total":1042,"current":903}
+{"_e":"metro:bundling:progress","_t":1791369255424,"id":"3","progress":0.7699542251870831,"total":1086,"current":926}
+{"_e":"metro:bundling:progress","_t":1791369255525,"id":"3","progress":0.7699542251870831,"total":1089,"current":928}
+{"_e":"metro:bundling:progress","_t":1791369255631,"id":"3","progress":0.7699542251870831,"total":1089,"current":930}
+{"_e":"metro:bundling:progress","_t":1791369255740,"id":"3","progress":0.7699542251870831,"total":1089,"current":935}
+{"_e":"metro:bundling:progress","_t":1791369255840,"id":"3","progress":0.7699542251870831,"total":1094,"current":939}
+{"_e":"metro:bundling:progress","_t":1791369255943,"id":"3","progress":0.7699542251870831,"total":1100,"current":943}
+{"_e":"metro:bundling:progress","_t":1791369256047,"id":"3","progress":0.7699542251870831,"total":1104,"current":950}
+{"_e":"metro:bundling:progress","_t":1791369256147,"id":"3","progress":0.7699542251870831,"total":1105,"current":957}
+{"_e":"metro:bundling:progress","_t":1791369256247,"id":"3","progress":0.7699542251870831,"total":1125,"current":964}
+{"_e":"metro:bundling:progress","_t":1791369256358,"id":"3","progress":0.7699542251870831,"total":1128,"current":971}
+{"_e":"metro:bundling:progress","_t":1791369256462,"id":"3","progress":0.7699542251870831,"total":1132,"current":976}
+{"_e":"metro:bundling:progress","_t":1791369256569,"id":"3","progress":0.7699542251870831,"total":1160,"current":985}
+{"_e":"metro:bundling:progress","_t":1791369256671,"id":"3","progress":0.7699542251870831,"total":1166,"current":998}
+{"_e":"metro:bundling:progress","_t":1791369256772,"id":"3","progress":0.7699542251870831,"total":1178,"current":1011}
+{"_e":"metro:bundling:progress","_t":1791369256874,"id":"3","progress":0.7699542251870831,"total":1180,"current":1023}
+{"_e":"metro:bundling:progress","_t":1791369256976,"id":"3","progress":0.7699542251870831,"total":1192,"current":1036}
+{"_e":"metro:bundling:progress","_t":1791369257082,"id":"3","progress":0.7699542251870831,"total":1200,"current":1045}
+{"_e":"metro:bundling:progress","_t":1791369257184,"id":"3","progress":0.7699542251870831,"total":1207,"current":1053}
+{"_e":"metro:bundling:progress","_t":1791369257284,"id":"3","progress":0.7699542251870831,"total":1219,"current":1061}
+{"_e":"metro:bundling:progress","_t":1791369257386,"id":"3","progress":0.7699542251870831,"total":1219,"current":1065}
+{"_e":"metro:bundling:progress","_t":1791369257490,"id":"3","progress":0.7710047117627993,"total":1222,"current":1073}
+{"_e":"metro:bundling:progress","_t":1791369257590,"id":"3","progress":0.7740546582970578,"total":1223,"current":1076}
+{"_e":"metro:bundling:progress","_t":1791369257694,"id":"3","progress":0.7740546582970578,"total":1237,"current":1078}
+{"_e":"metro:bundling:progress","_t":1791369257799,"id":"3","progress":0.7740546582970578,"total":1241,"current":1081}
+{"_e":"metro:bundling:progress","_t":1791369257861,"id":"3","progress":0.7740546582970578,"total":1241,"current":1082}
+{"_e":"metro:bundling:progress","_t":1791369257965,"id":"3","progress":0.7740546582970578,"total":1241,"current":1085}
+{"_e":"metro:bundling:progress","_t":1791369258067,"id":"3","progress":0.7740546582970578,"total":1242,"current":1087}
+{"_e":"metro:bundling:progress","_t":1791369258169,"id":"3","progress":0.7740546582970578,"total":1252,"current":1096}
+{"_e":"metro:bundling:progress","_t":1791369258271,"id":"3","progress":0.7740546582970578,"total":1255,"current":1102}
+{"_e":"metro:bundling:progress","_t":1791369258374,"id":"3","progress":0.7740546582970578,"total":1256,"current":1103}
+{"_e":"metro:bundling:progress","_t":1791369258474,"id":"3","progress":0.7740546582970578,"total":1256,"current":1104}
+{"_e":"metro:bundling:progress","_t":1791369258531,"id":"3","progress":0.7740546582970578,"total":1256,"current":1105}
+{"_e":"metro:bundling:progress","_t":1791369258645,"id":"3","progress":0.7768120664124305,"total":1256,"current":1107}
+{"_e":"metro:bundling:progress","_t":1791369258746,"id":"3","progress":0.7810281350156193,"total":1256,"current":1110}
+{"_e":"metro:bundling:progress","_t":1791369258852,"id":"3","progress":0.7852556138180049,"total":1256,"current":1113}
+{"_e":"metro:bundling:progress","_t":1791369259026,"id":"3","progress":0.7866673090186214,"total":1256,"current":1114}
+{"_e":"metro:bundling:progress","_t":1791369259152,"id":"3","progress":0.7880802720191489,"total":1256,"current":1115}
+{"_e":"metro:bundling:progress","_t":1791369259169,"id":"3","progress":0.789494502819587,"total":1256,"current":1116}
+{"_e":"metro:bundling:progress","_t":1791369259306,"id":"3","progress":0.7923267678201955,"total":1256,"current":1118}
+{"_e":"metro:bundling:progress","_t":1791369259421,"id":"3","progress":0.7937448020203659,"total":1256,"current":1119}
+{"_e":"metro:bundling:progress","_t":1791369259475,"id":"3","progress":0.7951641040204471,"total":1256,"current":1120}
+{"_e":"metro:bundling:progress","_t":1791369259575,"id":"3","progress":0.7995802661816185,"total":1257,"current":1124}
+{"_e":"metro:bundling:progress","_t":1791369259705,"id":"3","progress":0.8024282791229891,"total":1257,"current":1126}
+{"_e":"metro:bundling:progress","_t":1791369259857,"id":"3","progress":0.8040016075179266,"total":1258,"current":1128}
+{"_e":"metro:bundling:progress","_t":1791369259947,"id":"3","progress":0.8054277741690067,"total":1258,"current":1129}
+{"_e":"metro:bundling:progress","_t":1791369260048,"id":"3","progress":0.8095738524340477,"total":1267,"current":1140}
+{"_e":"metro:bundling:progress","_t":1791369260150,"id":"3","progress":0.8095738524340477,"total":1289,"current":1151}
+{"_e":"metro:bundling:progress","_t":1791369260259,"id":"3","progress":0.8095738524340477,"total":1289,"current":1152}
+{"_e":"metro:bundling:progress","_t":1791369260360,"id":"3","progress":0.8095738524340477,"total":1296,"current":1159}
+{"_e":"metro:bundling:progress","_t":1791369260463,"id":"3","progress":0.8095738524340477,"total":1296,"current":1166}
+{"_e":"metro:bundling:progress","_t":1791369260577,"id":"3","progress":0.8197213017751479,"total":1300,"current":1177}
+{"_e":"metro:bundling:progress","_t":1791369260682,"id":"3","progress":0.8270806669065838,"total":1303,"current":1185}
+{"_e":"metro:bundling:progress","_t":1791369260785,"id":"3","progress":0.8311106522217047,"total":1313,"current":1197}
+{"_e":"metro:bundling:progress","_t":1791369260891,"id":"3","progress":0.8395803071477056,"total":1314,"current":1204}
+{"_e":"metro:bundling:progress","_t":1791369261010,"id":"3","progress":0.8457305342515438,"total":1319,"current":1213}
+{"_e":"metro:bundling:progress","_t":1791369261145,"id":"3","progress":0.8472365702479339,"total":1320,"current":1215}
+{"_e":"metro:bundling:progress","_t":1791369261250,"id":"3","progress":0.848631772268136,"total":1320,"current":1216}
+{"_e":"metro:bundling:progress","_t":1791369261360,"id":"3","progress":0.8500281221303949,"total":1320,"current":1217}
+{"_e":"metro:bundling:progress","_t":1791369261463,"id":"3","progress":0.8570270890725437,"total":1320,"current":1222}
+{"_e":"metro:bundling:progress","_t":1791369261566,"id":"3","progress":0.8711111111111112,"total":1320,"current":1232}
+{"_e":"metro:bundling:progress","_t":1791369261667,"id":"3","progress":0.8787295054928805,"total":1326,"current":1243}
+{"_e":"metro:bundling:progress","_t":1791369261767,"id":"3","progress":0.8787295054928805,"total":1341,"current":1254}
+{"_e":"metro:bundling:progress","_t":1791369261868,"id":"3","progress":0.8787295054928805,"total":1342,"current":1257}
+{"_e":"metro:bundling:progress","_t":1791369261968,"id":"3","progress":0.8809877323973251,"total":1352,"current":1269}
+{"_e":"metro:bundling:progress","_t":1791369262070,"id":"3","progress":0.8912027346808635,"total":1358,"current":1282}
+{"_e":"metro:bundling:progress","_t":1791369262173,"id":"3","progress":0.9025,"total":1360,"current":1292}
+{"_e":"metro:bundling:progress","_t":1791369262278,"id":"3","progress":0.913834927904675,"total":1362,"current":1302}
+{"_e":"metro:bundling:progress","_t":1791369262379,"id":"3","progress":0.9279262378682124,"total":1362,"current":1312}
+{"_e":"metro:bundling:progress","_t":1791369262479,"id":"3","progress":0.9279262378682124,"total":1385,"current":1320}
+{"_e":"metro:bundling:progress","_t":1791369262648,"id":"3","progress":0.9279262378682124,"total":1385,"current":1321}
+{"_e":"metro:bundling:progress","_t":1791369262748,"id":"3","progress":0.9279262378682124,"total":1398,"current":1327}
+{"_e":"metro:bundling:progress","_t":1791369262855,"id":"3","progress":0.9279262378682124,"total":1405,"current":1348}
+{"_e":"metro:bundling:progress","_t":1791369262957,"id":"3","progress":0.9369688833728043,"total":1405,"current":1360}
+{"_e":"metro:bundling:progress","_t":1791369263067,"id":"3","progress":0.953868568307629,"total":1414,"current":1381}
+{"_e":"metro:bundling:progress","_t":1791369263168,"id":"3","progress":0.9571133062741454,"total":1430,"current":1399}
+{"_e":"metro:bundling:progress","_t":1791369263273,"id":"3","progress":0.9571133062741454,"total":1442,"current":1404}
+{"_e":"metro:bundling:progress","_t":1791369263298,"id":"3","progress":0.9571133062741454,"total":1442,"current":1405}
+{"_e":"metro:bundling:progress","_t":1791369263401,"id":"3","progress":0.9571133062741454,"total":1459,"current":1421}
+{"_e":"metro:bundling:progress","_t":1791369263503,"id":"3","progress":0.9571133062741454,"total":1476,"current":1441}
+{"_e":"metro:bundling:progress","_t":1791369263605,"id":"3","progress":0.9691190230736411,"total":1478,"current":1455}
+{"_e":"metro:bundling:progress","_t":1791369263711,"id":"3","progress":0.978524115749771,"total":1482,"current":1466}
+{"_e":"metro:bundling:progress","_t":1791369263854,"id":"3","progress":0.999,"total":1484,"current":1484}
+{"_e":"metro:bundling:done","_t":1791369264391,"id":"3","total":1484,"ms":28523.7005}
+{"_e":"metro:bundling:failed","_t":1791369790405,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\TCC-Flask\\AppAlmox\\src\\components\\screens\\Home.js: Unexpected token (182:27)\n\n  180 | });\n  181 |\n> 182 | registerRootComponent(App);\n      |                            ^","importStack":null,"filename":"src\\components\\screens\\Home.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1791369798247,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\TCC-Flask\\AppAlmox\\src\\components\\screens\\Home.js: Unexpected token (183:27)\n\n  181 | });\n  182 |\n> 183 | registerRootComponent(App);\n      |                            ^","importStack":null,"filename":"src\\components\\screens\\Home.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1791369799323,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\TCC-Flask\\AppAlmox\\src\\components\\screens\\Home.js: Unexpected token (183:27)\n\n  181 | });\n  182 |\n> 183 | registerRootComponent(App);\n      |                            ^","importStack":null,"filename":"src\\components\\screens\\Home.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:started","_t":1791369802784,"id":"5","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791369802784,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791369802853,"id":"5","total":1,"ms":69.6815}
+{"_e":"metro:bundling:started","_t":1791371051907,"id":"6","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791371051908,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791371051981,"id":"6","total":1,"ms":73.8481}
+{"_e":"metro:bundling:started","_t":1791371372249,"id":"9","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791371372249,"id":"9","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791371372318,"id":"9","total":1,"ms":68.2922}
+{"_e":"metro:bundling:started","_t":1791371470016,"id":"a","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791371470017,"id":"a","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791371470116,"id":"a","total":1,"ms":99.7694}
+{"_e":"root:init","_t":1791371980559,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1791371980581,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791371980602,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791371984296,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791371990739,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791371993756,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791372005117,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"root:init","_t":1791372121022,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1791372121023,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791372121027,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791372125226,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791372125736,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791372126093,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791372135417,"atlas":false,"workers":3,"host":"::","port":8082}
+{"_e":"metro:bundling:started","_t":1791372135971,"id":"1","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791372135972,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791372135977,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791372140457,"id":"1","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1791372140561,"id":"1","progress":0.010000000000000002,"total":15,"current":1}
+{"_e":"metro:bundling:progress","_t":1791372140602,"id":"1","progress":0.017777777777777778,"total":15,"current":2}
+{"_e":"metro:bundling:progress","_t":1791372140704,"id":"1","progress":0.017777777777777778,"total":32,"current":3}
+{"_e":"metro:bundling:progress","_t":1791372140816,"id":"1","progress":0.017777777777777778,"total":58,"current":7}
+{"_e":"metro:bundling:progress","_t":1791372140937,"id":"1","progress":0.017777777777777778,"total":68,"current":8}
+{"_e":"metro:bundling:progress","_t":1791372141048,"id":"1","progress":0.017777777777777778,"total":68,"current":9}
+{"_e":"metro:bundling:progress","_t":1791372141151,"id":"1","progress":0.02040816326530612,"total":77,"current":11}
+{"_e":"metro:bundling:progress","_t":1791372141251,"id":"1","progress":0.02366863905325444,"total":78,"current":12}
+{"_e":"metro:bundling:progress","_t":1791372141351,"id":"1","progress":0.0271280276816609,"total":85,"current":14}
+{"_e":"metro:bundling:progress","_t":1791372141457,"id":"1","progress":0.029955621301775145,"total":104,"current":18}
+{"_e":"metro:bundling:progress","_t":1791372141556,"id":"1","progress":0.03038464775692282,"total":109,"current":19}
+{"_e":"metro:bundling:progress","_t":1791372141581,"id":"1","progress":0.03366719973066241,"total":109,"current":20}
+{"_e":"metro:bundling:progress","_t":1791372141682,"id":"1","progress":0.04073731167410151,"total":109,"current":22}
+{"_e":"metro:bundling:progress","_t":1791372141790,"id":"1","progress":0.04355387523629489,"total":115,"current":24}
+{"_e":"metro:bundling:progress","_t":1791372141891,"id":"1","progress":0.04355387523629489,"total":134,"current":27}
+{"_e":"metro:bundling:progress","_t":1791372141998,"id":"1","progress":0.05897959183673469,"total":140,"current":34}
+{"_e":"metro:bundling:progress","_t":1791372142100,"id":"1","progress":0.0740432227312694,"total":147,"current":40}
+{"_e":"metro:bundling:progress","_t":1791372142200,"id":"1","progress":0.13134543489032025,"total":149,"current":54}
+{"_e":"metro:bundling:progress","_t":1791372142302,"id":"1","progress":0.17048907388137358,"total":155,"current":64}
+{"_e":"metro:bundling:progress","_t":1791372142401,"id":"1","progress":0.2091389054134444,"total":164,"current":75}
+{"_e":"metro:bundling:progress","_t":1791372142501,"id":"1","progress":0.21138855859426608,"total":174,"current":80}
+{"_e":"metro:bundling:progress","_t":1791372142607,"id":"1","progress":0.21138855859426608,"total":196,"current":87}
+{"_e":"metro:bundling:progress","_t":1791372142707,"id":"1","progress":0.21540257777981273,"total":209,"current":97}
+{"_e":"metro:bundling:progress","_t":1791372142813,"id":"1","progress":0.22594461983953024,"total":223,"current":106}
+{"_e":"metro:bundling:progress","_t":1791372142915,"id":"1","progress":0.23319818832639347,"total":234,"current":113}
+{"_e":"metro:bundling:progress","_t":1791372143016,"id":"1","progress":0.23319818832639347,"total":269,"current":114}
+{"_e":"metro:bundling:progress","_t":1791372143064,"id":"1","progress":0.23319818832639347,"total":269,"current":115}
+{"_e":"metro:bundling:progress","_t":1791372143165,"id":"1","progress":0.23319818832639347,"total":273,"current":119}
+{"_e":"metro:bundling:progress","_t":1791372143267,"id":"1","progress":0.23319818832639347,"total":279,"current":124}
+{"_e":"metro:bundling:progress","_t":1791372143370,"id":"1","progress":0.23319818832639347,"total":280,"current":131}
+{"_e":"metro:bundling:progress","_t":1791372143470,"id":"1","progress":0.23319818832639347,"total":316,"current":143}
+{"_e":"metro:bundling:progress","_t":1791372143571,"id":"1","progress":0.23319818832639347,"total":323,"current":155}
+{"_e":"metro:bundling:progress","_t":1791372143674,"id":"1","progress":0.26862730517549077,"total":328,"current":170}
+{"_e":"metro:bundling:progress","_t":1791372143774,"id":"1","progress":0.2760169302740031,"total":335,"current":176}
+{"_e":"metro:bundling:progress","_t":1791372143877,"id":"1","progress":0.3097452522675737,"total":336,"current":187}
+{"_e":"metro:bundling:progress","_t":1791372143980,"id":"1","progress":0.33714880332986474,"total":341,"current":198}
+{"_e":"metro:bundling:progress","_t":1791372144080,"id":"1","progress":0.36414982164090365,"total":348,"current":210}
+{"_e":"metro:bundling:progress","_t":1791372144180,"id":"1","progress":0.3960315101070154,"total":348,"current":219}
+{"_e":"metro:bundling:progress","_t":1791372144283,"id":"1","progress":0.4145745570246995,"total":351,"current":226}
+{"_e":"metro:bundling:progress","_t":1791372144385,"id":"1","progress":0.434400826446281,"total":352,"current":232}
+{"_e":"metro:bundling:progress","_t":1791372144486,"id":"1","progress":0.4647014481253719,"total":355,"current":242}
+{"_e":"metro:bundling:progress","_t":1791372144589,"id":"1","progress":0.48225308641975306,"total":360,"current":250}
+{"_e":"metro:bundling:progress","_t":1791372144690,"id":"1","progress":0.48225308641975306,"total":386,"current":264}
+{"_e":"metro:bundling:progress","_t":1791372144794,"id":"1","progress":0.49506456584121594,"total":388,"current":273}
+{"_e":"metro:bundling:progress","_t":1791372144894,"id":"1","progress":0.5107288479457577,"total":389,"current":278}
+{"_e":"metro:bundling:progress","_t":1791372144995,"id":"1","progress":0.525901753977041,"total":393,"current":285}
+{"_e":"metro:bundling:progress","_t":1791372145096,"id":"1","progress":0.5262643630757126,"total":397,"current":288}
+{"_e":"metro:bundling:progress","_t":1791372145198,"id":"1","progress":0.5348629984406327,"total":402,"current":294}
+{"_e":"metro:bundling:progress","_t":1791372145299,"id":"1","progress":0.5348629984406327,"total":417,"current":303}
+{"_e":"metro:bundling:progress","_t":1791372145399,"id":"1","progress":0.5348629984406327,"total":430,"current":310}
+{"_e":"metro:bundling:progress","_t":1791372145500,"id":"1","progress":0.5353137362174901,"total":436,"current":319}
+{"_e":"metro:bundling:progress","_t":1791372145600,"id":"1","progress":0.5373499514002941,"total":457,"current":335}
+{"_e":"metro:bundling:progress","_t":1791372145703,"id":"1","progress":0.5510955168665738,"total":458,"current":340}
+{"_e":"metro:bundling:progress","_t":1791372145805,"id":"1","progress":0.5510955168665738,"total":472,"current":348}
+{"_e":"metro:bundling:progress","_t":1791372145907,"id":"1","progress":0.5578027345459639,"total":478,"current":357}
+{"_e":"metro:bundling:progress","_t":1791372146020,"id":"1","progress":0.5726807888970051,"total":481,"current":364}
+{"_e":"metro:bundling:progress","_t":1791372146121,"id":"1","progress":0.5988576298617448,"total":482,"current":373}
+{"_e":"metro:bundling:progress","_t":1791372146248,"id":"1","progress":0.6145785703398873,"total":486,"current":381}
+{"_e":"metro:bundling:progress","_t":1791372146366,"id":"1","progress":0.6196029096304898,"total":498,"current":392}
+{"_e":"metro:bundling:progress","_t":1791372146466,"id":"1","progress":0.652242360472448,"total":499,"current":403}
+{"_e":"metro:bundling:progress","_t":1791372146584,"id":"1","progress":0.6850133131995455,"total":499,"current":413}
+{"_e":"metro:bundling:progress","_t":1791372146686,"id":"1","progress":0.7089639999999999,"total":500,"current":421}
+{"_e":"metro:bundling:progress","_t":1791372146785,"id":"1","progress":0.7308040425439412,"total":503,"current":430}
+{"_e":"metro:bundling:progress","_t":1791372146894,"id":"1","progress":0.7463324113301355,"total":507,"current":438}
+{"_e":"metro:bundling:progress","_t":1791372147002,"id":"1","progress":0.7797612940733901,"total":513,"current":453}
+{"_e":"metro:bundling:progress","_t":1791372147102,"id":"1","progress":0.7905011900017914,"total":523,"current":465}
+{"_e":"metro:bundling:progress","_t":1791372147206,"id":"1","progress":0.8062614127308008,"total":529,"current":475}
+{"_e":"metro:bundling:progress","_t":1791372147308,"id":"1","progress":0.8062614127308008,"total":537,"current":482}
+{"_e":"metro:bundling:progress","_t":1791372147408,"id":"1","progress":0.8252358142468033,"total":546,"current":496}
+{"_e":"metro:bundling:progress","_t":1791372147509,"id":"1","progress":0.836108705677818,"total":549,"current":502}
+{"_e":"metro:bundling:progress","_t":1791372147610,"id":"1","progress":0.860323461457677,"total":552,"current":512}
+{"_e":"metro:bundling:progress","_t":1791372147718,"id":"1","progress":0.8662550596430567,"total":563,"current":524}
+{"_e":"metro:bundling:progress","_t":1791372147831,"id":"1","progress":0.8776731301939059,"total":570,"current":534}
+{"_e":"metro:bundling:progress","_t":1791372147933,"id":"1","progress":0.9079794961760916,"total":573,"current":546}
+{"_e":"metro:bundling:progress","_t":1791372148042,"id":"1","progress":0.9079794961760916,"total":599,"current":552}
+{"_e":"metro:bundling:progress","_t":1791372148143,"id":"1","progress":0.9079794961760916,"total":599,"current":557}
+{"_e":"metro:bundling:progress","_t":1791372148244,"id":"1","progress":0.9079794961760916,"total":601,"current":562}
+{"_e":"metro:bundling:progress","_t":1791372148346,"id":"1","progress":0.9079794961760916,"total":609,"current":572}
+{"_e":"metro:bundling:progress","_t":1791372148446,"id":"1","progress":0.9168375411166646,"total":612,"current":586}
+{"_e":"metro:bundling:progress","_t":1791372148547,"id":"1","progress":0.9643753470887265,"total":612,"current":601}
+{"_e":"metro:bundling:progress","_t":1791372148652,"id":"1","progress":0.9709458655562165,"total":615,"current":606}
+{"_e":"metro:bundling:progress","_t":1791372148758,"id":"1","progress":0.9902676977989292,"total":615,"current":612}
+{"_e":"metro:bundling:progress","_t":1791372148859,"id":"1","progress":0.9967558821049081,"total":616,"current":615}
+{"_e":"metro:bundling:progress","_t":1791372150462,"id":"1","progress":0.999,"total":616,"current":616}
+{"_e":"metro:bundling:progress","_t":1791372150668,"id":"1","progress":0.999,"total":620,"current":618}
+{"_e":"metro:bundling:progress","_t":1791372150854,"id":"1","progress":0.999,"total":620,"current":619}
+{"_e":"metro:bundling:progress","_t":1791372150966,"id":"1","progress":0.999,"total":620,"current":620}
+{"_e":"metro:bundling:done","_t":1791372151768,"id":"1","total":620,"ms":15796.7922}
+{"_e":"metro:client_log","_t":1791372152125,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791372152126,"level":"log","data":["Running application \"main\" with appParams:\n","{\"hydrate\": undefined, \"rootTag\": \"#root\"}","\nDevelopment-level warnings: ON.\nPerformance optimizations: OFF."]}
+{"_e":"metro:client_log","_t":1791372152126,"level":"warn","data":["props.pointerEvents is deprecated. Use style.pointerEvents"]}
+{"_e":"metro:client_log","_t":1791372152185,"level":"warn","data":["Animated: `useNativeDriver` is not supported because the native animated module is missing. Falling back to JS-based animation. To resolve this, add `RCTAnimation` module to this app, or remove `useNativeDriver`. Make sure to run `bundle exec pod install` first. Read more about autolinking: https://github.com/react-native-community/cli/blob/master/docs/autolinking.md"]}
+{"_e":"root:init","_t":1791372233325,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1791372233326,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791372233330,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791372233764,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791372234291,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791372234632,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791372243515,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"root:init","_t":1791372774894,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1791372774895,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791372774899,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791372775338,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791372775994,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791372776456,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791372785866,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1791372911875,"id":"1","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791372911877,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791372911884,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791372914511,"id":"1","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1791372914614,"id":"1","progress":0.010000000000000002,"total":166,"current":9}
+{"_e":"metro:bundling:progress","_t":1791372914713,"id":"1","progress":0.033822169375082575,"total":261,"current":48}
+{"_e":"metro:bundling:progress","_t":1791372914832,"id":"1","progress":0.10201826687458233,"total":335,"current":107}
+{"_e":"metro:bundling:progress","_t":1791372914932,"id":"1","progress":0.1679987806736778,"total":405,"current":166}
+{"_e":"metro:bundling:progress","_t":1791372915032,"id":"1","progress":0.2939218449523642,"total":522,"current":283}
+{"_e":"metro:bundling:progress","_t":1791372915132,"id":"1","progress":0.38822485207100593,"total":650,"current":405}
+{"_e":"metro:bundling:progress","_t":1791372915232,"id":"1","progress":0.5002491192555454,"total":714,"current":505}
+{"_e":"metro:bundling:progress","_t":1791372915332,"id":"1","progress":0.6451588692285071,"total":808,"current":649}
+{"_e":"metro:bundling:progress","_t":1791372915432,"id":"1","progress":0.7362988882744417,"total":916,"current":786}
+{"_e":"metro:bundling:progress","_t":1791372915536,"id":"1","progress":0.7362988882744417,"total":951,"current":807}
+{"_e":"metro:bundling:progress","_t":1791372915637,"id":"1","progress":0.7362988882744417,"total":1071,"current":910}
+{"_e":"metro:bundling:progress","_t":1791372915738,"id":"1","progress":0.7362988882744417,"total":1195,"current":1023}
+{"_e":"metro:bundling:progress","_t":1791372915837,"id":"1","progress":0.7858284818683803,"total":1286,"current":1140}
+{"_e":"metro:bundling:progress","_t":1791372915937,"id":"1","progress":0.8845787095258496,"total":1345,"current":1265}
+{"_e":"metro:bundling:progress","_t":1791372916037,"id":"1","progress":0.9493407599631426,"total":1442,"current":1405}
+{"_e":"metro:bundling:done","_t":1791372916215,"id":"1","total":1442,"ms":4338.9046}
+{"_e":"metro:bundling:started","_t":1791372946122,"id":"2","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791372946122,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791372946185,"id":"2","total":1,"ms":62.6744}
+{"_e":"metro:bundling:started","_t":1791372969752,"id":"3","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791372969753,"id":"3","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791372969819,"id":"3","total":1,"ms":66.334}
+{"_e":"metro:bundling:started","_t":1791372984630,"id":"4","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791372984631,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791372984698,"id":"4","total":1,"ms":67.4754}
+{"_e":"metro:bundling:started","_t":1791372999257,"id":"5","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791372999257,"id":"5","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791372999321,"id":"5","total":1,"ms":64.1281}
+{"_e":"metro:bundling:started","_t":1791373013199,"id":"6","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373013199,"id":"6","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373013254,"id":"6","total":1,"ms":54.5651}
+{"_e":"metro:bundling:started","_t":1791373195965,"id":"8","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373195965,"id":"8","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373196027,"id":"8","total":1,"ms":62.1364}
+{"_e":"metro:bundling:started","_t":1791373397950,"id":"c","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373397951,"id":"c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373398013,"id":"c","total":1,"ms":62.4411}
+{"_e":"metro:bundling:started","_t":1791373411677,"id":"d","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373411678,"id":"d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373411747,"id":"d","total":1,"ms":69.2646}
+{"_e":"metro:bundling:started","_t":1791373424882,"id":"e","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373424882,"id":"e","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791373424883,"id":"e","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373424969,"id":"e","total":1,"ms":87.1711}
+{"_e":"metro:bundling:started","_t":1791373439928,"id":"f","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373439928,"id":"f","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373439988,"id":"f","total":1,"ms":59.8668}
+{"_e":"metro:bundling:started","_t":1791373453665,"id":"g","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373453665,"id":"g","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373453726,"id":"g","total":1,"ms":60.4617}
+{"_e":"metro:bundling:failed","_t":1791373463455,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\TCC-Flask\\AppAlmox\\src\\components\\screens\\Home.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (29:8)\n\n  27 |         </Text>\n  28 |\n> 29 |         <Text style={styles.title}>\n     |         ^\n  30 |           Almoxarifado SENAI\n  31 |         </Text>\n  32 |       </Animated.View>","importStack":null,"filename":"src\\components\\screens\\Home.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1791373463549,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\TCC-Flask\\AppAlmox\\src\\components\\screens\\Home.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (29:8)\n\n  27 |         </Text>\n  28 |\n> 29 |         <Text style={styles.title}>\n     |         ^\n  30 |           Almoxarifado SENAI\n  31 |         </Text>\n  32 |       </Animated.View>","importStack":null,"filename":"src\\components\\screens\\Home.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1791373463652,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\TCC-Flask\\AppAlmox\\src\\components\\screens\\Home.js: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (29:8)\n\n  27 |         </Text>\n  28 |\n> 29 |         <Text style={styles.title}>\n     |         ^\n  30 |           Almoxarifado SENAI\n  31 |         </Text>\n  32 |       </Animated.View>","importStack":null,"filename":"src\\components\\screens\\Home.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:started","_t":1791373467863,"id":"h","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373467863,"id":"h","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373467930,"id":"h","total":1,"ms":66.789}
+{"_e":"metro:bundling:started","_t":1791373555601,"id":"i","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373555601,"id":"i","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373555667,"id":"i","total":1,"ms":66.0841}
+{"_e":"metro:bundling:started","_t":1791373570466,"id":"j","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373570466,"id":"j","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373570530,"id":"j","total":1,"ms":63.7515}
+{"_e":"metro:bundling:started","_t":1791373943200,"id":"l","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791373943200,"id":"l","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791373943202,"id":"l","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791373943280,"id":"l","total":1,"ms":79.9569}
+{"_e":"metro:bundling:started","_t":1791374004738,"id":"m","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791374004738,"id":"m","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791374004806,"id":"m","total":1,"ms":68.1338}
+{"_e":"metro:bundling:started","_t":1791374021750,"id":"n","platform":"android","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791374021750,"id":"n","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791374021824,"id":"n","total":1,"ms":73.2966}
+{"_e":"metro:bundling:started","_t":1791374408784,"id":"o","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791374408785,"id":"o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791374408788,"id":"o","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791374408891,"id":"o","progress":0.010000000000000002,"total":2,"current":1}
+{"_e":"metro:bundling:progress","_t":1791374408994,"id":"o","progress":0.15311909262759926,"total":92,"current":36}
+{"_e":"metro:bundling:progress","_t":1791374409097,"id":"o","progress":0.16165373578488682,"total":194,"current":78}
+{"_e":"metro:bundling:progress","_t":1791374409197,"id":"o","progress":0.24791232646487282,"total":239,"current":119}
+{"_e":"metro:bundling:progress","_t":1791374409297,"id":"o","progress":0.3137313920588918,"total":341,"current":191}
+{"_e":"metro:bundling:progress","_t":1791374409397,"id":"o","progress":0.6211231963891058,"total":387,"current":305}
+{"_e":"metro:bundling:progress","_t":1791374409498,"id":"o","progress":0.7826952669849213,"total":451,"current":399}
+{"_e":"metro:bundling:progress","_t":1791374409598,"id":"o","progress":0.7826952669849213,"total":488,"current":430}
+{"_e":"metro:bundling:progress","_t":1791374409698,"id":"o","progress":0.9810430839002269,"total":525,"current":520}
+{"_e":"metro:bundling:done","_t":1791374409755,"id":"o","total":525,"ms":970.6707}
+{"_e":"metro:client_log","_t":1791374410076,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791374410243,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 35 |\u001b[39m }\n \u001b[90m 36 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m\n \u001b[90m 39 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 40 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:37:14)\u001b[39m"]}
+{"_e":"root:init","_t":1791374445806,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1791374445807,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791374445811,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791374446239,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791374446987,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791374447490,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791374458588,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1791375157856,"id":"1","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375157856,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791375157862,"id":"1","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791375157963,"id":"1","progress":0.02366863905325444,"total":78,"current":12}
+{"_e":"metro:bundling:progress","_t":1791375158079,"id":"1","progress":0.16000000000000003,"total":195,"current":78}
+{"_e":"metro:bundling:progress","_t":1791375158179,"id":"1","progress":0.2548779338297672,"total":309,"current":156}
+{"_e":"metro:bundling:progress","_t":1791375158279,"id":"1","progress":0.4938867704255468,"total":397,"current":279}
+{"_e":"metro:bundling:progress","_t":1791375158395,"id":"1","progress":0.8103905025856268,"total":461,"current":415}
+{"_e":"metro:bundling:progress","_t":1791375158530,"id":"1","progress":0.9885606279407303,"total":523,"current":520}
+{"_e":"metro:bundling:done","_t":1791375158598,"id":"1","total":523,"ms":742.2296}
+{"_e":"metro:client_log","_t":1791375158933,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375159043,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 35 |\u001b[39m }\n \u001b[90m 36 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m\n \u001b[90m 39 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 40 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:37:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375169776,"id":"4","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375169776,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375169808,"id":"4","total":1,"ms":31.9307}
+{"_e":"metro:client_log","_t":1791375170050,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375170061,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 35 |\u001b[39m }\n \u001b[90m 36 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m\n \u001b[90m 39 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 40 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:37:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375272114,"id":"7","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375272114,"id":"7","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375272146,"id":"7","total":1,"ms":32.3532}
+{"_e":"metro:bundling:started","_t":1791375272459,"id":"8","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375272459,"id":"8","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375272496,"id":"8","total":1,"ms":36.1722}
+{"_e":"metro:client_log","_t":1791375272498,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375272515,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 25 |\u001b[39m }\n \u001b[90m 26 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 30 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:27:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375272788,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375272795,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 25 |\u001b[39m }\n \u001b[90m 26 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 27 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 28 |\u001b[39m\n \u001b[90m 29 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 30 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:27:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375274333,"id":"c","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375274333,"id":"c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375274369,"id":"c","total":1,"ms":35.9384}
+{"_e":"metro:bundling:started","_t":1791375274374,"id":"d","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375274374,"id":"d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375274410,"id":"d","total":1,"ms":35.1686}
+{"_e":"metro:client_log","_t":1791375274546,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375274552,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 35 |\u001b[39m }\n \u001b[90m 36 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m\n \u001b[90m 39 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 40 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:37:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375274599,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375274606,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 35 |\u001b[39m }\n \u001b[90m 36 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 37 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 38 |\u001b[39m\n \u001b[90m 39 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 40 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:37:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375337385,"id":"h","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375337385,"id":"h","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375337424,"id":"h","total":1,"ms":39.533}
+{"_e":"metro:bundling:started","_t":1791375337430,"id":"i","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375337430,"id":"i","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375337491,"id":"i","total":1,"ms":60.82}
+{"_e":"metro:client_log","_t":1791375337855,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375337862,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375337865,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375337875,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375338884,"id":"m","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375338884,"id":"m","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375338914,"id":"m","total":1,"ms":29.8333}
+{"_e":"metro:bundling:started","_t":1791375338915,"id":"n","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375338915,"id":"n","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375338946,"id":"n","total":1,"ms":31.434}
+{"_e":"metro:client_log","_t":1791375339176,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375339188,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 43 |\u001b[39m\n \u001b[90m 44 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 45 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 46 |\u001b[39m\n \u001b[90m 47 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 48 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:45:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375339238,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375339245,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 43 |\u001b[39m\n \u001b[90m 44 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 45 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 46 |\u001b[39m\n \u001b[90m 47 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 48 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:45:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375344547,"id":"r","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375344547,"id":"r","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375344582,"id":"r","total":1,"ms":35.4299}
+{"_e":"metro:bundling:started","_t":1791375344584,"id":"s","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375344584,"id":"s","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375344620,"id":"s","total":1,"ms":35.6134}
+{"_e":"metro:client_log","_t":1791375344789,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375344797,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375344807,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375344814,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375378201,"id":"w","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375378201,"id":"w","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375378230,"id":"w","total":1,"ms":28.4021}
+{"_e":"metro:bundling:started","_t":1791375378233,"id":"x","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375378233,"id":"x","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375378276,"id":"x","total":1,"ms":43.327}
+{"_e":"metro:client_log","_t":1791375378448,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375378455,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375378488,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375378499,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375381628,"id":"11","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375381628,"id":"11","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375381665,"id":"11","total":1,"ms":36.4551}
+{"_e":"metro:bundling:started","_t":1791375381666,"id":"12","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375381666,"id":"12","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375381699,"id":"12","total":1,"ms":32.9837}
+{"_e":"metro:client_log","_t":1791375381874,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375381881,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375381920,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375381924,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375398183,"id":"16","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375398183,"id":"16","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375398212,"id":"16","total":1,"ms":28.9661}
+{"_e":"metro:bundling:started","_t":1791375398221,"id":"17","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375398221,"id":"17","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375398250,"id":"17","total":1,"ms":29.2719}
+{"_e":"metro:client_log","_t":1791375398593,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375398596,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375398606,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375398611,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 42 |\u001b[39m }\n \u001b[90m 43 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 44 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 45 |\u001b[39m\n \u001b[90m 46 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 47 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:44:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375444381,"id":"1b","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375444381,"id":"1b","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375444428,"id":"1b","total":1,"ms":47.0623}
+{"_e":"metro:bundling:started","_t":1791375444433,"id":"1c","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375444433,"id":"1c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375444465,"id":"1c","total":1,"ms":31.2947}
+{"_e":"metro:client_log","_t":1791375444779,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375444789,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 46 |\u001b[39m }\n \u001b[90m 47 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 51 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:48:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375444909,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375444915,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 46 |\u001b[39m }\n \u001b[90m 47 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m\n \u001b[90m 50 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 51 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:48:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375450683,"id":"1g","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375450683,"id":"1g","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375450713,"id":"1g","total":1,"ms":30.5418}
+{"_e":"metro:bundling:started","_t":1791375450723,"id":"1h","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375450723,"id":"1h","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375450753,"id":"1h","total":1,"ms":29.9242}
+{"_e":"metro:client_log","_t":1791375450959,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375450967,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 45 |\u001b[39m }\n \u001b[90m 46 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m\n \u001b[90m 49 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 50 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:47:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375450975,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375450985,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 45 |\u001b[39m }\n \u001b[90m 46 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m\n \u001b[90m 49 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 50 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:47:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375453528,"id":"1l","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375453528,"id":"1l","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375453557,"id":"1l","total":1,"ms":29.1621}
+{"_e":"metro:bundling:started","_t":1791375453558,"id":"1m","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375453558,"id":"1m","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375453593,"id":"1m","total":1,"ms":34.7622}
+{"_e":"metro:client_log","_t":1791375453764,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375453770,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 44 |\u001b[39m }\n \u001b[90m 45 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m\n \u001b[90m 48 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 49 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:46:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375453786,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375453791,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 44 |\u001b[39m }\n \u001b[90m 45 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 46 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 47 |\u001b[39m\n \u001b[90m 48 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 49 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:46:14)\u001b[39m"]}
+{"_e":"metro:bundling:started","_t":1791375457418,"id":"1q","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375457419,"id":"1q","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375457457,"id":"1q","total":1,"ms":38.1818}
+{"_e":"metro:bundling:started","_t":1791375457458,"id":"1r","platform":"web","environment":null,"entry":"src\\components\\screens\\Home.js"}
+{"_e":"metro:bundling:progress","_t":1791375457458,"id":"1r","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1791375457494,"id":"1r","total":1,"ms":35.9388}
+{"_e":"metro:client_log","_t":1791375457646,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375457650,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 45 |\u001b[39m }\n \u001b[90m 46 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m\n \u001b[90m 49 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 50 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:47:14)\u001b[39m"]}
+{"_e":"metro:client_log","_t":1791375457671,"level":"info","data":["%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools","font-weight:bold"]}
+{"_e":"metro:client_log","_t":1791375457675,"level":"error","data":["[ReferenceError: Cannot access 'styles' before initialization]","\n\n\u001b[1mCode: Home.js\u001b[22m\n\u001b[0m \u001b[90m 45 |\u001b[39m }\n \u001b[90m 46 |\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 47 |\u001b[39m \u001b[33m<\u001b[39m\u001b[33mView\u001b[39m style\u001b[33m=\u001b[39m{styles\u001b[33m.\u001b[39mlinhaLaranja} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m    |\u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 48 |\u001b[39m\n \u001b[90m 49 |\u001b[39m \u001b[36mfunction\u001b[39m \u001b[33mCadastroItem\u001b[39m() {\n \u001b[90m 50 |\u001b[39m   \u001b[36mreturn\u001b[39m (\u001b[0m\n\u001b[1mCall Stack\u001b[22m\n\u001b[90m  <global> (src\\components\\screens\\Home.js:47:14)\u001b[39m"]}
+{"_e":"root:init","_t":1791375652623,"format":"v0-jsonl","version":"57.0.27"}
+{"_e":"env:mode","_t":1791375652624,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1791375652627,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1791375653012,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1791375653516,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1791375653909,"plugins":[]}

@@ -3,17 +3,15 @@ import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, Easing, } fr
 import { registerRootComponent } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Ionicons } from '@expo/vector-icons';
 
 function Home() {
-  const opacidade = useRef(new Animated.Value(0)).current;
+  const movimento = useRef(new Animated.Value(150)).current;
 
   useEffect(() => {
-    opacidade.setValue(0);
-
-    Animated.timing(opacidade, {
-      toValue: 1,
-      duration: 3000,
+    Animated.timing(movimento, {
+      toValue: 0,
+      duration: 500,
+      easing: Easing.out(Easing.ease),
       useNativeDriver: true,
     }).start();
   }, []);
@@ -21,19 +19,32 @@ function Home() {
   return (
     <View style={styles.homeContainer}>
 
-      <Animated.View style={{ opacity: opacidade }}>
-        <Text style={styles.welcome}>
-          Bem-vindo ao
-        </Text>
+      <Animated.View
+        style={[
+          styles.mensagem,
+          { transform: [{ translateY: movimento }],
+         },
+        ]}
+      >
+        <View style={styles.textoContainer}>
+          <Text style={styles.welcome}>
+            Bem-vindo ao
+          </Text>
 
-        <Text style={styles.title}>
-          Almoxarifado SENAI
-        </Text>
+          <Text style={styles.title}>
+            Almoxarifado SENAI!
+          </Text>
+        </View>
+
+        <View style={styles.linhaLaranja} />
+
       </Animated.View>
 
     </View>
   );
 }
+
+<View style={styles.linhaLaranja} />
 
 function CadastroItem() {
   return (
@@ -73,7 +84,7 @@ function App() {
             backgroundColor: '#ffffff',
             height: 110,
             borderBottomWidth: 4,
-            borderBottomColor: '#ff5500',
+            borderBottomColor: '#FF8C00',
             elevation: 0,
           },
 
@@ -153,29 +164,39 @@ const styles = StyleSheet.create({
   padding: 20,
 },
 
-welcome: {
-  color: '#ffffff',
-  fontSize: 28,
-  fontWeight: 'bold',
-  textAlign: 'center',
-  marginBottom: 10,
+  welcome: {
+    color: '#ffffff',
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 10,
 },
 
-title: {
-  color: '#ffffff',
-  fontSize: 36,
-  fontWeight: 'bold',
-  textAlign: 'center',
-  marginBottom: 15,
+  title: {
+    color: '#ffffff',
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 15,
 },
 
-subtitle: {
-  color: '#ffffff',
-  fontSize: 17,
-  textAlign: 'center',
-  opacity: 0.9,
+  subtitle: {
+    color: '#ffffff',
+    fontSize: 17,
+    textAlign: 'center',
+    opacity: 0.9,
+},
+  mensagem: {
+    alignItems: 'center',
+    marginBottom: 150,
+  
+  linhaLaranja: {
+    height: 3,
+    backgroundColor: '#FF6600',
+    width: '100%',
+    marginTop: -100,
+},
 },
 });
 
- 
 registerRootComponent(App);
