@@ -1,11 +1,12 @@
 {
   "name": "appalmox",
   "version": "1.0.0",
-  "main": "src/components/screens/Home.js",
+  "main": "src/components/screens/inicio.js",
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",
     "@react-navigation/drawer": "^7.14.3",
     "@react-navigation/native": "^7.5.0",
+    "@react-navigation/native-stack": "^7.21.0",
     "expo": "~57.0.26",
     "expo-status-bar": "~57.0.1",
     "react": "19.2.3",
