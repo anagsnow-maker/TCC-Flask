@@ -974,3 +974,8 @@
 {"_e":"devserver:start","_t":1791982538648,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
 {"_e":"metro:config","_t":1791982548063,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
 {"_e":"expo:dev-tools-plugin:load","_t":1791982552206,"plugins":[]}
+{"_e":"metro:instantiate","_t":1791982565240,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1791986572968,"id":"2","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1791986572970,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1791986575358,"id":"2","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:failed","_t":1791986583056,"id":"2","message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\pat\\TCC-Flask\\AppAlmox\\src\\components\\screens\\inicio.js: Identifier 'CadastroItem' has already been declared. (146:9)\n\n  144 | }\n  145 |\n> 146 | function CadastroItem() {\n      |          ^\n  147 |   return (\n  148 |     <View style={styles.center}>\n  149 |       <Text style={styles.textoTela}>","importStack":null,"filename":"src\\components\\screens\\inicio.js","targetModuleName":null,"originModulePath":null}
