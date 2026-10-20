@@ -1,5 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, Easing, } from 'react-native';
+
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  Animated,
+  Easing,
+} from 'react-native';
+
 import { registerRootComponent } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -11,16 +21,22 @@ function Home() {
   useEffect(() => {
     opacidade.setValue(0);
 
-    Animated.timing(opacidade, {
+    const animacao = Animated.timing(opacidade, {
       toValue: 1,
       duration: 3000,
+      easing: Easing.ease,
       useNativeDriver: true,
-    }).start();
-  }, []);
+    });
+
+    animacao.start();
+
+    return () => {
+      animacao.stop();
+    };
+  }, [opacidade]);
 
   return (
     <View style={styles.homeContainer}>
-
       <Animated.View style={{ opacity: opacidade }}>
         <Text style={styles.welcome}>
           Bem-vindo ao
@@ -30,7 +46,6 @@ function Home() {
           Almoxarifado SENAI
         </Text>
       </Animated.View>
-
     </View>
   );
 }
@@ -85,39 +100,81 @@ function App() {
 
           headerTitle: () => <HeaderLogo />,
 
+          // Botão para abrir o menu lateral
           headerLeft: () => (
             <TouchableOpacity
-              onPress={() => navigation.toggleDrawer()}
+              onPress={() => navigation.openDrawer()}
               style={styles.menuButton}
+              activeOpacity={0.7}
+              accessibilityRole="button"
+              accessibilityLabel="Abrir menu"
             >
-              <Text style={{ fontSize: 25 }}>☰</Text>
+              <Ionicons
+                name="menu"
+                size={28}
+                color="#002A54"
+              />
             </TouchableOpacity>
           ),
+
           drawerStyle: {
             backgroundColor: '#f4f4f9',
             width: 250,
           },
 
           drawerActiveTintColor: '#00529e',
-          drawerInactiveTintColor: '#333',
+          drawerInactiveTintColor: '#333333',
+
+          // Permite abrir o menu arrastando a tela
+          swipeEnabled: true,
         })}
       >
         <Drawer.Screen
           name="Home"
           component={Home}
-          options={{ drawerLabel: 'Início' }}
+          options={{
+            title: 'Início',
+            drawerLabel: 'Início',
+            drawerIcon: ({ color, size }) => (
+              <Ionicons
+                name="home-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
         />
 
         <Drawer.Screen
           name="CadastrodeItens"
           component={CadastroItem}
-          options={{ drawerLabel: 'Cadastro de Itens' }}
+          options={{
+            title: 'Cadastro de Itens',
+            drawerLabel: 'Cadastro de Itens',
+            drawerIcon: ({ color, size }) => (
+              <Ionicons
+                name="cube-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
         />
 
         <Drawer.Screen
           name="Movimentação"
           component={Movimentacao}
-          options={{ drawerLabel: 'Movimentações' }}
+          options={{
+            title: 'Movimentações',
+            drawerLabel: 'Movimentações',
+            drawerIcon: ({ color, size }) => (
+              <Ionicons
+                name="swap-horizontal-outline"
+                color={color}
+                size={size}
+              />
+            ),
+          }}
         />
       </Drawer.Navigator>
     </NavigationContainer>
@@ -140,42 +197,42 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     padding: 6,
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#cccccc',
     borderRadius: 6,
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   homeContainer: {
-  flex: 1,
-  backgroundColor: '#002A54',
-  justifyContent: 'center',
-  alignItems: 'center',
-  padding: 20,
-},
+    flex: 1,
+    backgroundColor: '#002A54',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
 
-welcome: {
-  color: '#ffffff',
-  fontSize: 28,
-  fontWeight: 'bold',
-  textAlign: 'center',
-  marginBottom: 10,
-},
+  welcome: {
+    color: '#ffffff',
+    fontSize: 28,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 10,
+  },
 
-title: {
-  color: '#ffffff',
-  fontSize: 36,
-  fontWeight: 'bold',
-  textAlign: 'center',
-  marginBottom: 15,
-},
+  title: {
+    color: '#ffffff',
+    fontSize: 36,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: 15,
+  },
 
-subtitle: {
-  color: '#ffffff',
-  fontSize: 17,
-  textAlign: 'center',
-  opacity: 0.9,
-},
+  subtitle: {
+    color: '#ffffff',
+    fontSize: 17,
+    textAlign: 'center',
+    opacity: 0.9,
+  },
 });
 
- 
 registerRootComponent(App);
