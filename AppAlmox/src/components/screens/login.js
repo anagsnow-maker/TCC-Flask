@@ -30,7 +30,6 @@ export default function Login({ navigation }) {
 
   <Text style={styles.titulo}>Login</Text>
 
-
     <TextInput
       style={styles.input}
       placeholder="Usuario ou e-mail"
