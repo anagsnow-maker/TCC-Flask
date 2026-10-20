@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, ScrollView, useWindowDimensions,} from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, ScrollView, useWindowDimensions, } from 'react-native';
+
 import { registerRootComponent } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -7,11 +8,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Login from './login';
 import CadastroItem from './cadastro-item';
-import CadastroUsuarios from './cadastro-usuarios';
-import Movimentacao from './movimentação';
+import CadastroUsuarios from './cadastro_usuarios';
+import Movimentacao from './movimentacao';
 
 const Drawer = createDrawerNavigator();
-
 const Stack = createNativeStackNavigator();
 
 function Home() {
@@ -65,7 +65,8 @@ function Home() {
           {materiais.length === 0 ? (
             <View style={styles.linhaVazia}>
               <Text style={styles.textoVazio}>
-                Nenhum material encontrado no banco de dados do Almoxarifado.
+                Nenhum material encontrado no banco de dados
+                do Almoxarifado.
               </Text>
             </View>
           ) : (
@@ -75,7 +76,10 @@ function Home() {
                 style={[
                   styles.cartaoMaterial,
                   {
-                    width: Math.min(width - 40, 600),
+                    width: Math.max(
+                      0,
+                      Math.min(width - 40, 600)
+                    ),
                   },
                 ]}
               >
@@ -99,30 +103,42 @@ function Home() {
 
                 <View style={styles.detalhesMaterial}>
                   <View style={styles.linhaDetalhe}>
-                    <Text style={styles.rotuloDetalhe}>Nome</Text>
+                    <Text style={styles.rotuloDetalhe}>
+                      Nome
+                    </Text>
                     <Text style={styles.valorDetalhe}>
                       {item.nome || '-'}
                     </Text>
                   </View>
 
                   <View style={styles.linhaDetalhe}>
-                    <Text style={styles.rotuloDetalhe}>Quantidade</Text>
+                    <Text style={styles.rotuloDetalhe}>
+                      Quantidade
+                    </Text>
                     <Text style={styles.valorDetalhe}>
                       {item.quantidade ?? '-'}
                     </Text>
                   </View>
 
                   <View style={styles.linhaDetalhe}>
-                    <Text style={styles.rotuloDetalhe}>Preço</Text>
+                    <Text style={styles.rotuloDetalhe}>
+                      Preço
+                    </Text>
                     <Text style={styles.valorDetalhe}>
-                      {item.preco != null ? `R$ ${item.preco}` : '-'}
+                      {item.preco != null
+                        ? `R$ ${item.preco}`
+                        : '-'}
                     </Text>
                   </View>
 
                   <View style={styles.linhaDetalhe}>
-                    <Text style={styles.rotuloDetalhe}>Estoque mínimo</Text>
+                    <Text style={styles.rotuloDetalhe}>
+                      Estoque mínimo
+                    </Text>
                     <Text style={styles.valorDetalhe}>
-                      {item.estoqueMinimo ?? item.estoque_minimo ?? '-'}
+                      {item.estoqueMinimo ??
+                        item.estoque_minimo ??
+                        '-'}
                     </Text>
                   </View>
 
@@ -144,25 +160,6 @@ function Home() {
   );
 }
 
-function CadastroItem() {
-  return (
-    <View style={styles.center}>
-      <Text style={styles.textoTela}>
-        
-      </Text>
-    </View>
-  );
-}
-
-function Movimentacao() {
-  return (
-    <View style={styles.center}>
-      <Text style={styles.textoTela}>
-        Movimentações
-      </Text>
-    </View>
-  );
-}
 
 function HeaderLogo() {
   return (
@@ -222,25 +219,37 @@ function MenuPrincipal() {
       <Drawer.Screen
         name="Home"
         component={Home}
-        options={{ drawerLabel: 'Início' }}
+        options={{
+          drawerLabel: 'Início',
+          title: 'Início',
+        }}
       />
 
       <Drawer.Screen
         name="CadastrodeItens"
         component={CadastroItem}
-        options={{ drawerLabel: 'Cadastro de Itens' }}
+        options={{
+          drawerLabel: 'Cadastro de Itens',
+          title: 'Cadastro de Itens',
+        }}
       />
 
       <Drawer.Screen
         name="CadastroUsuarios"
         component={CadastroUsuarios}
-        options={{ drawerLabel: 'Cadastro de Usuários' }}
+        options={{
+          drawerLabel: 'Cadastro de Usuários',
+          title: 'Cadastro de Usuários',
+        }}
       />
 
       <Drawer.Screen
         name="Movimentacao"
         component={Movimentacao}
-        options={{ drawerLabel: 'Movimentações' }}
+        options={{
+          drawerLabel: 'Movimentações',
+          title: 'Movimentações',
+        }}
       />
     </Drawer.Navigator>
   );
@@ -253,13 +262,17 @@ function Inicio() {
         <Stack.Screen
           name="Login"
           component={Login}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+          }}
         />
 
         <Stack.Screen
           name="Principal"
           component={MenuPrincipal}
-          options={{ headerShown: false }}
+          options={{
+            headerShown: false,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>
@@ -307,13 +320,6 @@ const styles = StyleSheet.create({
   areaTabela: {
     flex: 1,
     width: '100%',
-  },
-
-  tituloTabela: {
-    color: '#FFFFFF',
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 12,
   },
 
   listaMateriais: {
@@ -426,21 +432,6 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
 
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#002A54',
-    padding: 20,
-  },
-
-  textoTela: {
-    color: '#FFFFFF',
-    fontSize: 22,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-
   logo: {
     width: 130,
     height: 40,
@@ -460,8 +451,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#000000',
   },
-
-
 });
 
 registerRootComponent(Inicio);
