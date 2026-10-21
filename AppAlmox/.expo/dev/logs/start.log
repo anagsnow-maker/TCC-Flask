@@ -2848,3 +2848,154 @@
 {"_e":"devserver:start","_t":1792585153388,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
 {"_e":"metro:config","_t":1792585153931,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
 {"_e":"expo:dev-tools-plugin:load","_t":1792585154308,"plugins":[]}
+{"_e":"root:init","_t":1792587838725,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792587838727,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792587838750,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792587842868,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792587850441,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792587854307,"plugins":[]}
+{"_e":"metro:instantiate","_t":1792587863561,"atlas":false,"workers":3,"host":"::","port":8081}
+{"_e":"metro:bundling:started","_t":1792588091353,"id":"4","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792588091354,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792588091361,"id":"4","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792588097364,"id":"4","progress":0.010000000000000002,"total":1,"current":1}
+{"_e":"metro:bundling:progress","_t":1792588097464,"id":"4","progress":0.010000000000000002,"total":51,"current":5}
+{"_e":"metro:bundling:progress","_t":1792588097573,"id":"4","progress":0.010000000000000002,"total":151,"current":7}
+{"_e":"metro:bundling:progress","_t":1792588097656,"id":"4","progress":0.010000000000000002,"total":151,"current":8}
+{"_e":"metro:bundling:progress","_t":1792588097807,"id":"4","progress":0.010000000000000002,"total":153,"current":11}
+{"_e":"metro:bundling:progress","_t":1792588098377,"id":"4","progress":0.010000000000000002,"total":153,"current":12}
+{"_e":"metro:bundling:progress","_t":1792588098476,"id":"4","progress":0.010000000000000002,"total":172,"current":12}
+{"_e":"metro:bundling:progress","_t":1792588098632,"id":"4","progress":0.010000000000000002,"total":172,"current":13}
+{"_e":"metro:bundling:progress","_t":1792588098737,"id":"4","progress":0.046265574937700255,"total":265,"current":57}
+{"_e":"metro:bundling:progress","_t":1792588098841,"id":"4","progress":0.0471882057540434,"total":267,"current":58}
+{"_e":"metro:bundling:progress","_t":1792588098941,"id":"4","progress":0.11683264706821157,"total":354,"current":121}
+{"_e":"metro:bundling:progress","_t":1792588099061,"id":"4","progress":0.1311238778761164,"total":417,"current":151}
+{"_e":"metro:bundling:progress","_t":1792588099165,"id":"4","progress":0.13286636877548322,"total":417,"current":152}
+{"_e":"metro:bundling:progress","_t":1792588099341,"id":"4","progress":0.13462036126494487,"total":417,"current":153}
+{"_e":"metro:bundling:progress","_t":1792588099441,"id":"4","progress":0.14021944866100708,"total":462,"current":173}
+{"_e":"metro:bundling:progress","_t":1792588099542,"id":"4","progress":0.20593332180849944,"total":487,"current":221}
+{"_e":"metro:bundling:progress","_t":1792588099676,"id":"4","progress":0.23675735327237513,"total":596,"current":290}
+{"_e":"metro:bundling:progress","_t":1792588099776,"id":"4","progress":0.27040000000000003,"total":675,"current":351}
+{"_e":"metro:bundling:progress","_t":1792588099880,"id":"4","progress":0.2780972089171448,"total":713,"current":376}
+{"_e":"metro:bundling:progress","_t":1792588099972,"id":"4","progress":0.2795784164652054,"total":713,"current":377}
+{"_e":"metro:bundling:progress","_t":1792588100074,"id":"4","progress":0.2859278549382716,"total":720,"current":385}
+{"_e":"metro:bundling:progress","_t":1792588100215,"id":"4","progress":0.2859278549382716,"total":730,"current":390}
+{"_e":"metro:bundling:progress","_t":1792588100315,"id":"4","progress":0.2859278549382716,"total":736,"current":392}
+{"_e":"metro:bundling:progress","_t":1792588100416,"id":"4","progress":0.2859278549382716,"total":758,"current":399}
+{"_e":"metro:bundling:progress","_t":1792588100534,"id":"4","progress":0.2859278549382716,"total":769,"current":404}
+{"_e":"metro:bundling:progress","_t":1792588100634,"id":"4","progress":0.2859278549382716,"total":787,"current":411}
+{"_e":"metro:bundling:progress","_t":1792588100737,"id":"4","progress":0.2859278549382716,"total":795,"current":416}
+{"_e":"metro:bundling:progress","_t":1792588100837,"id":"4","progress":0.2859278549382716,"total":798,"current":418}
+{"_e":"metro:bundling:progress","_t":1792588100939,"id":"4","progress":0.32612711446168796,"total":809,"current":462}
+{"_e":"metro:bundling:progress","_t":1792588101041,"id":"4","progress":0.3324020728547477,"total":810,"current":467}
+{"_e":"metro:bundling:progress","_t":1792588101141,"id":"4","progress":0.4065937716262976,"total":850,"current":542}
+{"_e":"metro:bundling:progress","_t":1792588101241,"id":"4","progress":0.4387281766678229,"total":930,"current":616}
+{"_e":"metro:bundling:progress","_t":1792588101426,"id":"4","progress":0.5581979125379839,"total":957,"current":715}
+{"_e":"metro:bundling:progress","_t":1792588101532,"id":"4","progress":0.5664212150400321,"total":958,"current":721}
+{"_e":"metro:bundling:progress","_t":1792588101649,"id":"4","progress":0.5746873100564217,"total":959,"current":727}
+{"_e":"metro:bundling:progress","_t":1792588101753,"id":"4","progress":0.5901178245253089,"total":962,"current":739}
+{"_e":"metro:bundling:progress","_t":1792588101854,"id":"4","progress":0.6038685312808519,"total":969,"current":753}
+{"_e":"metro:bundling:progress","_t":1792588101955,"id":"4","progress":0.6321150650003553,"total":971,"current":772}
+{"_e":"metro:bundling:progress","_t":1792588102058,"id":"4","progress":0.6512191728261283,"total":974,"current":786}
+{"_e":"metro:bundling:progress","_t":1792588102158,"id":"4","progress":0.6534834522571624,"total":1002,"current":810}
+{"_e":"metro:bundling:progress","_t":1792588102264,"id":"4","progress":0.6723358136649293,"total":1022,"current":838}
+{"_e":"metro:bundling:progress","_t":1792588102364,"id":"4","progress":0.6745276063100137,"total":1080,"current":887}
+{"_e":"metro:bundling:progress","_t":1792588102464,"id":"4","progress":0.7245342021792803,"total":1129,"current":961}
+{"_e":"metro:bundling:progress","_t":1792588102606,"id":"4","progress":0.7260428622647475,"total":1129,"current":962}
+{"_e":"metro:bundling:progress","_t":1792588102709,"id":"4","progress":0.7344777434409737,"total":1133,"current":971}
+{"_e":"metro:bundling:progress","_t":1792588102810,"id":"4","progress":0.7548795191926205,"total":1136,"current":987}
+{"_e":"metro:bundling:progress","_t":1792588102910,"id":"4","progress":0.7708192498232896,"total":1139,"current":1000}
+{"_e":"metro:bundling:progress","_t":1792588103010,"id":"4","progress":0.7731372199409743,"total":1226,"current":1078}
+{"_e":"metro:bundling:progress","_t":1792588103112,"id":"4","progress":0.7731372199409743,"total":1295,"current":1128}
+{"_e":"metro:bundling:progress","_t":1792588103212,"id":"4","progress":0.7731372199409743,"total":1297,"current":1137}
+{"_e":"metro:bundling:progress","_t":1792588103312,"id":"4","progress":0.7731372199409743,"total":1398,"current":1212}
+{"_e":"metro:bundling:progress","_t":1792588103413,"id":"4","progress":0.7960043155798834,"total":1447,"current":1291}
+{"_e":"metro:bundling:progress","_t":1792588103523,"id":"4","progress":0.7972379524588918,"total":1447,"current":1292}
+{"_e":"metro:bundling:progress","_t":1792588103623,"id":"4","progress":0.7977653663126406,"total":1451,"current":1296}
+{"_e":"metro:bundling:progress","_t":1792588103723,"id":"4","progress":0.844813681969762,"total":1484,"current":1364}
+{"_e":"metro:bundling:progress","_t":1792588103833,"id":"4","progress":0.8919753086419753,"total":1530,"current":1445}
+{"_e":"metro:bundling:progress","_t":1792588103933,"id":"4","progress":0.8983527857881127,"total":1533,"current":1453}
+{"_e":"metro:bundling:progress","_t":1792588104034,"id":"4","progress":0.9318034809780175,"total":1585,"current":1530}
+{"_e":"metro:bundling:progress","_t":1792588104134,"id":"4","progress":0.9510668942415641,"total":1655,"current":1614}
+{"_e":"metro:bundling:progress","_t":1792588104235,"id":"4","progress":0.999,"total":1669,"current":1669}
+{"_e":"metro:bundling:done","_t":1792588104440,"id":"4","total":1669,"ms":13087.0107}
+{"_e":"metro:bundling:started","_t":1792588540223,"id":"9","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792588540223,"id":"9","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792588540318,"id":"9","total":1,"ms":94.7282}
+{"_e":"metro:bundling:started","_t":1792588606835,"id":"c","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792588606835,"id":"c","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792588606910,"id":"c","total":1,"ms":74.9276}
+{"_e":"metro:bundling:started","_t":1792588607077,"id":"d","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792588607078,"id":"d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792588607160,"id":"d","total":1,"ms":82.9826}
+{"_e":"metro:bundling:started","_t":1792588684521,"id":"h","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792588684522,"id":"h","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792588684594,"id":"h","total":1,"ms":72.533}
+{"_e":"metro:bundling:failed","_t":1792589057394,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token, expected \"...\" (39:37)\n\n  37 |             />\n  38 |\n> 39 |             {/* Quantidade e preço */}\n     |                                      ^\n  40 |             <View style={styles.row}>\n  41 |               <TextInput\n  42 |                 label=\"Quantidade\"","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589058993,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: JSX attributes must only be assigned a non-empty expression. (28:24)\n\n  26 |             </Text>\n  27 |\n> 28 |             <Text style={}\n     |                         ^\n  29 |\n  30 |             <TextInput\n  31 |               label=\"ITEM\"","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589075957,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: JSX attributes must only be assigned a non-empty expression. (28:24)\n\n  26 |             </Text>\n  27 |\n> 28 |             <Text style={}\n     |                         ^\n  29 |\n  30 |             <TextInput\n  31 |               placeholder=\"Ex: Multímetro Digital\"","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589077359,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: JSX attributes must only be assigned a non-empty expression. (28:24)\n\n  26 |             </Text>\n  27 |\n> 28 |             <Text style={}\n     |                         ^\n  29 |             <TextInput\n  30 |               placeholder=\"Ex: Multímetro Digital\"\n  31 |               mode=\"outlined\"","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589078893,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: JSX attributes must only be assigned a non-empty expression. (28:24)\n\n  26 |             </Text>\n  27 |\n> 28 |             <Text style={}\n     |                         ^\n  29 |\n  30 |             \n  31 |             <TextInput","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589133667,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: JSX attributes must only be assigned a non-empty expression. (28:24)\n\n  26 |             </Text>\n  27 |\n> 28 |             <Text style={}\n     |                         ^\n  29 |\n  30 |             \n  31 |             <TextInput","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:started","_t":1792589264320,"id":"m","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792589264320,"id":"m","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792589264386,"id":"m","total":1,"ms":66.6447}
+{"_e":"metro:bundling:failed","_t":1792589639656,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token, expected \",\" (136:4)\n\n  134 |        label: {\n  135 |      fontSize: 11,\n> 136 |   c olor: '#002A54',\n      |     ^\n  137 |   marginBottom: 5,\n  138 | },\n  139 |","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589690921,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token, expected \"}\" (39:10)\n\n  37 |             />\n  38 | label: {\n> 39 |   fontSize: 11,\n     |           ^\n  40 |   color: '#002A54',\n  41 |   marginBottom: 5,\n  42 | },","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:started","_t":1792589724553,"id":"r","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792589724553,"id":"r","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792589724621,"id":"r","total":1,"ms":68.7684}
+{"_e":"metro:bundling:failed","_t":1792589727220,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Expected corresponding JSX closing tag for <View>. (113:10)\n\n  111 |             </Button>\n  112 |\n> 113 |           </Card.Content>\n      |           ^\n  114 |         </Card>\n  115 |       </ScrollView>\n  116 |","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589813934,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Expected corresponding JSX closing tag for <Card.Content>. (78:12)\n\n  76 |\n  77 |            \n> 78 |             </View>\n     |             ^\n  79 |\n  80 |             {/* Botão salvar */}\n  81 |             <Button","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589819669,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token, expected \"jsxTagEnd\" (77:12)\n\n  75 |             </View\n  76 |\n> 77 |             {/* Botão salvar */}\n     |             ^\n  78 |             <Button\n  79 |               mode=\"contained\"\n  80 |               buttonColor=\"orange\"","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589854794,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Expected corresponding JSX closing tag for <Card.Content>. (67:12)\n\n  65 |                 style={[styles.input, styles.half]}\n  66 |               />\n> 67 |             </View>\n     |             ^\n  68 |\n  69 |\n  70 |             {/* Botão salvar */}","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589929620,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Expected corresponding JSX closing tag for <View>. (81:10)\n\n  79 |             </Button>\n  80 |\n> 81 |           </Card.Content>\n     |           ^\n  82 |         </Card>\n  83 |       </ScrollView>\n  84 |","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792589932611,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Expected corresponding JSX closing tag for <View>. (82:10)\n\n  80 |             </Button>\n  81 |\n> 82 |           </Card.Content>\n     |           ^\n  83 |         </Card>\n  84 |       </ScrollView>\n  85 |","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1792590147058,"level":"error","data":["Text strings must be rendered within a <Text> component."]}
+{"_e":"metro:client_log","_t":1792590148336,"level":"error","data":["Text strings must be rendered within a <Text> component."]}
+{"_e":"metro:client_log","_t":1792590151901,"level":"error","data":["Text strings must be rendered within a <Text> component."]}
+{"_e":"metro:client_log","_t":1792590159021,"level":"error","data":["Text strings must be rendered within a <Text> component."]}
+{"_e":"metro:client_log","_t":1792590161575,"level":"error","data":["Text strings must be rendered within a <Text> component."]}
+{"_e":"metro:client_log","_t":1792590166474,"level":"error","data":["[ReferenceError: Property 'fontsize' doesn't exist]"]}
+{"_e":"metro:bundling:failed","_t":1792590169234,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token, expected \"}\" (30:22)\n\n  28 |             <Text style={styles.label}>ITEM</Text>\n  29 |             label: {\n> 30 |               fontsize: 11\n     |                       ^\n  31 |             }\n  32 |\n  33 |             <TextInput","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:client_log","_t":1792590318754,"level":"error","data":["Text strings must be rendered within a <Text> component."]}
+{"_e":"metro:client_log","_t":1792590319676,"level":"error","data":["Text strings must be rendered within a <Text> component."]}
+{"_e":"metro:bundling:failed","_t":1792590343340,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token (34:24)\n\n  32 |             <TextInput\n  33 |               label=\"Selecione um item\"\n> 34 |               fontSize: 14,\n     |                         ^\n  35 |               placeholder=\"Ex: Multímetro Digital\"\n  36 |               mode=\"outlined\"\n  37 |               outlineColor=\"#CCCCCC\"","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:started","_t":1792590548151,"id":"1d","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792590548151,"id":"1d","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:done","_t":1792590548226,"id":"1d","total":1,"ms":75.2714}
+{"_e":"root:init","_t":1792591926617,"format":"v0-jsonl","version":"57.0.31"}
+{"_e":"env:mode","_t":1792591926618,"nodeEnv":"development","babelEnv":"development","mode":"development"}
+{"_e":"env:load","_t":1792591926622,"mode":"development","files":[],"env":{}}
+{"_e":"devserver:start","_t":1792592027783,"mode":"development","web":true,"baseUrl":"","asyncRoutes":false,"routerRoot":"../..\\..\\app","serverComponents":false,"serverActions":false,"serverRendering":false,"apiRoutes":false,"exporting":false}
+{"_e":"metro:config","_t":1792592028410,"serverRoot":"../..\\..","projectRoot":"../..\\..","exporting":false,"flags":{"autolinkingModuleResolution":false,"serverActions":false,"serverComponents":false,"reactCompiler":false,"optimizeGraph":false,"treeshaking":false,"logbox":false}}
+{"_e":"expo:dev-tools-plugin:load","_t":1792592028839,"plugins":[]}
+{"_e":"metro:instantiate","_t":1792592036052,"atlas":false,"workers":3,"host":"::","port":8082}
+{"_e":"metro:bundling:started","_t":1792592284109,"id":"3","platform":"android","environment":null,"entry":"src\\components\\screens\\inicio.js"}
+{"_e":"metro:bundling:progress","_t":1792592284109,"id":"3","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792592284116,"id":"3","progress":0,"total":1,"current":0}
+{"_e":"metro:bundling:progress","_t":1792592284216,"id":"3","progress":0.003996564935922844,"total":174,"current":11}
+{"_e":"metro:bundling:progress","_t":1792592284316,"id":"3","progress":0.04776106311126705,"total":302,"current":66}
+{"_e":"metro:bundling:progress","_t":1792592284416,"id":"3","progress":0.14512471655328796,"total":399,"current":152}
+{"_e":"metro:bundling:progress","_t":1792592284516,"id":"3","progress":0.20583116841349194,"total":529,"current":240}
+{"_e":"metro:bundling:progress","_t":1792592284616,"id":"3","progress":0.25507601265177027,"total":693,"current":350}
+{"_e":"metro:bundling:progress","_t":1792592284722,"id":"3","progress":0.31899020211500406,"total":818,"current":462}
+{"_e":"metro:bundling:progress","_t":1792592284822,"id":"3","progress":0.4365696157267808,"total":899,"current":594}
+{"_e":"metro:bundling:progress","_t":1792592284927,"id":"3","progress":0.5425434395879976,"total":987,"current":727}
+{"_e":"metro:bundling:progress","_t":1792592285076,"id":"3","progress":0.6527360062738948,"total":1010,"current":816}
+{"_e":"metro:bundling:progress","_t":1792592285256,"id":"3","progress":0.6543368297225763,"total":1010,"current":817}
+{"_e":"metro:bundling:progress","_t":1792592285357,"id":"3","progress":0.775499379806918,"total":1089,"current":959}
+{"_e":"metro:bundling:progress","_t":1792592285474,"id":"3","progress":0.7845787479035462,"total":1138,"current":1008}
+{"_e":"metro:bundling:progress","_t":1792592285574,"id":"3","progress":0.7878051664339444,"total":1192,"current":1058}
+{"_e":"metro:bundling:progress","_t":1792592285674,"id":"3","progress":0.7878051664339444,"total":1353,"current":1172}
+{"_e":"metro:bundling:progress","_t":1792592285774,"id":"3","progress":0.7999767055958542,"total":1468,"current":1313}
+{"_e":"metro:bundling:progress","_t":1792592285897,"id":"3","progress":0.9007014195202054,"total":1531,"current":1453}
+{"_e":"metro:bundling:progress","_t":1792592285997,"id":"3","progress":0.9608840115836002,"total":1620,"current":1588}
+{"_e":"metro:bundling:done","_t":1792592286211,"id":"3","total":1620,"ms":2101.6575}
+{"_e":"metro:bundling:failed","_t":1792592321432,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token (100:15)\n\n   98 |\n   99 |        label: {\n> 100 |      fontSize: ,\n      |                ^\n  101 |      fontWeight: 'bold',\n  102 |      color: '#002A54',\n  103 |        marginBottom: 5,","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792592321624,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token (100:15)\n\n   98 |\n   99 |        label: {\n> 100 |      fontSize: ,\n      |                ^\n  101 |      fontWeight: 'bold',\n  102 |      color: '#002A54',\n  103 |        marginBottom: 5,","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792592321703,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token (100:15)\n\n   98 |\n   99 |        label: {\n> 100 |      fontSize: ,\n      |                ^\n  101 |      fontWeight: 'bold',\n  102 |      color: '#002A54',\n  103 |        marginBottom: 5,","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792592342972,"id":null,"message":"SyntaxError: C:\\Users\\Aluno\\Desktop\\porra2\\TCC-Flask\\AppAlmox\\src\\components\\screens\\movimentacao.js: Unexpected token (103:21)\n\n  101 |      fontWeight: 'bold',\n  102 |      color: '#002A54',\n> 103 |        marginBottom: ,\n      |                      ^\n  104 | },\n  105 |\n  106 |","importStack":null,"filename":"src\\components\\screens\\movimentacao.js","targetModuleName":null,"originModulePath":null}
+{"_e":"metro:bundling:failed","_t":1792592504687,"id":null,"message":"Unable to resolve \"react-native-picker\" from \"src\\components\\screens\\movimentacao.js\"\n> 1 | import { StyleSheet, Text, View, ScrollView, Image, PaperProvider, Picker, } from 'react-native-picker';\n    |                                                                                    ^\n  2 | import { Card, Button, TextInput } from 'react-native-paper';\n  3 |\n  4 | export default function App() {","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc\\components\\screens\\movimentacao.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"react-native-picker\"\u001b[39m\n\n\u001b[90m \u001b[39msrc\\components\\screens\\inicio.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./movimentacao\"\u001b[39m\n\n\u001b[90m \u001b[39m\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/components/screens/inicio\"\u001b[39m\n","filename":null,"targetModuleName":"react-native-picker","originModulePath":"src\\components\\screens\\movimentacao.js"}
+{"_e":"metro:bundling:failed","_t":1792592508895,"id":null,"message":"Unable to resolve \"react-native-picker/picker\" from \"src\\components\\screens\\movimentacao.js\"\n> 1 | import { StyleSheet, Text, View, ScrollView, Image, PaperProvider, Picker, } from 'react-native-picker/picker';\n    |                                                                                    ^\n  2 | import { Card, Button, TextInput } from 'react-native-paper';\n  3 |\n  4 | export default function App() {","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc\\components\\screens\\movimentacao.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"react-native-picker/picker\"\u001b[39m\n\n\u001b[90m \u001b[39msrc\\components\\screens\\inicio.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./movimentacao\"\u001b[39m\n\n\u001b[90m \u001b[39m\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/components/screens/inicio\"\u001b[39m\n","filename":null,"targetModuleName":"react-native-picker/picker","originModulePath":"src\\components\\screens\\movimentacao.js"}
+{"_e":"metro:bundling:failed","_t":1792592511091,"id":null,"message":"Unable to resolve \"react-native-picker/picker\" from \"src\\components\\screens\\movimentacao.js\"\n> 1 | import { StyleSheet, Text, View, ScrollView, Image, PaperProvider, Picker, } from 'react-native-picker/picker';\n    |                                                                                    ^\n  2 | import { Card, Button, TextInput } from 'react-native-paper';\n  3 |\n  4 | export default function App() {","importStack":"\u001b[1mImport stack:\u001b[22m\n\n\u001b[90m \u001b[39msrc\\components\\screens\\movimentacao.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"react-native-picker/picker\"\u001b[39m\n\n\u001b[90m \u001b[39msrc\\components\\screens\\inicio.js\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./movimentacao\"\u001b[39m\n\n\u001b[90m \u001b[39m\n\u001b[90m |\u001b[39m \u001b[36mimport\u001b[39m \u001b[32m\"./src/components/screens/inicio\"\u001b[39m\n","filename":null,"targetModuleName":"react-native-picker/picker","originModulePath":"src\\components\\screens\\movimentacao.js"}

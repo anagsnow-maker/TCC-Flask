@@ -1,27 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image, PaperProvider, } from 'react-native';
 import { Card, Button, TextInput } from 'react-native-paper';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      
-      {/* Barra superior */}
-      <View style={styles.navBar}>
-        <View style={styles.menu}>
-          <View style={styles.line} />
-          <View style={styles.line} />
-          <View style={styles.line} />
-        </View>
-
-        <Image
-          source={{
-            uri: 'https://upload.wikimedia.org/wikipedia/commons/0/05/SENAI_logo_2024.png',
-          }}
-          style={styles.logoImage}
-          resizeMode="contain"
-        />
-      </View>
+       
 
       {/* Formulário */}
       <ScrollView
@@ -30,15 +13,17 @@ export default function App() {
       >
         <Card style={styles.card}>
           <Card.Content>
-            <Image
-              source={{
-                uri: 'https://logodownload.org/wp-content/uploads/2019/08/senai-logo-1.png',
-              }}
-              style={styles.formLogoImage}
-              resizeMode="contain"
-            />
-            
-            <Text style={styles.title}>CADASTRO DE ITEM</Text>
+
+           <Image
+            source={{
+       uri: 'https://logodownload.org/wp-content/uploads/2019/08/senai-logo-1.png'
+       }}
+       style={styles.formLogoImage}
+           resizeMode="contain"
+/>
+            <Text style={styles.title}>
+              CADASTRO DE ITEM
+            </Text>
 
             <TextInput
               label="Nome do item"
@@ -56,7 +41,7 @@ export default function App() {
                 placeholder="0"
                 keyboardType="numeric"
                 mode="outlined"
-                outlineColor="#CCCCCC"
+                 outlineColor="#CCCCCC"
                 activeOutlineColor="#FF9000"
                 style={[styles.input, styles.half]}
               />
@@ -67,7 +52,7 @@ export default function App() {
                 keyboardType="decimal-pad"
                 mode="outlined"
                 outlineColor="#CCCCCC"
-                activeOutlineColor="#FF9000"
+               activeOutlineColor="#FF9000"        
                 style={[styles.input, styles.half]}
               />
             </View>
@@ -89,7 +74,7 @@ export default function App() {
                 keyboardType="numeric"
                 mode="outlined"
                 outlineColor="#CCCCCC"
-                activeOutlineColor="#FF9000"
+               activeOutlineColor="#FF9000"
                 style={[styles.input, styles.half]}
               />
             </View>
@@ -107,9 +92,9 @@ export default function App() {
             />
 
             {/* Foto do item */}
-            <Text style={styles.photoLabel}>
-              FOTO DO ITEM (OBRIGATÓRIO)
-            </Text>
+          <Text style={styles.photoLabel}>
+          FOTO DO ITEM (OBRIGATÓRIO)
+           </Text>
             <View style={styles.photoBox}>
               <Text style={styles.photoText}>
                 Selecione uma foto do item
@@ -119,13 +104,17 @@ export default function App() {
             {/* Botão salvar */}
             <Button
               mode="contained"
-              buttonColor="#FF9000"
+              buttonColor="orange"
               textColor="#FFFFFF"
               style={styles.saveButton}
               onPress={() => {}}
+               theme={{ colors: { primary: '#FF9000' } }}
+            
+
             >
               SALVAR ITEM
             </Button>
+
           </Card.Content>
         </Card>
       </ScrollView>
@@ -136,21 +125,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    padding: 24,
     flex: 1,
     backgroundColor: '#002A54',
   },
 
-  navBar: {
-    height: 65,
-    backgroundColor: '#FFFFFF',
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 10,
-    borderBottomWidth: 3,
-    borderBottomColor: '#FF9000',
-  },
+
 
   menu: {
     width: 42,
@@ -159,8 +138,10 @@ const styles = StyleSheet.create({
     borderColor: '#DDDDDD',
     borderRadius: 5,
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
+    alignItems: 'center',
+    marginRight: 12,
   },
+
   line: {
     width: 22,
     height: 2,
@@ -168,10 +149,7 @@ const styles = StyleSheet.create({
     marginVertical: 3,
   },
 
-  logoImage: {
-    width: 180,
-    height: 45,
-  },
+
 
   formContainer: {
     flexGrow: 1,
@@ -188,13 +166,13 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
 
-  formLogoImage: {
-    width: '100%',
-    height: 60,
-    alignSelf: 'center',
-    marginTop: 8,
-    marginBottom: 18,
-  },
+ formLogoImage: {
+  width: 290,
+  height: 80,
+  alignSelf: 'center',
+  marginTop: 8,
+  marginBottom: 18,
+},
 
   title: {
     fontSize: 16,
@@ -204,12 +182,10 @@ const styles = StyleSheet.create({
     marginBottom: 22,
   },
 
+
   input: {
-    backgroundColor: '#FFFFFF',
-    height: 52,
-    borderColor: '#D0D7DE',
-    borderRadius: 10,
-    marginBottom: 14,
+  backgroundColor: '#FFFFFF',
+  marginBottom: 14,
   },
 
   row: {
@@ -250,7 +226,8 @@ const styles = StyleSheet.create({
   },
 
   saveButton: {
-    borderRadius: 6,
-    paddingVertical: 7,
+    borderRadius: 9,
+    paddingVertical: 3,
+    buttonColor: 'orange',
   },
 });
