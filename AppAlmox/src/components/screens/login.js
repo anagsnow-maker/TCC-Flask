@@ -28,7 +28,7 @@ export default function Login({ navigation }) {
     resizeMode="contain"
   />
 
-  <Text style={styles.titulo}>Login</Text>
+  <Text style={styles.titulo}>Seja bem-vindo</Text>
 
 
     <TextInput

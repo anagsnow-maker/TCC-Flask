@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, ScrollView, useWindowDimensions, } from 'react-native';
+import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, ScrollView, useWindowDimensions } from 'react-native';
 
 import { registerRootComponent } from 'expo';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Ionicons } from '@expo/vector-icons';
 
 import Login from './login';
 import CadastroItem from './cadastro-item';
@@ -174,82 +175,87 @@ function HeaderLogo() {
 function MenuPrincipal() {
   return (
     <Drawer.Navigator
-      initialRouteName="Home"
-      screenOptions={({ navigation }) => ({
-        headerStyle: {
-          backgroundColor: '#FFFFFF',
-          height: 110,
-          borderBottomWidth: 4,
-          borderBottomColor: '#FF5500',
-          elevation: 0,
-        },
+  initialRouteName="Home"
+  screenOptions={({ navigation, route }) => ({
+    headerStyle: {
+      backgroundColor: '#FFFFFF',
+      height: 110,
+      borderBottomWidth: 4,
+      borderBottomColor: '#FF5500',
+      elevation: 0,
+    },
 
-        headerTitleAlign: 'left',
+    headerTitleAlign: 'left',
+    headerTitleContainerStyle: {
+      left: 5,
+    },
+    headerTitle: () => <HeaderLogo />,
 
-        headerTitleContainerStyle: {
-          left: 5,
-        },
+    headerLeft: () => (
+      <TouchableOpacity
+        onPress={() => navigation.toggleDrawer()}
+        style={styles.menuButton}
+        accessibilityRole="button"
+        accessibilityLabel="Abrir menu lateral"
+      >
+        <Ionicons
+          name="menu-outline"
+          size={28}
+          color="#000000"
+        />
+      </TouchableOpacity>
+    ),
 
-        headerTitle: () => <HeaderLogo />,
+    drawerStyle: {
+      backgroundColor: '#F4F4F9',
+      width: 250,
+    },
 
-        headerLeft: () => (
-          <TouchableOpacity
-            onPress={() => navigation.toggleDrawer()}
-            style={styles.menuButton}
-            accessibilityRole="button"
-            accessibilityLabel="Abrir menu lateral"
-          >
-            <Text style={styles.menuIcon}>☰</Text>
-          </TouchableOpacity>
-        ),
+    drawerActiveTintColor: '#00529E',
+    drawerInactiveTintColor: '#333333',
 
-        drawerStyle: {
-          backgroundColor: '#F4F4F9',
-          width: 250,
-        },
+    drawerLabelStyle: {
+      fontSize: 15,
+      marginLeft: 2,
+    },
 
-        drawerActiveTintColor: '#00529E',
-        drawerInactiveTintColor: '#333333',
+    drawerIcon: ({ color, size }) => {
+      const icones = {
+        Home: 'home-outline',
+        CadastrodeItens: 'cube-outline',
+        CadastroUsuarios: 'people-outline',
+        Movimentacao: 'swap-horizontal-outline',
+      };
 
-        drawerLabelStyle: {
-          fontSize: 15,
-        },
-      })}
-    >
+      return (
+        <Ionicons
+          name={icones[route.name] || 'ellipse-outline'}
+          size={size}
+          color={color}
+        />
+      );
+    },
+  })}
+>
       <Drawer.Screen
         name="Home"
         component={Home}
-        options={{
-          drawerLabel: 'Início',
-          title: 'Início',
-        }}
+        options={{ title: 'Início', drawerLabel: 'Início' }}
       />
-
       <Drawer.Screen
         name="CadastrodeItens"
         component={CadastroItem}
-        options={{
-          drawerLabel: 'Cadastro de Itens',
-          title: 'Cadastro de Itens',
-        }}
+        options={{ title: 'Cadastro de Itens', drawerLabel: 'Cadastro de Itens' }}
       />
-
       <Drawer.Screen
         name="CadastroUsuarios"
         component={CadastroUsuarios}
-        options={{
-          drawerLabel: 'Cadastro de Usuários',
-          title: 'Cadastro de Usuários',
-        }}
+        options={{ title: 'Cadastro de Usuários', drawerLabel: 'Cadastro de Usuários' }}
       />
-
       <Drawer.Screen
         name="Movimentacao"
         component={Movimentacao}
-        options={{
-          drawerLabel: 'Movimentações',
-          title: 'Movimentações',
-        }}
+        options={{ title: 'Movimentações', drawerLabel: 'Movimentações' }}
       />
     </Drawer.Navigator>
   );
