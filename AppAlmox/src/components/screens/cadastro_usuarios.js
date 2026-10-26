@@ -3,35 +3,36 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'reac
 export default function App() {
   return (
     <View style={styles.container}>
-
-      <Image
-        source={require('./assets/Marca_SENAI.png')}
+      {/* Imagem fora do card */}
+      <Image 
+        source={require('./assets/senai-logo.png')}
         style={styles.senai}
         resizeMode="contain"
       />
 
-      <Text style={styles.paragraph}>
-        Login
-      </Text>
+      {/* Caixa de fundo para o cadastro/login */}
+      <View style={styles.card}>
+        <Text style={styles.paragraph}>
+          Cadastro / Login
+        </Text> 
 
-      <TextInput
-        style={styles.input}
-        placeholder="Digite seu usuário ou e-mail"
-        placeholderTextColor="#ccc"
-        autoCapitalize="none"
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite seu usuário ou e-mail"
+          placeholderTextColor="#ccc"
+        />
 
-      <TextInput
-        style={styles.input}
-        placeholder="Digite sua senha"
-        placeholderTextColor="#ccc"
-        secureTextEntry={true}
-        autoCapitalize="none"
-      />
+        <TextInput
+          style={styles.input}
+          placeholder="Digite sua nova senha"
+          placeholderTextColor="#ccc"
+          secureTextEntry={true}
+        />
 
-      <TouchableOpacity style={styles.btn}>
-        <Text style={styles.btnText}>Entrar</Text>
-      </TouchableOpacity>
+        <TouchableOpacity style={styles.btn}>
+          <Text style={styles.btnText}>Entrar</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -41,16 +42,23 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#0f37ff',
-    padding: 24,
+    backgroundColor: '#0066ff', // Cor de fundo da tela alterada para azul #0066ff
+    padding: 16,
   },
-  senai: {
-    width: 350,
-    height: 100,
-    marginBottom: 20,
+  card: {
+    width: '90%',
+    backgroundColor: '#1b5063',
+    borderRadius: 16,
+    padding: 20,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   paragraph: {
-    marginBottom: 32,
+    marginBottom: 16,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
@@ -58,26 +66,31 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    height: 52,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 10,
+    height: 50,
+    backgroundColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: 8,
     paddingHorizontal: 16,
     color: '#ffffff',
     fontSize: 16,
-    marginBottom: 16,
+    marginBottom: 12,
   },
   btn: {
     width: '100%',
-    height: 52,
+    height: 50,
     backgroundColor: '#ffffff',
-    borderRadius: 10,
+    borderRadius: 8,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 8,
   },
   btnText: {
-    color: '#0f37ff',
-    fontSize: 18,
+    color: '#1b5063',
+    fontSize: 16,
     fontWeight: 'bold',
+  },
+  senai: {
+    width: '80%',
+    height: 100,
+    marginBottom: 20,
   },
 });
