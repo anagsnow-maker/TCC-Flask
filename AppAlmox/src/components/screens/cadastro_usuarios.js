@@ -5,7 +5,7 @@ export default function App() {
     <View style={styles.container}>
       {/* Imagem fora do card */}
       <Image 
-        source={require('./assets/senai-logo.png')}
+        source={require('../../../assets/senai-logo.png')}
         style={styles.senai}
         resizeMode="contain"
       />
