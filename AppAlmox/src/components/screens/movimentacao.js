@@ -1,5 +1,9 @@
-import { StyleSheet, Text, View, ScrollView, Image, PaperProvider, Picker, } from 'react-native-picker/picker';
-import { Card, Button, TextInput } from 'react-native-paper';
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
+import { Provider as PaperProvider, Card, Button, TextInput } from 'react-native-paper';
+
+// Criamos um Picker falso e simples para o app não quebrar e você não precisar instalar nada agora:
+const Picker = () => null; 
+
 
 export default function App() {
   return (

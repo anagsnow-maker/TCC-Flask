@@ -1,6 +1,10 @@
 "use strict";
 
 import { BaseGesture } from './gesture';
+
+/**
+ * @deprecated `NativeGesture` is deprecated and will be removed in the future. Please use `useNativeGesture` instead.
+ */
 export class NativeGesture extends BaseGesture {
   config = {};
   constructor() {
@@ -26,4 +30,8 @@ export class NativeGesture extends BaseGesture {
     return this;
   }
 }
+
+/**
+ * @deprecated `NativeGestureType` is deprecated and will be removed in the future. Please use `NativeGesture` instead.
+ */
 //# sourceMappingURL=nativeGesture.js.map
