@@ -68,6 +68,7 @@ export default function App() {
                 outlineColor="#CCCCCC"
                 activeOutlineColor="#FF9000"
                 style={[styles.input, styles.half]}
+                
               />
             </View>
 
@@ -142,6 +143,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     borderRadius: 12,
     elevation: 4,
+    alignSelf: 'center',
+    transform: [{ translateY: -21 }], 
   },
 
  formLogoImage: {
