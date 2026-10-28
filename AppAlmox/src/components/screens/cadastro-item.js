@@ -15,6 +15,8 @@ import {
   TextInput,
   Button,
   Card,
+  Menu,
+  Provider,
 } from 'react-native-paper';
 
 export default function App() {
@@ -22,7 +24,8 @@ export default function App() {
   const [nome, setNome] = useState('');
   const [quantidade, setQuantidade] = useState('');
   const [preco, setPreco] = useState('');
-  const [categoria, setCategoria] = useState('');
+  const [categoria, setCategoria] = useState('Geral');
+  const [menuVisivel, setMenuVisivel] = useState(false);
   const [estoqueMinimo, setEstoqueMinimo] = useState('');
   const [descricao, setDescricao] = useState('');
 
@@ -82,7 +85,8 @@ export default function App() {
     );
   };
 
-  return (
+   return (
+    <Provider>
     <View style={styles.container}>
       <ScrollView
         contentContainerStyle={styles.formContainer}
@@ -142,16 +146,47 @@ export default function App() {
 
             {/* Categoria e estoque */}
             <View style={styles.row}>
-              <TextInput
-                label="Categoria"
-                placeholder="Geral"
-                mode="outlined"
-                outlineColor="#CCCCCC"
-                activeOutlineColor="#FF9000"
-                style={[styles.input, styles.half]}
-                value={categoria}
-                onChangeText={setCategoria}
-              />
+
+
+              
+<View style={styles.half}>
+  <Text style={{ color: '#002A54', fontSize: 12, marginBottom: 5 }}>
+    CATEGORIA
+  </Text>
+
+  <Menu
+    visible={menuVisivel}
+    onDismiss={() => setMenuVisivel(false)}
+    anchor={
+      <TouchableOpacity onPress={() => setMenuVisivel(true)}>
+        <View pointerEvents="none">
+          <TextInput
+            mode="outlined"
+            value={categoria}
+            editable={false}
+            right={<TextInput.Icon icon="chevron-down" />}
+            outlineColor="#CCCCCC"
+            activeOutlineColor="#FF9000"
+            style={{ backgroundColor: '#FFFFFF', marginBottom: 14 }}
+          />
+        </View>
+      </TouchableOpacity>
+    }
+  >
+    {['Geral', 'Mecânica', 'Elétrica'].map((opcao) => (
+      <Menu.Item
+        key={opcao}
+        title={opcao}
+        onPress={() => {
+          setCategoria(opcao);
+          setMenuVisivel(false);
+        }}
+      />
+    ))}
+  </Menu>
+          </View>
+
+             
 
               <TextInput
                 label="Estoque mínimo"
@@ -227,6 +262,7 @@ export default function App() {
         </Card>
       </ScrollView>
     </View>
+    </Provider>
   );
 }
 
