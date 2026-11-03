@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
 
 // CONFIGURAÇÃO DA URL DA API CONFIGURADA POR VOCÊ
-const API_URL = 'http://10.154.20.79:5000/api'; 
+const API_URL = 'http://10.154.20.63:5000/api'; 
 
 export default function Login({ navigation }) {
   const [usuario, setUsuario] = useState('');

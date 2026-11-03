@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, ScrollView, useWindowDimensions } from 'react-native';
 
 import { registerRootComponent } from 'expo';
@@ -16,6 +16,8 @@ const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
 function Home() {
+  const [materiais, setMateriais] = useState([]);
+  
   const opacidade = useRef(new Animated.Value(0)).current;
   const movimento = useRef(new Animated.Value(35)).current;
   const { width } = useWindowDimensions();
@@ -38,7 +40,28 @@ function Home() {
     ]).start();
   }, [opacidade, movimento]);
 
-  const materiais = [];
+useEffect(() => {
+  const buscarMateriais = async () => {
+    try {
+      const resposta = await fetch(
+        'http://10.154.20.63:5000/api/estoque'
+      );
+
+      if (!resposta.ok) {
+        throw new Error('Erro ao buscar materiais.');
+      }
+
+      const dados = await resposta.json();
+
+      setMateriais(dados);
+
+    } catch (erro) {
+      console.error('Erro ao carregar materiais:', erro);
+    }
+  };
+
+  buscarMateriais();
+}, []);
 
   return (
     <View style={styles.homeContainer}>
@@ -148,7 +171,7 @@ function Home() {
                       Descrição adicional
                     </Text>
                     <Text style={styles.valorDescricao}>
-                      {item.descricao || 'Sem descrição'}
+                      {item.descricao_adicional || item.descricao || 'Sem descrição'}
                     </Text>
                   </View>
                 </View>
