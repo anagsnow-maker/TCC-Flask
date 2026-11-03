@@ -258,6 +258,72 @@ def solicitar_movimentacao():
 ###########################################################################
 ### Rotas API
 
+
+@app.route('/api/login', methods=['POST'])
+def api_login():
+
+    dados = request.get_json(silent=True) or {}
+
+    usuario = dados.get('usuario')
+    senha = dados.get('senha')
+
+    if not usuario or not senha:
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Preencha o usuário e a senha."
+        }), 400
+
+    conexao = None
+    cursor = None
+
+    try:
+        conexao = obter_conexao_cadastro()
+        cursor = conexao.cursor()
+
+        query = """
+            SELECT usuario, senha, papel
+            FROM usuarios
+            WHERE usuario = %s
+        """
+
+        cursor.execute(query, (usuario,))
+        consulta = cursor.fetchone()
+
+        if consulta is None:
+            return jsonify({
+                "status": "erro",
+                "mensagem": "Usuário ou senha incorretos."
+            }), 401
+
+        if not verificar_senha(senha, consulta[1]):
+            return jsonify({
+                "status": "erro",
+                "mensagem": "Usuário ou senha incorretos."
+            }), 401
+
+        return jsonify({
+            "status": "sucesso",
+            "mensagem": "Login realizado com sucesso!",
+            "usuario": consulta[0],
+            "papel": consulta[2]
+        }), 200
+
+    except Exception as e:
+        print(f"Erro na API de login: {e}")
+
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Erro interno ao realizar login."
+        }), 500
+
+    finally:
+        if cursor:
+            cursor.close()
+
+        if conexao and conexao.is_connected():
+            conexao.close()
+
+
 @app.route('/api/estoque', methods=['GET'])
 def api_estoque():
 
