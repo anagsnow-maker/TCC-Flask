@@ -2,6 +2,8 @@ import os
 import mysql.connector
 import bcrypt
 from flask import Flask, render_template, request, jsonify, redirect, flash, session
+import uuid
+from werkzeug.utils import secure_filename
 
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
@@ -338,25 +340,58 @@ def api_estoque():
 
     return jsonify(produtos)
 
+
 @app.route('/api/estoque', methods=['POST'])
 def api_cadastrar_item():
 
-    dados = request.get_json()
+    # Recebe os dados do formulário
+    nome = request.form.get('nome')
+    quantidade = request.form.get('quantidade')
+    preco = request.form.get('preco')
+    categoria = request.form.get('categoria', 'Geral')
+    estoque_minimo = request.form.get('estoque_minimo', 0)
+    descricao = request.form.get('descricao_adicional', '')
 
-    nome = dados.get('nome')
-    quantidade = dados.get('quantidade')
-    preco = dados.get('preco')
-    categoria = dados.get('categoria', 'Geral')
-    estoque_minimo = dados.get('estoque_minimo', 0)
-    descricao = dados.get('descricao_adicional', '')
+    # Recebe a fotografia
+    foto = request.files.get('foto')
+
+    # Verifica os campos obrigatórios
+    if not nome or not quantidade or not preco or not foto:
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Preencha os campos obrigatórios e selecione uma foto."
+        }), 400
+
+    # Prepara o nome e o caminho da imagem
+    nome_seguro = secure_filename(foto.filename)
+
+    if not nome_seguro:
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Nome de arquivo inválido."
+        }), 400
+
+    nome_arquivo = f"{uuid.uuid4().hex}_{nome_seguro}"
+
+    caminho_foto = os.path.join(
+        app.config['UPLOAD_FOLDER'],
+        nome_arquivo
+    )
+
+    # Salva a imagem na pasta uploads
+    foto.save(caminho_foto)
+
+    # Guarda o caminho relativo no banco
+    caminho_banco = f"uploads/{nome_arquivo}"
 
     conexao = obter_conexao()
     cursor = conexao.cursor()
 
     comando_sql = """
         INSERT INTO estoque
-        (nome, quantidade, preco, categoria, estoque_minimo, descricao_adicional)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        (nome, quantidade, preco, categoria, estoque_minimo,
+         descricao_adicional, foto)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
     """
 
     valores = (
@@ -365,7 +400,8 @@ def api_cadastrar_item():
         preco,
         categoria,
         estoque_minimo,
-        descricao
+        descricao,
+        caminho_banco
     )
 
     cursor.execute(comando_sql, valores)
@@ -378,6 +414,7 @@ def api_cadastrar_item():
         "status": "sucesso",
         "mensagem": "Item cadastrado com sucesso!"
     }), 201
+
 
 @app.route('/api/movimentacao', methods=['POST'])
 def api_movimentacao():

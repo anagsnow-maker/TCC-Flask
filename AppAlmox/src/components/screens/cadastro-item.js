@@ -63,27 +63,69 @@ export default function App() {
   };
 
   // Validar o formulário
-  const salvarItem = () => {
-    if (
-      !nome.trim() ||
-      !quantidade.trim() ||
-      !preco.trim() ||
-      !categoria.trim() ||
-      !estoqueMinimo.trim() ||
-      !foto
-    ) {
-      Alert.alert(
-        'Campos obrigatórios',
-        'Preencha os campos e selecione uma foto do item.'
-      );
-      return;
+
+const salvarItem = async () => {
+  if (
+    !nome.trim() ||
+    !quantidade.trim() ||
+    !preco.trim() ||
+    !categoria.trim() ||
+    !estoqueMinimo.trim() ||
+    !foto
+  ) {
+    Alert.alert(
+      'Campos obrigatórios',
+      'Preencha os campos e selecione uma foto do item.'
+    );
+    return;
+  }
+
+  try {
+    const dados = new FormData();
+
+    dados.append('nome', nome.trim());
+    dados.append('quantidade', quantidade.trim());
+    dados.append('preco', preco.trim());
+    dados.append('categoria', categoria.trim());
+    dados.append('estoque_minimo', estoqueMinimo.trim());
+    dados.append('descricao_adicional', descricao.trim());
+
+const extensao = foto.split('.').pop().split('?')[0] || 'jpg';
+
+const respostaFoto = await fetch(foto);
+const arquivoFoto = await respostaFoto.blob();
+
+dados.append('foto', arquivoFoto, `foto_item.${extensao}`);
+
+    const resposta = await fetch(
+      'http://10.154.20.83:5000/api/estoque',
+      {
+        method: 'POST',
+        body: dados,
+      }
+    );
+
+    const resultado = await resposta.json();
+
+    if (!resposta.ok) {
+      throw new Error(resultado.mensagem || 'Erro ao cadastrar item.');
     }
 
     Alert.alert(
-      'Formulário preenchido',
-      'Os dados foram validados. Para salvar permanentemente, conecte o formulário a um banco de dados.'
+      'Sucesso!',
+      'Item cadastrado com sucesso!'
     );
-  };
+
+  } catch (erro) {
+    console.error('Erro ao cadastrar item:', erro);
+
+    Alert.alert(
+      'Erro no cadastro',
+      erro.message || 'Não foi possível cadastrar o item.'
+    );
+  }
+};
+
 
    return (
     <Provider>

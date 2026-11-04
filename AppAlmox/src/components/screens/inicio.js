@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet, Animated, ScrollView, useWindowDimensions } from 'react-native';
 
 import { registerRootComponent } from 'expo';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, useFocusEffect } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
@@ -40,28 +40,31 @@ function Home() {
     ]).start();
   }, [opacidade, movimento]);
 
-useEffect(() => {
-  const buscarMateriais = async () => {
-    try {
-      const resposta = await fetch(
-        'http://10.154.20.63:5000/api/estoque'
-      );
+useFocusEffect(
+  useCallback(() => {
+    const buscarMateriais = async () => {
+      try {
+        const resposta = await fetch(
+          'http://10.154.20.83:5000/api/estoque'
+        );
 
-      if (!resposta.ok) {
-        throw new Error('Erro ao buscar materiais.');
+        if (!resposta.ok) {
+          throw new Error('Erro ao buscar materiais.');
+        }
+
+        const dados = await resposta.json();
+
+        setMateriais(dados);
+
+      } catch (erro) {
+        console.error('Erro ao carregar materiais:', erro);
       }
+    };
 
-      const dados = await resposta.json();
+    buscarMateriais();
 
-      setMateriais(dados);
-
-    } catch (erro) {
-      console.error('Erro ao carregar materiais:', erro);
-    }
-  };
-
-  buscarMateriais();
-}, []);
+  }, [])
+);
 
   return (
     <View style={styles.homeContainer}>
@@ -118,12 +121,14 @@ useEffect(() => {
                 </View>
 
                 {item.foto ? (
-                  <Image
-                    source={{ uri: item.foto }}
-                    style={styles.fotoMaterial}
-                    resizeMode="contain"
-                  />
-                ) : null}
+                 <Image
+                   source={{
+                     uri: `http://10.154.20.83:5000/static/${item.foto}`
+                   }}
+                   style={styles.fotoMaterial}
+                   resizeMode="contain"
+                 />
+               ) : null}
 
                 <View style={styles.detalhesMaterial}>
                   <View style={styles.linhaDetalhe}>
