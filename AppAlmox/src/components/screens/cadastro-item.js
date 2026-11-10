@@ -21,6 +21,8 @@ import {
 
 export default function App() {
   const [foto, setFoto] = useState(null);
+  const [fotoBase64, setFotoBase64] = useState(null);
+
   const [nome, setNome] = useState('');
   const [quantidade, setQuantidade] = useState('');
   const [preco, setPreco] = useState('');
@@ -49,12 +51,18 @@ export default function App() {
           allowsEditing: true,
           aspect: [4, 3],
           quality: 0.8,
+          base64: true,
         });
 
       if (!resultado.canceled && resultado.assets?.length > 0) {
-        setFoto(resultado.assets[0].uri);
+        const imagemSelecionada = resultado.assets[0];
+
+        setFoto(imagemSelecionada.uri);
+        setFotoBase64(imagemSelecionada.base64);
       }
     } catch (erro) {
+      console.error('Erro ao selecionar foto:', erro);
+
       Alert.alert(
         'Erro',
         'Não foi possível abrir a galeria. Tente novamente.'
@@ -62,248 +70,261 @@ export default function App() {
     }
   };
 
-  // Validar o formulário
+  // Validar e salvar o formulário
+  const salvarItem = async () => {
+    if (
+      !nome.trim() ||
+      !quantidade.trim() ||
+      !preco.trim() ||
+      !categoria.trim() ||
+      !estoqueMinimo.trim() ||
+      !foto ||
+      !fotoBase64
+    ) {
+      Alert.alert(
+        'Campos obrigatórios',
+        'Preencha os campos e selecione uma foto do item.'
+      );
+      return;
+    }
 
-const salvarItem = async () => {
-  if (
-    !nome.trim() ||
-    !quantidade.trim() ||
-    !preco.trim() ||
-    !categoria.trim() ||
-    !estoqueMinimo.trim() ||
-    !foto
-  ) {
-    Alert.alert(
-      'Campos obrigatórios',
-      'Preencha os campos e selecione uma foto do item.'
-    );
-    return;
-  }
+    try {
+      // Identifica a extensão da imagem
+      const extensao =
+        foto.split('.').pop().split('?')[0] || 'jpg';
 
-  try {
-    const dados = new FormData();
+      // Monta os dados para enviar à API
+      const dados = {
+        nome: nome.trim(),
+        quantidade: quantidade.trim(),
+        preco: preco.trim(),
+        categoria: categoria.trim(),
+        estoque_minimo: estoqueMinimo.trim(),
+        descricao_adicional: descricao.trim(),
+        foto_base64: fotoBase64,
+        foto_nome: `foto_item.${extensao}`,
+      };
 
-    dados.append('nome', nome.trim());
-    dados.append('quantidade', quantidade.trim());
-    dados.append('preco', preco.trim());
-    dados.append('categoria', categoria.trim());
-    dados.append('estoque_minimo', estoqueMinimo.trim());
-    dados.append('descricao_adicional', descricao.trim());
+      // Envia os dados ao Flask
+      const resposta = await fetch(
+        'http://10.154.20.110:5000/api/estoque',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dados),
+        }
+      );
 
-const extensao = foto.split('.').pop().split('?')[0] || 'jpg';
+      const resultado = await resposta.json();
 
-const respostaFoto = await fetch(foto);
-const arquivoFoto = await respostaFoto.blob();
-
-dados.append('foto', arquivoFoto, `foto_item.${extensao}`);
-
-    const resposta = await fetch(
-      'http://10.154.20.83:5000/api/estoque',
-      {
-        method: 'POST',
-        body: dados,
+      if (!resposta.ok) {
+        throw new Error(
+          resultado.mensagem || 'Erro ao cadastrar item.'
+        );
       }
-    );
 
-    const resultado = await resposta.json();
+      Alert.alert(
+        'Sucesso!',
+        'Item cadastrado com sucesso!'
+      );
 
-    if (!resposta.ok) {
-      throw new Error(resultado.mensagem || 'Erro ao cadastrar item.');
+    } catch (erro) {
+      console.error('Erro ao cadastrar item:', erro);
+
+      Alert.alert(
+        'Erro no cadastro',
+        erro.message || 'Não foi possível cadastrar o item.'
+      );
     }
+  };
 
-    Alert.alert(
-      'Sucesso!',
-      'Item cadastrado com sucesso!'
-    );
-
-  } catch (erro) {
-    console.error('Erro ao cadastrar item:', erro);
-
-    Alert.alert(
-      'Erro no cadastro',
-      erro.message || 'Não foi possível cadastrar o item.'
-    );
-  }
-};
-
-
-   return (
+  return (
     <Provider>
-    <View style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.formContainer}
-        keyboardShouldPersistTaps="handled"
-      >
-        <Card style={styles.card}>
-          <Card.Content>
-            <Image
-              source={{
-                uri: 'https://logodownload.org/wp-content/uploads/2019/08/senai-logo-1.png',
-              }}
-              style={styles.formLogoImage}
-              resizeMode="contain"
-            />
+      <View style={styles.container}>
+        <ScrollView
+          contentContainerStyle={styles.formContainer}
+          keyboardShouldPersistTaps="handled"
+        >
+          <Card style={styles.card}>
+            <Card.Content>
+              <Image
+                source={{
+                  uri: 'https://logodownload.org/wp-content/uploads/2019/08/senai-logo-1.png',
+                }}
+                style={styles.formLogoImage}
+                resizeMode="contain"
+              />
 
-            <Text style={styles.title}>
-              CADASTRO DE ITEM
-            </Text>
+              <Text style={styles.title}>
+                CADASTRO DE ITEM
+              </Text>
 
-            <TextInput
-              label="Nome do item"
-              placeholder="Ex: Multímetro Digital"
-              mode="outlined"
-              outlineColor="#CCCCCC"
-              activeOutlineColor="#FF9000"
-              style={styles.input}
-              value={nome}
-              onChangeText={setNome}
-            />
-
-            {/* Quantidade e preço */}
-            <View style={styles.row}>
               <TextInput
-                label="Quantidade"
-                placeholder="0"
-                keyboardType="numeric"
+                label="Nome do item"
+                placeholder="Ex: Multímetro Digital"
                 mode="outlined"
                 outlineColor="#CCCCCC"
                 activeOutlineColor="#FF9000"
-                style={[styles.input, styles.half]}
-                value={quantidade}
-                onChangeText={setQuantidade}
+                style={styles.input}
+                value={nome}
+                onChangeText={setNome}
               />
 
-              <TextInput
-                label="Preço"
-                placeholder="0.00"
-                keyboardType="decimal-pad"
-                mode="outlined"
-                outlineColor="#CCCCCC"
-                activeOutlineColor="#FF9000"
-                style={[styles.input, styles.half]}
-                value={preco}
-                onChangeText={setPreco}
-              />
-            </View>
+              {/* Quantidade e preço */}
+              <View style={styles.row}>
+                <TextInput
+                  label="Quantidade"
+                  placeholder="0"
+                  keyboardType="numeric"
+                  mode="outlined"
+                  outlineColor="#CCCCCC"
+                  activeOutlineColor="#FF9000"
+                  style={[styles.input, styles.half]}
+                  value={quantidade}
+                  onChangeText={setQuantidade}
+                />
 
-            {/* Categoria e estoque */}
-            <View style={styles.row}>
+                <TextInput
+                  label="Preço"
+                  placeholder="0.00"
+                  keyboardType="decimal-pad"
+                  mode="outlined"
+                  outlineColor="#CCCCCC"
+                  activeOutlineColor="#FF9000"
+                  style={[styles.input, styles.half]}
+                  value={preco}
+                  onChangeText={setPreco}
+                />
+              </View>
 
-
-              
-<View style={styles.half}>
-  <Text style={{ color: '#002A54', fontSize: 12, marginBottom: 5 }}>
-    CATEGORIA
-  </Text>
-
-  <Menu
-    visible={menuVisivel}
-    onDismiss={() => setMenuVisivel(false)}
-    anchor={
-      <TouchableOpacity onPress={() => setMenuVisivel(true)}>
-        <View pointerEvents="none">
-          <TextInput
-            mode="outlined"
-            value={categoria}
-            editable={false}
-            right={<TextInput.Icon icon="chevron-down" />}
-            outlineColor="#CCCCCC"
-            activeOutlineColor="#FF9000"
-            style={{ backgroundColor: '#FFFFFF', marginBottom: 14 }}
-          />
-        </View>
-      </TouchableOpacity>
-    }
-  >
-    {['Geral', 'Mecânica', 'Elétrica'].map((opcao) => (
-      <Menu.Item
-        key={opcao}
-        title={opcao}
-        onPress={() => {
-          setCategoria(opcao);
-          setMenuVisivel(false);
-        }}
-      />
-    ))}
-  </Menu>
-          </View>
-
-             
-
-              <TextInput
-                label="Estoque mínimo"
-                placeholder="Ex: 5"
-                keyboardType="numeric"
-                mode="outlined"
-                outlineColor="#CCCCCC"
-                activeOutlineColor="#FF9000"
-                style={[styles.input, styles.half]}
-                value={estoqueMinimo}
-                onChangeText={setEstoqueMinimo}
-              />
-            </View>
-
-            {/* Descrição */}
-            <TextInput
-              label="Descrição"
-              placeholder="Detalhes adicionais..."
-              mode="outlined"
-              outlineColor="#CCCCCC"
-              activeOutlineColor="#FF9000"
-              multiline
-              numberOfLines={3}
-              style={styles.description}
-              value={descricao}
-              onChangeText={setDescricao}
-            />
-
-            {/* Foto do item */}
-            <Text style={styles.photoLabel}>
-              FOTO DO ITEM (OBRIGATÓRIO)
-            </Text>
-
-            <TouchableOpacity
-              style={styles.photoBox}
-              onPress={selecionarFoto}                                    
-              activeOpacity={0.7}      
-            >
-              {foto ? (
-                <>
-                  <Image
-                    source={{ uri: foto }}
-                    style={styles.previewImage}
-                    resizeMode="cover"
-                  />
-
-                  <Text style={styles.photoText}>
-                    Toque para trocar a foto
+              {/* Categoria e estoque */}
+              <View style={styles.row}>
+                <View style={styles.half}>
+                  <Text
+                    style={{
+                      color: '#002A54',
+                      fontSize: 12,
+                      marginBottom: 5,
+                    }}
+                  >
+                    CATEGORIA
                   </Text>
-                </>
-              ) : (
-                <>
-                  <Text style={styles.photoIcon}>＋</Text>
 
-                  <Text style={styles.photoText}>
-                    Toque aqui para selecionar uma foto
-                  </Text>
-                </>
-              )}
-            </TouchableOpacity>
+                  <Menu
+                    visible={menuVisivel}
+                    onDismiss={() => setMenuVisivel(false)}
+                    anchor={
+                      <TouchableOpacity
+                        onPress={() => setMenuVisivel(true)}
+                      >
+                        <View pointerEvents="none">
+                          <TextInput
+                            mode="outlined"
+                            value={categoria}
+                            editable={false}
+                            right={
+                              <TextInput.Icon icon="chevron-down" />
+                            }
+                            outlineColor="#CCCCCC"
+                            activeOutlineColor="#FF9000"
+                            style={{
+                              backgroundColor: '#FFFFFF',
+                              marginBottom: 14,
+                            }}
+                          />
+                        </View>
+                      </TouchableOpacity>
+                    }
+                  >
+                    {['Geral', 'Mecânica', 'Elétrica'].map((opcao) => (
+                      <Menu.Item
+                        key={opcao}
+                        title={opcao}
+                        onPress={() => {
+                          setCategoria(opcao);
+                          setMenuVisivel(false);
+                        }}
+                      />
+                    ))}
+                  </Menu>
+                </View>
 
-            {/* Botão salvar */}
-            <Button
-              mode="contained"
-              buttonColor="#FF9000"
-              textColor="#FFFFFF"
-              style={styles.saveButton}
-              onPress={salvarItem}
-            >
-              SALVAR ITEM
-            </Button>
-          </Card.Content>
-        </Card>
-      </ScrollView>
-    </View>
+                <TextInput
+                  label="Estoque mínimo"
+                  placeholder="Ex: 5"
+                  keyboardType="numeric"
+                  mode="outlined"
+                  outlineColor="#CCCCCC"
+                  activeOutlineColor="#FF9000"
+                  style={[styles.input, styles.half]}
+                  value={estoqueMinimo}
+                  onChangeText={setEstoqueMinimo}
+                />
+              </View>
+
+              {/* Descrição */}
+              <TextInput
+                label="Descrição"
+                placeholder="Detalhes adicionais..."
+                mode="outlined"
+                outlineColor="#CCCCCC"
+                activeOutlineColor="#FF9000"
+                multiline
+                numberOfLines={3}
+                style={styles.description}
+                value={descricao}
+                onChangeText={setDescricao}
+              />
+
+              {/* Foto do item */}
+              <Text style={styles.photoLabel}>
+                FOTO DO ITEM (OBRIGATÓRIO)
+              </Text>
+
+              <TouchableOpacity
+                style={styles.photoBox}
+                onPress={selecionarFoto}
+                activeOpacity={0.7}
+              >
+                {foto ? (
+                  <>
+                    <Image
+                      source={{ uri: foto }}
+                      style={styles.previewImage}
+                      resizeMode="cover"
+                    />
+
+                    <Text style={styles.photoText}>
+                      Toque para trocar a foto
+                    </Text>
+                  </>
+                ) : (
+                  <>
+                    <Text style={styles.photoIcon}>＋</Text>
+
+                    <Text style={styles.photoText}>
+                      Toque aqui para selecionar uma foto
+                    </Text>
+                  </>
+                )}
+              </TouchableOpacity>
+
+              {/* Botão salvar */}
+              <Button
+                mode="contained"
+                buttonColor="#FF9000"
+                textColor="#FFFFFF"
+                style={styles.saveButton}
+                onPress={salvarItem}
+              >
+                SALVAR ITEM
+              </Button>
+            </Card.Content>
+          </Card>
+        </ScrollView>
+      </View>
     </Provider>
   );
 }
@@ -383,9 +404,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#F7F9FC',
     borderRadius: 8,
-
-
-  
   },
 
   photoIcon: {

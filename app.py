@@ -4,6 +4,8 @@ import bcrypt
 from flask import Flask, render_template, request, jsonify, redirect, flash, session
 import uuid
 from werkzeug.utils import secure_filename
+import base64
+import binascii
 
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
@@ -344,34 +346,48 @@ def api_estoque():
 @app.route('/api/estoque', methods=['POST'])
 def api_cadastrar_item():
 
-    # Recebe os dados do formulário
-    nome = request.form.get('nome')
-    quantidade = request.form.get('quantidade')
-    preco = request.form.get('preco')
-    categoria = request.form.get('categoria', 'Geral')
-    estoque_minimo = request.form.get('estoque_minimo', 0)
-    descricao = request.form.get('descricao_adicional', '')
+    # Recebe os dados enviados pelo aplicativo em JSON
+    dados = request.get_json(silent=True) or {}
 
-    # Recebe a fotografia
-    foto = request.files.get('foto')
+    nome = dados.get('nome')
+    quantidade = dados.get('quantidade')
+    preco = dados.get('preco')
+    categoria = dados.get('categoria', 'Geral')
+    estoque_minimo = dados.get('estoque_minimo', 0)
+    descricao = dados.get('descricao_adicional', '')
+
+    # Recebe a imagem em Base64
+    foto_base64 = dados.get('foto_base64')
+    foto_nome = dados.get('foto_nome', 'foto_item.jpg')
 
     # Verifica os campos obrigatórios
-    if not nome or not quantidade or not preco or not foto:
+    if not nome or quantidade is None or quantidade == '' or not preco or not foto_base64:
         return jsonify({
             "status": "erro",
             "mensagem": "Preencha os campos obrigatórios e selecione uma foto."
         }), 400
 
-    # Prepara o nome e o caminho da imagem
-    nome_seguro = secure_filename(foto.filename)
+    # Converte a imagem de Base64 para bytes
+    try:
+        imagem_bytes = base64.b64decode(foto_base64, validate=True)
 
-    if not nome_seguro:
+        if not imagem_bytes:
+            raise ValueError("Imagem vazia.")
+
+    except (binascii.Error, ValueError):
         return jsonify({
             "status": "erro",
-            "mensagem": "Nome de arquivo inválido."
+            "mensagem": "A imagem enviada é inválida."
         }), 400
 
-    nome_arquivo = f"{uuid.uuid4().hex}_{nome_seguro}"
+    # Prepara o nome do arquivo
+    nome_seguro = secure_filename(foto_nome)
+    extensao = os.path.splitext(nome_seguro)[1].lower()
+
+    if extensao not in ['.jpg', '.jpeg', '.png', '.webp']:
+        extensao = '.jpg'
+
+    nome_arquivo = f"{uuid.uuid4().hex}_foto_item{extensao}"
 
     caminho_foto = os.path.join(
         app.config['UPLOAD_FOLDER'],
@@ -379,7 +395,8 @@ def api_cadastrar_item():
     )
 
     # Salva a imagem na pasta uploads
-    foto.save(caminho_foto)
+    with open(caminho_foto, 'wb') as arquivo:
+        arquivo.write(imagem_bytes)
 
     # Guarda o caminho relativo no banco
     caminho_banco = f"uploads/{nome_arquivo}"
