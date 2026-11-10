@@ -98,7 +98,7 @@ const arquivoFoto = await respostaFoto.blob();
 dados.append('foto', arquivoFoto, `foto_item.${extensao}`);
 
     const resposta = await fetch(
-      'http://10.154.20.83:5000/api/estoque',
+      'http://10.154.20.79:5000/api/estoque',
       {
         method: 'POST',
         body: dados,
