@@ -1,17 +1,158 @@
 
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
-import { Provider as PaperProvider, Card, Button, TextInput } from 'react-native-paper';
+import React, { useState, useEffect } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Image,
+  Alert,
+} from 'react-native';
+
+import {
+  Card,
+  Button,
+  TextInput,
+} from 'react-native-paper';
+
 import { Picker } from '@react-native-picker/picker';
 
+const API_URL = 'http://192.168.100.105:5000/api';
+
 export default function App() {
-  const [value, setValue] = useState('');
-  const [item, setItem] = useState('');
+  const [tipo, setTipo] = useState('');
+  const [itemId, setItemId] = useState('');
+  const [quantidade, setQuantidade] = useState('');
+
+  const [itens, setItens] = useState([]);
+  const [carregando, setCarregando] = useState(true);
+  const [salvando, setSalvando] = useState(false);
+
+  // Busca os itens cadastrados no estoque
+  async function carregarItens() {
+    try {
+      setCarregando(true);
+
+      const resposta = await fetch(`${API_URL}/estoque`);
+
+      if (!resposta.ok) {
+        throw new Error('Não foi possível consultar o estoque.');
+      }
+
+      const dados = await resposta.json();
+
+      if (!Array.isArray(dados)) {
+        throw new Error('Resposta inválida do servidor.');
+      }
+
+      setItens(dados);
+
+    } catch (erro) {
+      console.log('Erro ao carregar itens:', erro);
+
+      Alert.alert(
+        'Erro de conexão',
+        'Não foi possível carregar os itens do estoque. Verifique se o servidor está funcionando.'
+      );
+
+    } finally {
+      setCarregando(false);
+    }
+  }
+
+  useEffect(() => {
+    carregarItens();
+  }, []);
+
+  // Registra uma entrada ou saída no estoque
+  async function salvarMovimentacao() {
+    if (!itemId) {
+      Alert.alert('Atenção', 'Selecione um item.');
+      return;
+    }
+
+    if (!tipo) {
+      Alert.alert('Atenção', 'Selecione o tipo de movimentação.');
+      return;
+    }
+
+    const quantidadeNumerica = Number(quantidade);
+
+    if (
+      !quantidade.trim() ||
+      !Number.isInteger(quantidadeNumerica) ||
+      quantidadeNumerica <= 0
+    ) {
+      Alert.alert(
+        'Atenção',
+        'Digite uma quantidade inteira maior que zero.'
+      );
+      return;
+    }
+
+    const itemSelecionado = itens.find(
+      produto => String(produto.id) === String(itemId)
+    );
+
+    if (!itemSelecionado) {
+      Alert.alert('Erro', 'O item selecionado não foi encontrado.');
+      return;
+    }
+
+    try {
+      setSalvando(true);
+
+      const resposta = await fetch(`${API_URL}/movimentacao`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          item: itemSelecionado.nome,
+          quantidade: quantidadeNumerica,
+          tipo: tipo,
+        }),
+      });
+
+      const dados = await resposta.json();
+
+      if (!resposta.ok || dados.status !== 'sucesso') {
+        Alert.alert(
+          'Não foi possível realizar a movimentação',
+          dados.mensagem || 'Ocorreu um erro ao atualizar o estoque.'
+        );
+        return;
+      }
+
+      Alert.alert(
+        'Sucesso!',
+        `${dados.mensagem}\n\nItem: ${itemSelecionado.nome}\nNova quantidade: ${dados.nova_quantidade}`
+      );
+
+      // Limpa os campos após a operação
+      setItemId('');
+      setQuantidade('');
+      setTipo('');
+
+      // Atualiza os itens disponíveis
+      await carregarItens();
+
+    } catch (erro) {
+      console.log('Erro na movimentação:', erro);
+
+      Alert.alert(
+        'Erro de conexão',
+        'Não foi possível comunicar com o servidor.'
+      );
+
+    } finally {
+      setSalvando(false);
+    }
+  }
 
   return (
     <View style={styles.container}>
 
-      {/* Formulário */}
       <ScrollView
         contentContainerStyle={styles.formContainer}
         keyboardShouldPersistTaps="handled"
@@ -35,13 +176,31 @@ export default function App() {
 
             <View style={styles.pickerContainer}>
               <Picker
-                selectedValue={item}
-                onValueChange={(itemValue) => setItem(itemValue)}
-                mode="dropdown"
+                selectedValue={itemId}
+                onValueChange={(valor) => setItemId(valor)}
+                mode="dialog"
                 style={styles.picker}
                 dropdownIconColor="#002A54"
+                enabled={!carregando && itens.length > 0}
               >
-                <Picker.Item label="Selecione um item" value="" />
+                <Picker.Item
+                  label={
+                    carregando
+                      ? 'Carregando itens...'
+                      : itens.length === 0
+                        ? 'Nenhum item cadastrado'
+                        : 'Selecione um item'
+                  }
+                  value=""
+                />
+
+                {itens.map((produto) => (
+                  <Picker.Item
+                    key={produto.id}
+                    label={produto.nome}
+                    value={String(produto.id)}
+                  />
+                ))}
               </Picker>
             </View>
 
@@ -56,6 +215,8 @@ export default function App() {
                 outlineColor="#CCCCCC"
                 activeOutlineColor="#FF9000"
                 style={[styles.input, styles.half]}
+                value={quantidade}
+                onChangeText={setQuantidade}
               />
             </View>
 
@@ -63,11 +224,10 @@ export default function App() {
               TIPO DE MOVIMENTAÇÃO
             </Text>
 
-            {/* Tipo de movimentação */}
             <View style={styles.pickerContainer}>
               <Picker
-                selectedValue={value}
-                onValueChange={(itemValue) => setValue(itemValue)}
+                selectedValue={tipo}
+                onValueChange={(valor) => setTipo(valor)}
                 mode="dropdown"
                 style={styles.picker}
                 dropdownIconColor="#002A54"
@@ -78,15 +238,16 @@ export default function App() {
               </Picker>
             </View>
 
-            {/* Botão salvar */}
             <Button
               mode="contained"
               buttonColor="#FF9000"
               textColor="#FFFFFF"
               style={styles.saveButton}
-              onPress={() => {}}
+              onPress={salvarMovimentacao}
+              loading={salvando}
+              disabled={salvando || carregando || itens.length === 0}
             >
-              SALVAR ITEM
+              {salvando ? 'SALVANDO...' : 'SALVAR ITEM'}
             </Button>
 
           </Card.Content>
@@ -166,13 +327,12 @@ const styles = StyleSheet.create({
   },
 
   pickerContainer: {
-    borderWidth: 1,
-    borderColor: '#CCCCCC',
-    borderRadius: 6,
-    backgroundColor: '#FFFFFF',
-    marginBottom: 20,
-    overflow: 'hidden',
-  },
+  borderWidth: 1,
+  borderColor: '#CCCCCC',
+  borderRadius: 6,
+  backgroundColor: '#FFFFFF',
+  marginBottom: 20,
+},
 
   saveButton: {
     borderRadius: 9,
