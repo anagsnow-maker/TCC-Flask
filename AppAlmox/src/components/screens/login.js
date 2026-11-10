@@ -73,7 +73,7 @@ export default function Login({ navigation }) {
           resizeMode="contain"
         />
 
-        <Text style={styles.titulo}>Seja bem-vindoo</Text>
+        <Text style={styles.titulo}>Seja bem-vindo!</Text>
 
         <TextInput
           style={styles.input}
