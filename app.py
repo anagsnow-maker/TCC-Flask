@@ -6,12 +6,42 @@ import uuid
 from werkzeug.utils import secure_filename
 import base64
 import binascii
+from itsdangerous import URLSafeTimedSerializer, BadSignature, SignatureExpired
 
 DB_HOST = os.getenv("DB_HOST", "localhost")
 DB_PASSWORD = os.getenv("DB_PASSWORD", "")
 
 app = Flask(__name__)
 app.secret_key = 'chave_secreta_para_o_tcc'
+def gerar_token(usuario, papel):
+    serializer = URLSafeTimedSerializer(app.secret_key)
+
+    return serializer.dumps({
+        'usuario': usuario,
+        'papel': papel
+    }, salt='autenticacao-api')
+
+def verificar_token():
+    cabecalho = request.headers.get('Authorization', '')
+
+    if not cabecalho.startswith('Bearer '):
+        return None
+
+    token = cabecalho.replace('Bearer ', '', 1)
+
+    serializer = URLSafeTimedSerializer(app.secret_key)
+
+    try:
+        dados = serializer.loads(
+            token,
+            salt='autenticacao-api',
+            max_age=28800
+        )
+
+        return dados
+
+    except (BadSignature, SignatureExpired):
+        return None
 
 UPLOAD_FOLDER = os.path.join('static', 'uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -306,11 +336,12 @@ def api_login():
             }), 401
 
         return jsonify({
-            "status": "sucesso",
-            "mensagem": "Login realizado com sucesso!",
-            "usuario": consulta[0],
-            "papel": consulta[2]
-        }), 200
+    "status": "sucesso",
+    "mensagem": "Login realizado com sucesso!",
+    "usuario": consulta[0],
+    "papel": consulta[2],
+    "token": gerar_token(consulta[0], consulta[2])
+}), 200
 
     except Exception as e:
         print(f"Erro na API de login: {e}")
@@ -318,6 +349,93 @@ def api_login():
         return jsonify({
             "status": "erro",
             "mensagem": "Erro interno ao realizar login."
+        }), 500
+
+    finally:
+        if cursor:
+            cursor.close()
+
+        if conexao and conexao.is_connected():
+            conexao.close()
+
+
+@app.route('/api/usuarios', methods=['POST'])
+def api_cadastrar_usuario():
+
+    # Verifica se quem está solicitando é administrador
+    dados_token = verificar_token()
+
+    if not dados_token or dados_token.get('papel') != 'administrador':
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Acesso permitido somente para administradores."
+        }), 403
+
+    # Recebe os dados enviados pelo aplicativo
+    dados = request.get_json(silent=True) or {}
+
+    usuario = dados.get('usuario', '').strip()
+    senha = dados.get('senha', '')
+    papel = dados.get('papel', '').strip().lower()
+
+    # Verifica os campos obrigatórios
+    if not usuario or not senha or not papel:
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Preencha todos os campos."
+        }), 400
+
+    # Confere se o papel é permitido
+    if papel not in ['administrador', 'usuario']:
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Tipo de usuário inválido."
+        }), 400
+
+    conexao = None
+    cursor = None
+
+    try:
+        conexao = obter_conexao_cadastro()
+        cursor = conexao.cursor()
+
+        # Verifica se o usuário já existe
+        cursor.execute(
+            "SELECT usuario FROM usuarios WHERE usuario = %s",
+            (usuario,)
+        )
+
+        if cursor.fetchone():
+            return jsonify({
+                "status": "erro",
+                "mensagem": "Esse nome de usuário já está cadastrado."
+            }), 409
+
+        # Cria o hash da senha
+        senha_hash = gerar_hash_senha(senha)
+
+        # Salva o novo usuário no banco
+        cursor.execute(
+            """
+            INSERT INTO usuarios (usuario, senha, papel)
+            VALUES (%s, %s, %s)
+            """,
+            (usuario, senha_hash, papel)
+        )
+
+        conexao.commit()
+
+        return jsonify({
+            "status": "sucesso",
+            "mensagem": "Usuário cadastrado com sucesso!"
+        }), 201
+
+    except Exception as e:
+        print(f"Erro ao cadastrar usuário pela API: {e}")
+
+        return jsonify({
+            "status": "erro",
+            "mensagem": "Erro interno ao cadastrar usuário."
         }), 500
 
     finally:

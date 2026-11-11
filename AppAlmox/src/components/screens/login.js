@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // CONFIGURAÇÃO DA URL DA API CONFIGURADA POR VOCÊ
-const API_URL = 'http://192.168.100.105:5000/api'; 
+const API_URL = 'http://10.154.20.110:5000/api'; 
 
 export default function Login({ navigation }) {
   const [usuario, setUsuario] = useState('');
@@ -46,12 +47,24 @@ export default function Login({ navigation }) {
 
       // Se não for HTML, processa o JSON com segurança
       const dados = JSON.parse(textoBruto);
+      console.log('RESPOSTA COMPLETA DO SERVIDOR:', dados);
+      console.log('URL UTILIZADA:', `${API_URL}/login`);
 
       if (response.ok) {
-        // Sucesso! API retornou status 200~299
-        // Se a sua API enviar um Token JWT, você pode salvá-lo aqui (ex: AsyncStorage)
-        navigation.replace('Principal');
-      } else {
+    if (!dados.token) {
+        Alert.alert(
+            'Erro',
+            'O servidor não enviou o token de autenticação.'
+        );
+        return;
+    }
+
+    await AsyncStorage.setItem('token', dados.token);
+    await AsyncStorage.setItem('usuario', dados.usuario);
+    await AsyncStorage.setItem('papel', dados.papel);
+
+    navigation.replace('Principal');
+} else {
         // Erro controlado vindo do backend (ex: senha errada ou usuário inexistente)
         Alert.alert('Erro', dados.mensagem || 'Usuário ou senha incorretos.');
       }

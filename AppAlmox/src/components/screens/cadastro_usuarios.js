@@ -1,14 +1,73 @@
 ﻿import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Modal } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, Modal, Alert } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Selecione o perfil');
+  const [usuario, setUsuario] = useState('');
+  const [senha, setSenha] = useState('');
+  const [carregando, setCarregando] = useState(false);
 
   const handleSelect = (opcao) => {
     setSelectedOption(opcao);
     setModalVisible(false);
   };
+
+  const cadastrarUsuario = async () => {
+  if (!usuario.trim() || !senha.trim()) {
+    Alert.alert('Atenção', 'Preencha o usuário e a senha.');
+    return;
+  }
+
+  if (selectedOption === 'Selecione o perfil') {
+    Alert.alert('Atenção', 'Selecione um perfil de usuário.');
+    return;
+  }
+
+  setCarregando(true);
+
+  try {
+    const token = await AsyncStorage.getItem('token');
+
+    if (!token) {
+      Alert.alert('Erro', 'Faça login novamente para cadastrar usuários.');
+      return;
+    }
+
+    const resposta = await fetch('http://10.154.20.110:5000/api/usuarios', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        usuario: usuario.trim(),
+        senha: senha,
+        papel: selectedOption === 'Administrador' ? 'administrador' : 'usuario',
+      }),
+    });
+
+    const dados = await resposta.json();
+
+    if (!resposta.ok) {
+      Alert.alert('Erro', dados.mensagem || 'Não foi possível cadastrar o usuário.');
+      return;
+    }
+
+    Alert.alert('Sucesso', dados.mensagem || 'Usuário cadastrado com sucesso!');
+
+    setUsuario('');
+    setSenha('');
+    setSelectedOption('Selecione o perfil');
+
+  } catch (erro) {
+    console.error('Erro ao cadastrar usuário:', erro);
+    Alert.alert('Erro de conexão', 'Não foi possível comunicar com o servidor.');
+  } finally {
+    setCarregando(false);
+  }
+};
 
   return (
     <View style={styles.container}>
@@ -25,6 +84,8 @@ export default function App() {
           style={styles.input}
           placeholder="Digite seu usuário"
           placeholderTextColor="#888"
+          value={usuario}
+          onChangeText={setUsuario}
         />
 
         <TouchableOpacity
@@ -39,10 +100,18 @@ export default function App() {
           placeholder="Digite sua senha"
           placeholderTextColor="#888"
           secureTextEntry
+          value={senha}
+          onChangeText={setSenha}
         />
 
-        <TouchableOpacity style={styles.btn}>
-          <Text style={styles.btnText}>Cadastrar</Text>
+        <TouchableOpacity
+          style={styles.btn}
+          onPress={cadastrarUsuario}
+          disabled={carregando}
+        >
+          <Text style={styles.btnText}>
+            {carregando ? 'Cadastrando...' : 'Cadastrar'}
+          </Text>
         </TouchableOpacity>
 
         <Modal
