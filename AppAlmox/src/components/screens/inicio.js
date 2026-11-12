@@ -45,7 +45,7 @@ useFocusEffect(
     const buscarMateriais = async () => {
       try {
         const resposta = await fetch(
-          'http://192.168.100.105:5000/api/estoque'
+          'http://10.101.127.204:5000/api/estoque'
         );
 
         if (!resposta.ok) {
@@ -123,7 +123,7 @@ useFocusEffect(
                 {item.foto ? (
                  <Image
                    source={{
-                     uri: `http://192.168.100.105:5000/static/${item.foto}`
+                     uri: `http://10.101.127.204:5000/static/${item.foto}`
                    }}
                    style={styles.fotoMaterial}
                    resizeMode="contain"

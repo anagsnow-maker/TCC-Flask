@@ -35,7 +35,7 @@ export default function App() {
       return;
     }
 
-    const resposta = await fetch('http://192.168.100.105:5000/api/usuarios', {
+    const resposta = await fetch('http://10.101.127.204:5000/api/usuarios', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
