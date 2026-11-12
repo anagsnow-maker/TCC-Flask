@@ -17,7 +17,7 @@ import {
 
 import { Picker } from '@react-native-picker/picker';
 
-const API_URL = 'http://10.154.20.110:5000/api';
+const API_URL = 'http://192.168.100.105:5000/api';
 
 export default function App() {
   const [tipo, setTipo] = useState('');

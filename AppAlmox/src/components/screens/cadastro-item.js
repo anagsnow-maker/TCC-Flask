@@ -108,7 +108,7 @@ export default function App() {
 
       // Envia os dados ao Flask
       const resposta = await fetch(
-        'http://10.154.20.110:5000/api/estoque',
+        'http://192.168.100.105:5000/api/estoque',
         {
           method: 'POST',
           headers: {

@@ -3,7 +3,7 @@ import { View, Text, Image, TextInput, TouchableOpacity, StyleSheet, Alert, Acti
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // CONFIGURAÇÃO DA URL DA API CONFIGURADA POR VOCÊ
-const API_URL = 'http://10.154.20.110:5000/api'; 
+const API_URL = 'http://192.168.100.105:5000/api'; 
 
 export default function Login({ navigation }) {
   const [usuario, setUsuario] = useState('');
